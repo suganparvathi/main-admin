@@ -4,6 +4,8 @@ import BackButton from '../../components/BackButton'
 import Notifcation from '../../components/Notification'
 import SearchLogin from '../../components/SearchLogin'
 import {ImUsers} from "react-icons/im";
+import { FiFilter } from "react-icons/fi";
+import {MdCircle} from "react-icons/md";
 const members = [
     { name : "Harsha(#546B7)"},
     { name : "Muthu(#785V8)"},
@@ -20,29 +22,19 @@ const members = [
     { name : "Muthu(#456Y8)"},
    
 ] 
-const online = [
-    { name : "Harsha"},
-    { name : "devi"},
-    { name : "devi"},
-    { name : "devi"},
-    { name : "devi"},
-    { name : "devi"},
-    { name : "devi"},
-    { name : "devi"},
-    { name : "devi"},
-    { name : "devi"},
-    { name : "devi"},
-    { name : "devi"},
-    { name : "devi"},
+const paid = [
+    { name : "Paid"},
+    { name : "Unpaid"},
+    
 ] 
 const data = [
     {name:"Data"},
     {name:"year"},
-    {name:"Data"},
-    {name:"Data"},
-    {name:"Data"},
-    {name:"Data"},
-    {name:"Data"},
+    {name:"Recent"},
+    {name:"Ticket Id"},
+    {name:"Montly"},
+    {name:"paid Customer"},
+    {name:""},
 ]
 
 
@@ -60,24 +52,33 @@ export const CustomerSupport = () => {
                     <div className=' w-full mt-4 h-[8%] '>
                     <SearchLogin placeholder='Search By Name/Ticket Id'/>
                     </div>
-                <div className='w-full flex flex-row bg-blue-200 h-[15%] '>
-                    <div className='w-[20%] h-full bg-pink-200'>hii</div>
-                    <div className='grid w-full h-full flex justify-start grid-cols-4'>
-                    {data.map((data ) => (
-                        <div className='w-[80%] h-[70%] text-green font-semibold rounded-full flex justify-center border-green border-2'>
-                            <p>{data.name}</p>
-
+                <div className='w-full flex flex-row h-[15%] '>
+                    <div className='w-[20%] h-full flex justify-end items-center flex-row'>
+                        <p className='font-semibold text-quaternary text-lg'>Filter By</p><FiFilter className="ml-2 text-quaternary text-2xl"/>
+                    </div>
+                    <div className=' w-full h-full flex flex-col justify-start'>
+                  
+                        <div className='w-full h-[50%] font-semibold text-green flex flex-row'> 
+                        <div className='w-[20%] h-[80%] border-green m-2 flex items-center justify-center rounded-full border'><p>Data</p></div>
+                        <div className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Year</p></div>
+                        <div className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Recent</p></div>
+                        <div className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Ticket Id</p></div>
                         </div>
-                         ))}
+                        <div className='w-full h-[50%]  text-green  font-semibold flex flex-row'>
+                        <div className='w-[20%] h-[80%] border-green  m-2 items-center flex justify-center rounded-full border'><p>Montly</p></div>
+                        <div className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Paid Customer</p></div>
+                        <div className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Unpaid</p></div>
+                        </div>
+                           
                     </div>
 
                 </div>
-                <div className='w-[85%] h-[70%] flex  items-center  flex-col justify-center '>
-                <div className='w-[75%] h-full flex flex-col  overflow-auto '>
+                <div className='w-[95%]  h-[70%] flex  items-center  flex-col justify-center '>
+                <div className='w-[90%] h-full flex flex-col   overflow-auto '>
 
                     {members.map(({name}) => (
                          <div className='w-full py-4 px-2 h-full flex flex-row '>
-                         <div className='w-[20%]'>
+                         <div className=' w-[15%]'>
                             
                              <div className='rounded-full drop-shadow-xl bg-white justify-center flex items-center w-[70px] h-[70px]'>
                              <Link to="/piolts-and-co-piolts">
@@ -88,10 +89,16 @@ export const CustomerSupport = () => {
                          
                          
                          </div>
-                         <div className='flex flex-col py-2'>
+                         <div className='flex text-lg w-full flex-col pl-2 py-2'>
                              <p>{name}</p>
                              <p>nnhm m, cd ld d dskmkdmfkdmjkmjknh</p>
                          </div>
+                         {/* {paid.map(({name}) => ( */}
+                         <div className='flex w-[30%] font-semibold text-xl flex flex-col py-4 text-green items-end justify-end'>
+                           
+                            <p>paid</p>
+                            </div>
+                            {/* ))} */}
                      </div>
                           ))}
                 </div>
@@ -101,16 +108,21 @@ export const CustomerSupport = () => {
                     <div className='w-[90%] rounded-t-3xl flex items-center flex-col text-white h-full bg-quaternary'>
                         <div className='w-full text-2xl  font-semibold h-[15%] flex justify-center items-center'>
                             <p>
-                                Customers Online
+                              Live Chats
                             </p>
                         </div>
                         <div className='w-[90%] h-[80%]  overflow-auto'>
 
-                        {online.map(({name}) => (
+                        {members.map(({name}) => (
                         <div className='w-full py-4 px-2  h-[25%] flex flex-row '>
                             <div className='w-[25%] h-full'>
                                 
-                            <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[70px] h-[70px]"/>
+                            <div className='rounded-full drop-shadow-xl bg-white  flex flex-col items-center w-[70px] h-[70px]'>
+                                <MdCircle className='text-green ml-10 text-3xl'/>
+                                <ImUsers className="text-2xl text-quaternary"/>
+                               
+
+                                </div>
                             </div>
                             <div className='flex flex-col w-[55%]  py-2'>
                                 <p>{name}</p>

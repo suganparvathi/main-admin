@@ -4,6 +4,7 @@ import BackButton from "../../../components/BackButton";
 import { PieChart } from 'react-minimal-pie-chart'
 import { BsSquareFill } from "react-icons/bs";
 import { FaAngleDown} from "react-icons/fa";
+import MonthlyChart from "../../../components/MonthlyChart";
 
 
 
@@ -87,9 +88,12 @@ return (
             </div>
             </div>
             <div className="flex flex-row w-full h-[50%] flex justify-center">
-            <div className="w-[70%] flex flex-row h-[80%] rounded-2xl mt-2 drop-shadow-2xl bg-white">
+            <div className="w-[60%] flex flex-row h-[85%] rounded-2xl mt-2 drop-shadow-2xl bg-white">
               {/* chart */}
-              <div className="w-[65%] h-full"></div>
+              <div className="w-[70%] h-full flex flex-col">
+                <p className=" ml-10 font-bold text-black">Monthly Wallet History</p>
+                <MonthlyChart/>
+                </div>
               <div className="w-[35%] h-full flex items-center flex-col ">
                 <div className="wfull font-semibold  h-[20%]">
                   <p className="flex flex-row">Sort By : Months <span><FaAngleDown className="mt-1 ml-2"/></span></p>

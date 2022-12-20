@@ -5,7 +5,7 @@ import { FaWallet } from "react-icons/fa";
 const JopayVault = () => {
     return (
         <div className="text-white flex justify-center items-center w-full h-full">
-           <div className="flex flex-row justify-center w-[50%] h-[70%] rounded-xl bg-white drop-shadow-3xl ">
+           <div className="flex flex-row justify-center w-[50%] h-[70%] rounded-xl drop-shadow-2xl bg-white drop-shadow-3xl ">
                 <div className="w-[35%] h-full flex justify-center items-center ">
                     <div className="flex justify-center items-center w-[80%] h-[50%] rounded-[60px] text-3xl bg-tertiary"><FaWallet className="text-quaternary"/></div>
                 </div>

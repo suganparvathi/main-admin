@@ -10,6 +10,10 @@ import JopayVault from "./JopayVault";
 import JopayWallet from "./JopayWallet";
 import WalletChart from "./WalletChart";
 import Notifcation from "./Notification";
+import MonthlyChart from "./MonthlyChart";
+import { PieChart } from 'react-minimal-pie-chart'
+import { BsSquareFill } from "react-icons/bs";
+
 
 
 const Dashboard = () => {
@@ -19,9 +23,9 @@ const Dashboard = () => {
     <main className=" flex flex-col w-full h-full overflow-hidden ">
         {/* header */}
         <div className="w-full  flex flex-row h-[12%] bg-white">
-            <div className="flex justify-start items-center w-full h-full">
-                <div className="flex items-center border-2 w-[500px] border-none h-[40px] my-6 mx-3 rounded-full px-3">
-                    <BsSearch className="text-[35px] text-black"/>
+            <div className="flex justify-start  items-center w-full h-full">
+                <div className="flex items-center  border-2 w-[600px] border-none h-[40px] my-6 mx-3 rounded-full px-3">
+                    <BsSearch className="text-[25px]  text-black"/>
                     <input
                     type="text"
                     placeholder="Search ..."

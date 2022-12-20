@@ -94,9 +94,9 @@ export const DelegateTask = () => {
     <div className="absolute  flex justify-center items-center w-full h-full">
     {/* <div className="z-10 absolute  w-full  h-full"></div>  */}
       <div className=" w-full flex justify-center items-center h-full">
-       <div className="bg-black z-20  flex text-white text-sm flex-row mr-14 justify-center items-center w-[9%] h-[15%]">
+       <div className="bg-white z-20  flex text-black text-[12px] flex-row mr-14 drop-shadow-2xl justify-center items-center w-[9%] h-[15%]">
         <div className="w-full h-full flex  justify-center items-center flex-col">
-        <button>Add user</button>
+        <button className="m-4">Add user</button>
         <button>Remove From Logins</button>
        </div>
        </div>

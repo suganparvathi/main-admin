@@ -1,5 +1,7 @@
 import React, {useState, useEffect, useCallback,} from "react";
 import { FiFilter } from "react-icons/fi";
+import Overlay from "../../../components/Overlay";
+import { DemoUserHistory } from "./DemoUserHistory";
 
 const members = [
     { name : "Harsha"},
@@ -35,9 +37,9 @@ export const AppUser =() => {
 
     // console.log(showMoreDetails,"AppUser");
 
-    const [bank, setBank] = useState(1)
+    // const [bank, setBank] = useState(1)
 
-    console.log(bank);
+    // console.log(bank);
 
 
 
@@ -55,7 +57,7 @@ export const AppUser =() => {
 
 
 
-    <div className="flex flex-col  absolute w-full h-full">
+    <div className="flex flex-col bg-black absolute w-full h-full">
                 <div className="flex flex-row items-center  text-white w-full h-[40%] font-semibold ">
                     
                 
@@ -77,7 +79,7 @@ export const AppUser =() => {
                     {members.map(({name}) => (
                     <div className='flex items-center justify-center ml-12 flex flex-col  w-[70%] h-full'>
                
-                        <div className="w-[50px]"> <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[50px] h-[50px]"/></div>
+                        <div className="w-[50px]" > <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[50px] h-[50px]"/></div>
                         <p>{name}</p>
                 
                     </div>
@@ -88,6 +90,7 @@ export const AppUser =() => {
    
     
      </div>
+    //  </div>
 
     )
 }

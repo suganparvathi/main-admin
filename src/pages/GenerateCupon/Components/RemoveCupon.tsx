@@ -90,7 +90,7 @@ return (
                           {/* top-div */}
        <div className="flex  w-full h-[12%] ">
           <div className="w-full h-full flex items-center ">
-            <BackButton/>
+            <BackButton/> 
           </div>
           <div className="w-full h-full flex items-center">
             <Notifcation/>

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Notifcation from "../../components/Notification";
 import BackButton from "../../components/BackButton";
@@ -10,14 +10,13 @@ import {FaUserPlus} from "react-icons/fa";
 import{FaUserAltSlash} from "react-icons/fa";
 import { type } from "@testing-library/user-event/dist/type";
 import Overlay from "../../components/Overlay";
+import axios from "axios";
 
 
 
 const members =[ {
   img: <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[70px] h-[70px]"/>,
   name:"Laura Parker"
- 
-  
 },
 {
   img: <img src="https://sp-images.summitpost.org/947006.jpg?auto=format&fit=max&h=800&ixlib=php-2.1.1&q=35&s=876696700800816d01e0d1eb31ce7ab0" className="rounded-full w-[70px] h-[70px]"/>,
@@ -63,6 +62,19 @@ const members =[ {
 
 
 export const DelegateTask = () => {
+  useEffect(() => {
+    const GetName = async () => {
+      try{
+        const response = await axios.get("http://192.168.1.32:82/getDriverData").
+        then(res => 
+          console.log(res, "jhsavagvcsgh")
+          )
+        } catch (err){
+          console.log(err, "jshvajhvhj");
+        }
+    }
+    GetName();
+  },[])
 
   const [showMoreOptions, setShowMoreOptions] = useState(false);
   
@@ -128,7 +140,7 @@ export const DelegateTask = () => {
               <div className=" w-full  h-[15%]">
                 <SearchLogin placeholder="Search Logins"/>
               </div>
-              <div className=" w-[90%]  flex flex-end grid grid-cols-2 justify-center gap-x-[15%] gap-y-[15%] overflow-y-auto h-[60%]">
+              <div className=" w-[90%] flex-end grid grid-cols-2 justify-center gap-x-[15%] gap-y-[15%] overflow-y-auto h-[60%]">
                 {members.map((data) => (
                   <div className="w-full items-center text-2xl font-bold h-full flex justify-start">
                     
@@ -136,14 +148,10 @@ export const DelegateTask = () => {
                 <div className="ml-2 w-52">{data.name}</div>
                 {/* <div className="ml-2" >{data.icon}</div> */}
                 <div className="text-quaternary ml-2" onClick={ handleShowOptions}><FaUserPlus /></div>
-                
                 </div>
                 ))}
               </div>
             </div>
-            
-           
-          
           </div>
         </div>
       </div>

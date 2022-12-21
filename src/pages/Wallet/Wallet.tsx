@@ -13,16 +13,16 @@ export const Wallet = () => {
   return (
     <div className="w-screen  h-screen overflow-hidden flex">
     <div className="w-[100%] flex-col items-center bg-secondary overflow-hidden h-[100%] flex">
-                        {/* top-div */}
+    {/* top-div */}
      <div className="flex  w-full h-[12%] ">
-        <div className="w-full h-full flex items-center ">
+        <div className="w-full h-full flex items-center">
           <BackButton/>
         </div>
         <div className="w-full h-full flex items-center">
           <Notifcation/>
         </div>
       </div>
-                       {/* center div */}
+      {/* center div */}
       <div className="w-full h-full flex justify-center ">
           <div className="mt-4 w-[90%] h-full flex flex-row   bg-quaternary rounded-xl">
             <div className='w-[60%] h-full '>

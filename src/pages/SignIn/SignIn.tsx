@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import * as yup from "yup";
-import axios from "axios";
 
 import logo from "../../assets/images/logo.svg";
 import heroImage from "../../assets/images/signin-hero-image.png";
@@ -10,9 +9,10 @@ import Button from "../../components/Button";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { LOGIN_SUCCESS } from "../../store/reducers/auth.reducer";
+import axios from "../../API/axios";
 
 const validationSchema = yup.object().shape({
-  userId: yup.string().label("user id"),
+  jojoId: yup.string().label("user id"),
   // .required("User ID is required"),
   password: yup.string().label("Password"),
   // .required("Password is required"),
@@ -20,15 +20,17 @@ const validationSchema = yup.object().shape({
 });
 
 interface SignInProps {
-  userId: string;
+  jojoId: string;
   password: string;
+  appType: string;
   keepMeLogin: boolean;
 }
 
 const SignIn = () => {
   const initialState: SignInProps = {
-    userId: "",
+    jojoId: "",
     password: "",
+    appType : "mainAdmin",
     keepMeLogin: false,
   };
   const [isLoading, setIsLoading] = useState(false);
@@ -37,15 +39,14 @@ const SignIn = () => {
 
   const handleSubmit = async (values: SignInProps) => {
     setIsLoading(true);
-    console.log(values);
+    console.log(values, "nlhbhjbhbjhbh");
     try {
       dispatch(LOGIN_SUCCESS(values));
-      const Response = await axios.post("http://192.168.1.17:80/login", values)
+      const Response = await axios.post("login", values)
       .then( resp => {
         const token = resp.data.token
         localStorage.setItem("token",token);
-        console.log(token, "TOKENNNN");
-        
+        console.log(token, "TOKENNNN");  
         if(token){
         }
       })
@@ -58,7 +59,7 @@ const SignIn = () => {
     setIsLoading(false);
   };
   return (
-    <div className="bg-white w-screen h-screen bg-white flex items-center justify-center">
+    <div className="bg-white w-screen h-screen flex items-center justify-center">
       <div className="w-[55%] h-[420px] shadow rounded-xl  overflow-hidden">
        
         <div className="w-full h-full flex items-center justify-center flex-col p-5 bg-quaternary bg-opacity-60">
@@ -71,7 +72,7 @@ const SignIn = () => {
             <div className="bg-white px-6 py-8 rounded-lg rounded-2xl">
               <Input
                 type="text"
-                name="userId"
+                name="jojoId"
                 placeholder="User Id"
                 className="border-none text-black outline-none shadow-lg w-96"
                 inputContainerClassName="mb-3"

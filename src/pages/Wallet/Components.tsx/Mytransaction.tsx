@@ -10,7 +10,11 @@ import { AiFillCaretUp } from "react-icons/ai";
 import Overlay from "../../../components/Overlay";
 import Searchbar from "../../../components/Searchbar";
 
-const members = [
+ interface TransactionProps{
+   Members?: string
+  }
+
+const Members = [
   { name : "Rose",
     details  : "Allowance",
     amount : "$42",
@@ -138,19 +142,19 @@ const [color1, setcolor1] = useState(true)
             </div> 
             <div className="flex flex-row items-center text-white w-full h-[60%]">
             <div className="h-full w-[75%]">
-            {Members.map((data) => (
+            {Members.map((e) => (
             <div className="w-full h-[20%]  mt-6 flex flex-row">
            
-            <div className=" w-[50%] h-full flex   flex-start text-xl font-bold text-white">
-              <div className="w-[70px]  ml-4" onChange={handleChange} > {data.img}</div>
+            <div className=" w-[50%] h-full flex   flex-start text-xl font-bolsd text-white">
+              <div className="w-[70px]  ml-4" onChange={handleChange} > {e.img}</div>
                <div className="ml-6 mt-2">
-                    <p>{data.name}</p>
-                    <p className="text-[14px] font-normal">{data.details}</p>
+                    <p>{e.name}</p>
+                    <p className="text-[14px] font-normal">{e.details}</p>
                 </div>
             </div>
             <div className="w-[30%] flex items-center  text-2xl font-bold">
-              <div className="w-[40%] h-full flex justify-end items-center">  {data.amount} </div>
-              <div className="text-[30px] ml-4">{data.icon}</div>  
+              <div className="w-[40%] h-full flex justify-end items-center">  {e.amount} </div>
+              <div className="text-[30px] ml-4">{e.icon}</div>  
             </div>
             <div className="flex flex-end w-[20%] items-center h-full text-white">
               <div>

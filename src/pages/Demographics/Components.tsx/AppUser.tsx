@@ -26,54 +26,43 @@ const members = [
     { name : "Adnrew"},
 ]
 
+const Filter = [
+    {name:"Alapahabets"},
+    {name:"Id"},
+    {name:"KYC Verified Users"},
+    {name:"KYC Not Verified"},
+    {name:"View History"},
+    {name:"New Users"},
+]
+
 
 export const AppUser =() => {
-
-    // const [showMoreDetails, setShowMoreDetails] = useState (false);
-
-    // const handleShowDetails = () =>{
-    //     setShowMoreDetails(!showMoreDetails);
-    // }
-
-    // console.log(showMoreDetails,"AppUser");
-
-    // const [bank, setBank] = useState(1)
-
-    // console.log(bank);
+const[state, setState]= useState<string>();
+   
 
 
 
     return(  
         <div>
-
-        {/* <div className="relative">
-            {showMoreDetails &&(
-                <>
-                <div className="absolute z-10 bg-red-200">
-
-                </div>
-                </>
-            )} */}
-
-
-
-    <div className="flex flex-col bg-black absolute w-full h-full">
-                <div className="flex flex-row items-center  text-white w-full h-[40%] font-semibold ">
-                    
-                
+            <div className="flex flex-col  absolute w-full mt-6 h-full">
+                <div className="flex flex-row items-center mt-2 text-white w-full h-[40%] font-semibold ">
                     <div className="w-[8%] h-[40%] ml-4  flex items-center">Filter By <span className="ml-4 text-2xl"><FiFilter/></span></div>
-                    <div className="w-[11%] h-[50%] ml-2 flex justify-center items-center rounded-3xl  border border-white">Alapahabets</div>
-                    <div className="w-[10%] h-[50%] ml-2 flex justify-center items-center rounded-3xl  border border-white">Id</div>
-                    <div className="w-[13%] h-[50%] ml-2 flex justify-center items-center rounded-3xl  border border-white">KYC Verified Users</div>
-                    <div className="w-[13%] h-[50%] ml-2 flex justify-center items-center rounded-3xl  border border-white">KYC Not Verified</div>
-                    <div className="w-[10%] h-[50%] ml-2 flex justify-center items-center rounded-3xl  border border-white">View History</div>
-                    <div className="w-[10%] h-[50%] ml-2 flex justify-center items-center rounded-3xl  border border-white">New users</div>
-
+                   {
+                    Filter.map((data) => (
+                    <button 
+                    onClick={() =>{
+                        console.log(data.name,"appuser")
+                        setState(data.name)
+                    }}
+                    className={`w-[13%] h-[50%] ml-2 flex justify-center items-center  rounded-3xl  border border-white 
+                    ${data.name ===state? "bg-green text-white" : "bg-white text-black"} `}>{data.name}</button>
+                    )) 
+                }
                 </div>
                
 
 
-                    <div className="w-full flex justify-center items-center h-[70%]">
+                    <div className="w-full flex justify-center -mt-8 items-center h-[70%]">
 
                 <div className="w-full flex-row  text-white flex w-[80%] h-[75%] overflow-x-scroll">
                     {members.map(({name}) => (

@@ -10,24 +10,28 @@ import MonthlyChart from "../../../components/MonthlyChart";
 
 
 export const JopayGrowth = () => {
+
+  const BusName = [
+    {copilot: "Day"},
+    {copilot: "Week"},
+    {copilot: "Year"},
+]
 return ( 
-    <div className="w-screen h-screen overflow-hidden flex">
-      <div className="w-[100%] flex-col items-center bg-secondary overflow-hidden h-[100%] flex">
+    <div className="w-screen h-screen  overflow-hidden flex">
+      
+      <div className="w-[100%] flex-col items-center bg-white  overflow-hidden h-[100%] flex">
                           {/* top-div */}
-       <div className="flex  w-full h-[10%] mt-2 ">
-          <div className="w-full h-full flex items-center ">
+       <div className="flex  w-full h-[5%]">
+          {/* <div className="w-full h-full flex items-center "> */}
             <BackButton/>
-          </div>
-          <div className="w-full h-full flex items-center">
-            <Notifcation/>
-          </div>
+          {/* </div> */}
         </div>
                          {/* center div */}
-        <div className="w-full h-full flex justify-center ">
-          <div className="mt-2 w-[90%] bg-white flex flex-col h-[95%]  text-black rounded-xl">
+        <div className="w-full  h-full flex  justify-center ">
+          <div className="mt-2 w-[90%]  bg-secondary flex flex-col h-[90%]  text-black rounded-xl">
             <div className="flex flex-row w-full h-[50%] ">
             <div className="w-[50%]  flex-col items-center flex h-full ">
-              <div className="w-[70%] h-[25%] flex items-center">
+              <div className="w-[70%] h-[20%] flex items-center">
                 <p className="text-xl font-bold">Jopay Growth</p></div>
               <div className="w-[85%] flex drop-shadow-2xl flex-row h-[70%] bg-white rounded-2xl">
                 <div className="w-[60%]  flex flex-col items-center h-full ">
@@ -57,7 +61,7 @@ return (
                 </div>
             </div>
             <div className="w-[50%]  flex-col items-center flex h-full ">
-            <div className="w-[70%] h-[25%] flex items-center">
+            <div className="w-[70%] h-[20%] flex items-center">
                 <p className="text-xl font-bold">Jopay Growth</p></div>
               <div className="w-[85%] drop-shadow-2xl flex flex-row h-[70%] bg-white rounded-2xl">
                 <div className="w-[60%] flex flex-col items-center h-full ">
@@ -88,17 +92,26 @@ return (
             </div>
             </div>
             <div className="flex flex-row w-full h-[50%] flex justify-center">
-            <div className="w-[60%] flex flex-row h-[85%] rounded-2xl mt-2 drop-shadow-2xl bg-white">
+            <div className="w-[60%] flex flex-row h-[88%] rounded-2xl mt-2 drop-shadow-2xl bg-white">
               {/* chart */}
               <div className="w-[70%] h-full flex flex-col">
                 <p className=" ml-10 font-bold text-black">Monthly Wallet History</p>
                 <MonthlyChart/>
                 </div>
               <div className="w-[35%] h-full flex items-center flex-col ">
-                <div className="wfull font-semibold  h-[20%]">
+
+              <select name="Driver" id="clicking" className='w-[50%] h-8 ml-[10px] 
+                            text-textblue pl-2 rounded-lg rounded-tr-[10px] focus:outline-none drop-shadow-2xl'>
+                                <option >Sort By :Month</option>
+                                {BusName.map(({ copilot}) => (
+                                    <option className="" value={copilot}>{copilot}</option>
+                                ))}
+                            </select>
+
+                {/* <div className="wfull font-semibold  h-[20%]">
                   <p className="flex flex-row">Sort By : Months <span><FaAngleDown className="mt-1 ml-2"/></span></p>
-                </div>
-                <div className="w-full h-[60%] "><PieChart
+                </div> */}
+                <div className="w-full mt-10 h-[60%] "><PieChart
                     lineWidth={20}
                     paddingAngle={0}
                     startAngle={40}

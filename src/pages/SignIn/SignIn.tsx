@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as yup from "yup";
-import axios from "axios";
 
 import logo from "../../assets/images/logo.svg";
 import heroImage from "../../assets/images/signin-hero-image.png";
@@ -10,6 +9,8 @@ import Button from "../../components/Button";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { LOGIN_SUCCESS } from "../../store/reducers/auth.reducer";
+import { constants } from "../../API/constants";
+import axios from "../../API/axios";
 
 const validationSchema = yup.object().shape({
   userId: yup.string().label("user id"),
@@ -20,14 +21,18 @@ const validationSchema = yup.object().shape({
 });
 
 interface SignInProps {
-  userId: string;
+  jojoId: string;
   password: string;
   keepMeLogin: boolean;
 }
 
 const SignIn = () => {
+
+  // useEffect(() => {
+  //   const clearToken = localStorage.clear();
+  // },[])
   const initialState: SignInProps = {
-    userId: "",
+    jojoId: "",
     password: "",
     keepMeLogin: false,
   };
@@ -39,14 +44,13 @@ const SignIn = () => {
     setIsLoading(true);
     console.log(values);
     try {
-      dispatch(LOGIN_SUCCESS(values));
-      const Response = await axios.post("http://192.168.1.17:80/login", values)
+      const Response = await axios.post(constants.auth.login, values)
       .then( resp => {
         const token = resp.data.token
         localStorage.setItem("token",token);
         console.log(token, "TOKENNNN");
-        
         if(token){
+          dispatch(LOGIN_SUCCESS(values));
         }
       })
       setIsLoading(false)
@@ -71,8 +75,8 @@ const SignIn = () => {
             <div className="bg-white px-6 py-8 rounded-lg rounded-2xl">
               <Input
                 type="text"
-                name="userId"
-                placeholder="User Id"
+                name="jojoId"
+                placeholder="Jojo Id"
                 className="border-none text-black outline-none shadow-lg w-96"
                 inputContainerClassName="mb-3"
               />

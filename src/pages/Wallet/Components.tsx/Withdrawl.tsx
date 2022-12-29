@@ -22,22 +22,27 @@ export const Withdrawl = () => {
     
    }
    console.log(showMoreOptions,"sugan");
-
+   const [color,setcolor] = useState(false);
+   const colorButton = () => setcolor(!color);
 
   return (
+    
+    
+
+
     <div className="relative">
       {showMoreOptions && (
         <>
-         <div className="absolute z-10 bg-red-200">
+         <div className="absolute z-10 ">
          <Overlay onClick={handleShowOptions} />
        </div>
       <div className="absolute w-full flex justify-end h-full">
         <div className="w-[40%] flex justify-start flex-col h-full"><div className="w-full h-[30%]"></div>
           <div className="w-[50%] h-[65%] rounded-3xl flex z-20 items-center flex-col bg-white">
             <div className="text-black font-bold w-full flex justify-center items-center  h-[20%] text-2xl">Payment Method</div>
-            <div className="w-[80%] h-[12%] text-xl text-white font-bold bg-bl flex justify-center items-center rounded-full"><p>Credit Card</p></div>
+            <button className="w-[80%] h-[12%] text-xl text-white font-bold bg-bl flex justify-center items-center rounded-full"><p>Credit Card</p></button>
             <p className="py-4 text-xl">Or</p>
-            <div className="w-[80%] h-[12%] text-xl text-white font-bold bg-bl flex justify-center items-center rounded-full"><p>Debit Card</p></div>
+            <button className="w-[80%] h-[12%] text-xl text-white font-bold bg-bl flex justify-center items-center rounded-full"><p>Debit Card</p></button>
             <p className="py-2 text-xl">Or</p>
             <p className="font-bold text-2xl">UPI</p>
             <div className="flex flex-row"><p><label><input type="radio" value="option2" /></label></p>345-567-9078</div>
@@ -47,19 +52,17 @@ export const Withdrawl = () => {
       </>
       )}
     <div className="w-screen h-screen overflow-hidden flex">
-      <div className="w-[100%] flex-col items-center bg-secondary overflow-hidden h-[100%] flex">
+      <div className="w-[100%] flex-col bg-white overflow-hidden h-[100%] flex">
         {/* top-div */}
-        <div className="flex  w-full h-[12%] ">
-          <div className="w-full h-full  flex items-center ">
+        <div className="flex  w-full h-[4%] ">
+          
             <BackButton />
-          </div>
-          <div className="mt-4 font-bold text-3xl">Withdrawl</div>
-          <div className="w-full h-full flex items-center">
-            <Notifcation />
-          </div>
+          
+          <div className=" w-full h-[5%] -ml-16 -mt-2 flex justify-center font-bold text-3xl">Withdrawl</div>
+          
         </div>
         {/* center div */}
-        <div className="w-full h-full flex justify-center ">
+        <div className="w-full h-full mt-4 flex justify-center ">
           <div className="mt-4 w-[90%] h-full flex flex-col   bg-quaternary rounded-xl">
             <div className="flex justify-center -mt-8 h-[15%]  w-full">
             <img src="https://blog.photofeeler.com/wp-content/uploads/2017/12/linkedin-profile-picture.jpg" className="rounded-full w-[90px] h-[90px]"/>
@@ -99,7 +102,10 @@ export const Withdrawl = () => {
                <p className="flex justify-center mt-2 text-white text-xl ml-2">Password</p>
                </div>
                <div className="w-full h-[20%] flex justify-center">
-                <button className="w-[8%] h-[40%] border-2 text-white border-white text-xl rounded-full">Send</button>
+                <button 
+                onClick={colorButton}
+                className={`w-[8%] h-[40%] border-2 text-black  border-white text-xl rounded-full 
+                ${  color? "bg-white" : "bg-green"}`}>Send</button>
                </div>
         
           </div>

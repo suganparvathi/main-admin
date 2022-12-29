@@ -4,17 +4,13 @@ import { MdVerifiedUser } from "react-icons/md";
 import { ImClock } from "react-icons/im";
 import { MdIncompleteCircle } from "react-icons/md";
 import { Link } from 'react-router-dom';
-// const Title = styled.h1`
-//   font-size: 1.5em;
-//   text-align: center;
-//   color: palevioletred;
-// `;
+
 
 
 export const DemoSidebar = () => {
     return ( 
         <nav>
-        <div className='flex  text-xl flex-col w-full h-full ml-6 mt-4 text-black'>
+        <div className='flex  text-xl flex-col  w-full h-full ml-6 mt-4 text-black'>
          
         
           <div className='flex flex-row p-3 '><IoMdWallet className=' text-2xl mb-6'/><p className='ml-2 mb-6 font-bold'>Wallet</p></div>

@@ -142,11 +142,11 @@ const [color1, setcolor1] = useState(true)
             </div> 
             <div className="flex flex-row items-center text-white w-full h-[60%]">
             <div className="h-full w-[75%]">
-            {Members.map((e) => (
+            {members.map((data) => (
             <div className="w-full h-[20%]  mt-6 flex flex-row">
            
-            <div className=" w-[50%] h-full flex   flex-start text-xl font-bolsd text-white">
-              <div className="w-[70px]  ml-4" onChange={handleChange} > {e.img}</div>
+            <div className=" w-[50%] h-full flex   flex-start text-xl font-bold text-white">
+              <div className="w-[70px]  ml-4"> {data.img}</div>
                <div className="ml-6 mt-2">
                     <p>{e.name}</p>
                     <p className="text-[14px] font-normal">{e.details}</p>

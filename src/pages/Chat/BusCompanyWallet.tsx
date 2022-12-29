@@ -139,14 +139,14 @@ export const BusCompanyWallet = () => {
             </div>
             </>)}
         <div className='text-black  flex-col flex w-full h-screen'>
-            <div className='flex flex-row w-full  h-[10%] '>
-                <div className='flex justify-start items-center text-3xl font-bold w-full text-black h-full'>
+            <div className='flex flex-row justify-start items-center text-3xl font-bold w-full text-black  h-[10%] '>
+               
                 <BackButton/><p className='ml-2'>Bus Company</p>
-                </div>
-                <div className="flex justify-end items-center  w-full h-full text-white"><Notifcation/></div>
+                
+               
             </div>
             <div className='flex w-full h-[10%] justify-center text-3xl font-bold items-center '><p>Main Wallet Balance $10,000</p></div>
-            <div className="w-full h-[85%]  flex justify-center ">
+            <div className="w-full h-[90%]  flex justify-center ">
             <div className=" w-[90%] h-full flex flex-col  bg-quaternary rounded-t-3xl">
                 <div className='w-full h-[15%] flex justify-center  flex-row'>
                     <div className='rounded-full drop-shadow-xl mt-2  bg-white justify-center flex items-center w-[65px] h-[65px] rounded-full '>
@@ -182,7 +182,7 @@ export const BusCompanyWallet = () => {
                             <div className='w-[100%] h-[100%]'>
                                 <div className="w-[95%] h-[80%]  flex justify-center mt-4 grid grid-cols-4 gap-6 overflow-auto">
                                     {productCategories.map((productCategories ) => (
-                                    <div className=" w-full flex flex-row  text-xl text-white  flex justify-center items-center h-full">
+                                    <div className=" w-full flex flex-row  cursor-pointer text-xl text-white  flex justify-center items-center h-full">
                                     <p onClick={ handleShowOptions}> {productCategories.image}</p>
                                     <p className='ml-2'>{productCategories.name}</p>
                                     </div>

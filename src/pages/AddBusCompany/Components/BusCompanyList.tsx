@@ -18,9 +18,17 @@ const members = [
   { name : "Uber Bus(#456TYP)"},
  
 ]  
+const Filter=[
+  {name:"Bus Name"},
+  {name:"Bus ID"},
+  {name:"Date"},
+  {name:"Month"},
 
+]
 export const BusCompanyList = () => {
 
+  const [state, setState]=useState<string>();
+  
 
 const [showMoreOptions, setShowMoreOptions] = useState(false);
   
@@ -86,15 +94,13 @@ return (
 
 
 <div className="w-screen h-screen overflow-hidden flex">
-      <div className="w-[100%] flex-col items-center bg-secondary overflow-hidden h-[100%] flex">
+      <div className="w-[100%] flex-col items-center bg-white overflow-hidden h-[100%] flex">
                           {/* top-div */}
-       <div className="flex  w-full h-[12%] ">
-          <div className="w-full h-full flex items-center ">
+       <div className="flex  w-full h-[10%] ">
+          
             <BackButton/>
-          </div>
-          <div className="w-full h-full flex items-center">
-            <Notifcation/>
-          </div>
+         
+         
         </div>
                          {/* center div */}
         <div className="w-full h-full flex justify-center ">
@@ -103,10 +109,18 @@ return (
             <div className="w-full h-[10%]  flex justify-center text-white font-bold ">
                 <div className="flex flex-row text-black w-full h-full text-2xl font-bold">
                   <div className="w-[10%] h-[50%] ml-2 flex justify-end font-extralight text-white  items-center ">Filter<FiFilter className="text-white ml-4"/></div>
-                  <div className="w-[13%] h-[60%] ml-2 flex justify-center drop-shadow-2xl font-extralight items-center rounded-3xl bg-white ">Bus Name</div>
-                  <div className="w-[13%] h-[60%] ml-2 flex justify-center drop-shadow-2xl font-extralight items-center rounded-3xl bg-white ">Bus ID</div>
-                  <div className="w-[13%] h-[60%] ml-2 flex justify-center drop-shadow-2xl font-extralight items-center rounded-3xl bg-white ">Date</div>
-                  <div className="w-[13%] h-[60%] ml-2 flex justify-center drop-shadow-2xl font-extralight items-center rounded-3xl bg-white ">Month</div>
+                  {
+                    Filter.map((data) =>(
+                    
+                  <button 
+                  onClick={() =>{
+                    console.log(data.name,"appuser")
+                    setState(data.name)
+                }}
+                  className={`w-[13%] h-[60%] ml-2 flex justify-center drop-shadow-2xl font-extralight items-center rounded-3xl bg-white
+                  ${data.name ===state? "bg-green text-white" : "bg-white text-black"} `}>{data.name}</button>
+                    )) 
+                }
                 </div> 
                   
             </div>

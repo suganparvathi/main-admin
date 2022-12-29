@@ -20,9 +20,9 @@ return (
         <div className="w-full h-full flex items-center ">
           <BackButton/>
         </div>
-        <div className="w-full h-full flex items-center">
+        {/* <div className="w-full h-full flex items-center">
           <Notifcation/>
-        </div>
+        </div> */}
       </div>
                        {/* center div */}
       <div className="w-full h-full flex justify-center ">

@@ -23,6 +23,9 @@ export const UserSendMoney = () => {
    }
    console.log(showMoreOptions,"sugan");
 
+   
+const[color, setcolor] =useState(false);
+  const colorButton = () => setcolor(!color);
 
   return (
     <div className="relative">
@@ -36,7 +39,7 @@ export const UserSendMoney = () => {
           <div className="w-[50%] h-[45%] rounded-3xl flex z-20 items-center flex-col bg-white">
             <div className="text-black font-bold w-full flex justify-center items-center  h-[15%] text-2xl"></div>
           
-            <div className="w-[80%] h-[16%] text-xl text-white font-bold bg-bl flex justify-center items-center rounded-full"><p>Wallet</p></div>
+            <button className="w-[80%] h-[16%] text-xl text-white font-bold bg-bl flex justify-center items-center rounded-full"><p>Wallet</p></button>
             <p className="py-4 text-xl">Or</p>
             <p className="font-bold py-2 text-2xl">UPI</p>
             <div className="flex flex-row"><p><label><input type="radio" value="option2" /></label></p>345-567-9078</div>
@@ -46,19 +49,17 @@ export const UserSendMoney = () => {
       </>
       )}
     <div className="w-screen h-screen overflow-hidden flex">
-      <div className="w-[100%] flex-col items-center bg-secondary overflow-hidden h-[100%] flex">
+      <div className="w-[100%] flex-col  bg-white overflow-hidden h-[100%] flex">
         {/* top-div */}
-        <div className="flex  w-full h-[12%] ">
-          <div className="w-full h-full  flex items-center ">
+        <div className="flex  w-full h-[4%]">
+         
             <BackButton />
           </div>
-          <div className="mt-4 ml-[90px] font-bold w-[50%] text-3xl">Send Money</div>
-          <div className="w-full h-full flex items-center">
-            <Notifcation />
-          </div>
-        </div>
+          <div className=" font-bold w-full  h-[5%] -mt-4 flex justify-center text-3xl">Send Money</div>
+          
+       
         {/* center div */}
-        <div className="w-full h-full flex justify-center ">
+        <div className="w-full h-full flex mt-4 justify-center ">
           <div className="mt-4 w-[90%] h-full flex flex-col   bg-quaternary rounded-xl">
             <div className="flex justify-center -mt-6 h-[15%]  w-full">
             <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[90px] h-[90px]"/>
@@ -98,7 +99,10 @@ export const UserSendMoney = () => {
                <p className="flex justify-center mt-2 text-white text-xl ml-2">Password</p>
                </div>
                <div className="w-full h-[20%] flex justify-center">
-                <button className="w-[8%] h-[40%] border-2 text-white border-white text-xl rounded-full">Send</button>
+                <button 
+                onClick={colorButton}
+                className={`w-[8%] h-[40%] border-2 text-black border-white text-xl rounded-full
+                ${ color? "bg-white" : "bg-green"}`}>Send</button>
                </div>
         
           </div>

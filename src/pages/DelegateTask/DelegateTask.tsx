@@ -87,12 +87,12 @@ export const DelegateTask = () => {
       <div className="relative">
       {showMoreOptions && (
         <>
-         {/* <Overlay onClick={handleOpenFeatures} /> */}
-         <div className="absolute z-10 bg-red-200">
+        
+         <div className="absolute z-10">
           <Overlay onClick={handleShowOptions} />
          </div>
     <div className="absolute  flex justify-center items-center w-full h-full">
-    {/* <div className="z-10 absolute  w-full  h-full"></div>  */}
+   ss
       <div className=" w-full flex justify-center items-center h-full">
        <div className="bg-white z-20  flex text-black text-[12px] flex-row mr-14 drop-shadow-2xl justify-center items-center w-[9%] h-[15%]">
         <div className="w-full h-full flex  justify-center items-center flex-col">
@@ -109,14 +109,12 @@ export const DelegateTask = () => {
       <div className="w-screen h-screen overflow-hidden flex">
       <div className="w-[100%] flex-col items-center bg-white overflow-hidden h-[100%] flex">
         {/* top-div */}
-        <div className="flex  w-full h-[12%] ">
-          <div className="w-full h-full  flex items-center ">
+        <div className="flex  w-full items-center h-[3%] ">
+          
             <BackButton />
-          </div>
+         
         
-          <div className="w-full h-full flex items-center">
-            <Notifcation />
-          </div>
+          
         </div>
         {/* center div */}
         <div className="w-full h-full flex justify-center ">
@@ -135,7 +133,7 @@ export const DelegateTask = () => {
                 <div className="">{data.img}</div>
                 <div className="ml-2 w-52">{data.name}</div>
                 {/* <div className="ml-2" >{data.icon}</div> */}
-                <div className="text-quaternary ml-2" onClick={ handleShowOptions}><FaUserPlus /></div>
+                <div className="text-quaternary cursor-pointer ml-2" onClick={ handleShowOptions}><FaUserPlus /></div>
                 
                 </div>
                 ))}

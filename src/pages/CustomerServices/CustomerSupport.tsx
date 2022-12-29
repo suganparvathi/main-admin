@@ -42,10 +42,10 @@ export const CustomerSupport = () => {
     return (
         <div className='text-black  flex-col flex w-full h-screen'>
             <div className='flex flex-row w-full  h-[10%] '>
-                <div className='flex justify-start items-center text-3xl font-bold w-full text-black h-full'>
+                <div className='flex justify-start items-center text-3xl font-bold w-full text-black h-[10%]'>
                 <BackButton/><p className='ml-2'>Customer Support</p>
                 </div>
-                <div className="flex justify-end items-center  w-full h-full text-white"><Notifcation/></div>
+                
             </div>
             <div className='w-full flex flex-row  h-[90%] '>
                 <div className='w-[60%] h-full'>
@@ -59,20 +59,18 @@ export const CustomerSupport = () => {
                     <div className=' w-full h-full flex flex-col justify-start'>
                   
                         <div className='w-full h-[50%] font-semibold text-green flex flex-row'> 
-                        <div className='w-[20%] h-[80%] border-green m-2 flex items-center justify-center rounded-full border'><p>Data</p></div>
-                        <div className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Year</p></div>
-                        <div className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Recent</p></div>
-                        <div className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Ticket Id</p></div>
+                        <button className='w-[20%] h-[80%] border-green m-2 flex items-center justify-center rounded-full border'><p>Data</p></button>
+                        <button className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Year</p></button>
+                        <button className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Recent</p></button>
+                        <button className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Ticket Id</p></button>
                         </div>
                         <div className='w-full h-[50%]  text-green  font-semibold flex flex-row'>
-                        <div className='w-[20%] h-[80%] border-green  m-2 items-center flex justify-center rounded-full border'><p>Montly</p></div>
-                        <div className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Paid Customer</p></div>
-                        <div className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Unpaid</p></div>
+                        <button className='w-[20%] h-[80%] border-green  m-2 items-center flex justify-center rounded-full border'><p>Montly</p></button>
+                        <button className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Paid Customer</p></button>
+                        <button className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Unpaid</p></button>
                         </div>
-                           
                     </div>
-
-                </div>
+                    </div>
                 <div className='w-[95%]  h-[70%] flex  items-center  flex-col justify-center '>
                 <div className='w-[90%] h-full flex flex-col   overflow-auto '>
 
@@ -84,10 +82,7 @@ export const CustomerSupport = () => {
                              <Link to="/piolts-and-co-piolts">
                              <ImUsers className="text-2xl text-quaternary"/>
                              </Link>
-
                              </div>
-                         
-                         
                          </div>
                          <div className='flex text-lg w-full flex-col pl-2 py-2'>
                              <p>{name}</p>

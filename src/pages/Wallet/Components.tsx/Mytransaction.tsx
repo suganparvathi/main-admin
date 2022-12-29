@@ -18,15 +18,12 @@ const members = [
     img :  <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[70px] h-[60px]"/>,
     icon: <AiFillCaretUp className="text-redText"/>
    
-    
-},
+    },
   { name : "Jopay Wallet",
     details : "Payment",
     amount : "$2000",
     img: <img src="https://tse1.mm.bing.net/th?id=OIP.ysdd9pBlwnNdnxQoC8y4KQHaHa&pid=Api&P=0" className="rounded-full w-[70px] h-[70px]"/>,
     icon: <AiFillCaretDown className="text-greenText"/>
-
-
 },
   { name : "You",
   details : "Withdrawn",
@@ -35,25 +32,58 @@ const members = [
   icon: <AiFillCaretDown className="text-greenText"/>
 
 },
+ ]
  
- 
-]  
+const Filter=[
+  {name:"Data"},
+  {name:"Send"},
+  {name:"Received"},
+  {name:"Favorites"},
+  {name:"Withdrawl"},
+  {name:"Deposit"},
+]
 
 
 export const Mytransaction = () => {
 
-  const [showMoreOptions, setShowMoreOptions] = useState(false);
+  const[state, setState] =useState<string>();
+
+  const [members, setMembers] = useState("5")
+  const handleChange = (e: any) => {
+   
+        const a = e.target.value
+        setMembers(a)        
+   
+     console.log(a);
+}
+
+
+//   const [members, setmembers] = useState(true)
+//  const [Transaction, setTransaction] = useState<TransactionProps>({
+//      members: "",
+   
+    
+//  })
+//  console.log(members,"hai");
+ const [color, setcolor] = useState(true)
+// console.log(color,"bluee");
+const [color1, setcolor1] = useState(true)
+// console.log(color1,"red");
+
+//   const [showMoreOptions, setShowMoreOptions] = useState(false);
   
 
-    const handleShowOptions = () => {
-      setShowMoreOptions(!showMoreOptions);
+//     const handleShowOptions = () => {
+//       setShowMoreOptions(!showMoreOptions);
       
-     }
-     console.log(showMoreOptions,"sugan");
+//      }
+//      console.log(showMoreOptions,"haiiii");
+
+    
 
   return (
     <div className="relative">
-        {showMoreOptions && (
+        {/* {showMoreOptions && (
            <>
       <div className="absolute z-10">
       <Overlay onClick={handleShowOptions} />
@@ -64,17 +94,17 @@ export const Mytransaction = () => {
         </div>
 
       </div>
-       </>)}
+       </>)} */}
     <div className="w-screen h-screen overflow-hidden flex">
-      <div className="w-[100%] flex-col items-center bg-secondary overflow-hidden h-[100%] flex">
+      <div className="w-[100%] flex-col items-center bg-white overflow-hidden h-[100%] flex">
         {/* top-div */}
-        <div className="flex  w-full h-[12%] ">
+        <div className="flex  w-full h-[5%] ">
           <div className="w-full h-full flex items-center ">
             <BackButton />
           </div>
-          <div className="w-full h-full flex items-center">
+          {/* <div className="w-full h-full flex items-center">
             <Notifcation />
-          </div>
+          </div> */}
         </div>
         {/* center div */}
         <div className="w-full h-full flex justify-center ">
@@ -91,24 +121,28 @@ export const Mytransaction = () => {
             <div className="ml-6 w-full h-[13%]  text-2xl">
             <Searchbar placeholder="Search By Name/Favorites/Recent"/>
             </div>
-            <div className="flex flex-row items-center mt-2 text-white  w-full h-[15%]">
+            <div className="flex flex-row items-center font-bold mt-2  w-full h-[15%]">
+                <button className="w-[12%] h-[40%] text-white ml-6 flex text-2xl items-center">Filter By <span className="ml-2  text-3xl"><FiFilter className=""/></span></button>
+                {
+              Filter.map((data) => (
+                <button 
+                onClick={() =>{
+                  console.log(data.name,"mytransaction")
+                  setState(data.name)
+                }}
+                className={`w-[13%] h-[70%] ml-2 flex justify-center items-center rounded-full text-2xl border-2 border-white
+                ${data.name ===state? "bg-green text-white" : "bg-white text-black"}`}>{data.name}</button>
+              ))
+              } 
                 
-                <div className="w-[12%] h-[40%] ml-6 flex text-2xl items-center">Filter By <span className="ml-2  text-3xl"><FiFilter className=""/></span></div>
-                <div className="w-[10%] h-[70%] ml-2 flex justify-center items-center rounded-full text-2xl border-2 border-white">Date</div>
-                <div className="w-[10%] h-[70%] ml-2 flex justify-center items-center rounded-full text-2xl border-2 border-white">Send</div>
-                <div className="w-[13%] h-[70%] ml-2 flex justify-center items-center rounded-full text-2xl border-2 border-white">Received</div>
-                <div className="w-[13%] h-[70%] ml-2 flex justify-center items-center rounded-full text-2xl border-2 border-white">Favorites</div>
-                <div className="w-[13%] h-[70%] ml-2 flex justify-center items-center rounded-full text-2xl border-2 border-white">Withdrawl</div>
-                <div className="w-[13%] h-[70%] ml-2 flex justify-center items-center rounded-full text-2xl border-2 border-white">Deposit</div>
-
             </div> 
             <div className="flex flex-row items-center text-white w-full h-[60%]">
             <div className="h-full w-[75%]">
-            {members.map((data) => (
+            {Members.map((data) => (
             <div className="w-full h-[20%]  mt-6 flex flex-row">
            
             <div className=" w-[50%] h-full flex   flex-start text-xl font-bold text-white">
-              <div className="w-[70px]  ml-4"> {data.img}</div>
+              <div className="w-[70px]  ml-4" onChange={handleChange} > {data.img}</div>
                <div className="ml-6 mt-2">
                     <p>{data.name}</p>
                     <p className="text-[14px] font-normal">{data.details}</p>
@@ -128,8 +162,8 @@ export const Mytransaction = () => {
             ))}
             </div> 
             {/* left side */}
-            <div className="w-[25%] h-full flex justify-end ">
-              <div className="w-[85%] h-[82%] mt-14 bg-white text-black  rounded-tl-3xl rounded-tr-3xl ">
+            <div className="w-[23%]  h-full flex justify-end -ml-[40px] ">
+              <div className="w-[85%] h-[82%] drop-shadow-2xl mt-14 bg-white text-black   rounded-tl-3xl rounded-tr-3xl ">
                 <div className="w-full h-[40%] font-bold text-4xl flex justify-center items-center">Note</div>
                 <div className="w-full h-full text-2xl font-bold flex flex-col items-start">
                   <div className="text-black flex flex-row ml-4  "><AiFillCaretDown className=" text-[35px] text-greenText "/><span className="ml-4 ">Received</span></div>

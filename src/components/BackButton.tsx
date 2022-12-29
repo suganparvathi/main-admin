@@ -13,7 +13,7 @@ const BackButton = (className:BackButtonProps) => {
         navigate(-1);
     }
     return(
-        <div className={`z-10 flex justify-center items-center text-2xl ml-8 w-9 h-8 `}>
+        <div className={`z-10 flex justify-center items-center text-2xl ml-8 w-9 h-8`}>
            <button onClick={GoBack}><MdArrowBack  className="scale-125"/></button>
         </div>
     )

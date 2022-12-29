@@ -17,11 +17,11 @@ import{MdRadio} from "react-icons/md";
 export const PioltsAndCopiolts = () => {
     return (
         <div className='text-black  flex-col flex w-full h-screen'>
-            <div className='flex flex-row w-full  h-[10%] '>
-                <div className='flex justify-start items-center text-3xl font-bold w-full text-black h-full'>
+            <div className='flex flex-row justify-start  text-3xl font-bold w-full  text-black  h-[4%] '>
+               
                 <BackButton/><p className='ml-2'>All Piolts And Co-Piolts</p>
-                </div>
-                <div className="flex justify-end items-center  w-full h-full text-white"><Notifcation/></div>
+              
+                
             </div>
             <div className="w-full h-[90%] bg-yellow flex justify-center ">
             <div className="mt-4 w-[90%] h-full flex flex-col  bg-quaternary rounded-3xl">

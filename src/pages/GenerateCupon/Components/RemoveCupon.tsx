@@ -13,9 +13,9 @@ import {MdModeEdit} from 'react-icons/md'
 
 
 const members = [
-  { name : "OLA Bus(#456TYP)"},
-  { name : "Red Bus(#456TYP)"},
-  { name : "Uber Bus(#456TYP)"},
+  { name : "OLA Bus"},
+  { name : "Red Bus"},
+  { name : "Uber Bus"},
  
 ]  
 
@@ -37,7 +37,7 @@ return (
     <div className="relative">
        {showMoreOptions && (
            <>
-           <div className="absolute z-10 bg-red-200">
+           <div className="absolute z-10">
           <Overlay onClick={handleShowOptions} />
          </div>
     <div className='absolute flex mt-14 justify-center items-center w-full h-full'>
@@ -86,14 +86,17 @@ return (
 
 
 <div className="w-screen h-screen overflow-hidden flex">
-      <div className="w-[100%] flex-col items-center bg-secondary overflow-hidden h-[100%] flex">
+      <div className="w-[100%] flex-col items-center bg-white overflow-hidden h-[100%] flex">
                           {/* top-div */}
-       <div className="flex  w-full h-[12%] ">
+       <div className="flex  w-full h-[7%] ">
           <div className="w-full h-full flex items-center ">
             <BackButton/>
           </div>
-          <div className="w-full h-full flex items-center">
-            <Notifcation/>
+          <div className="w-[40%] text-3xl mt-4 h-full font-bold">
+            Remove Cupon
+          </div>
+          <div className="w-full  h-full flex items-center">
+          
           </div>
         </div>
                          {/* center div */}
@@ -101,32 +104,38 @@ return (
           <div className="mt-4 w-[90%] h-full bg-quaternary rounded-xl">
            <div className="w-full h-[10%]  text-white text-xl"><Searchbar placeholder= "Search your Bus Company/Bus ID/Number"/> </div>
             <div className="w-full h-[10%]  flex justify-center text-white font-bold ">
-                <div className="flex flex-row text-black w-full h-full text-2xl font-bold">
-                  <div className="w-[5%] h-[50%] ml flex justify-end font-extralight text-white  items-center "><FiFilter className="text-white ml-4"/></div>
-                  <div className="w-[13%] h-[60%] ml-2 flex justify-center drop-shadow-2xl font-extralight items-center rounded-3xl">Bus Name</div>
-                  <div className="w-[13%] h-[60%] ml-2 flex justify-center drop-shadow-2xl font-extralight items-center rounded-3xl0">Bus ID</div>
-                  <div className="w-[13%] h-[60%] ml-2 flex justify-center drop-shadow-2xl font-extralight items-center rounded-3xl">Date</div>
-                  <div className="w-[13%] h-[60%] ml-2 flex justify-center drop-shadow-2xl font-extralight items-center rounded-3xl">Month</div>
+                <div className="flex flex-row text-white w-full h-full text-xl font-bold">
+                  <div className="w-[5%] h-[50%] ml flex justify-end font-extralight text-white  items-center "><FiFilter className="text-white text-3xl ml-4"/></div>
+                  <button className="w-[10%] h-[70%] ml-2 flex justify-center  border-white border-2 drop-shadow-2xl font-extralight items-center rounded-3xl">Company</button>
+                  <button className="w-[10%] h-[70%] ml-2 flex justify-center  border-white border-2 drop-shadow-2xl font-extralight items-center rounded-3xl">ID</button>
+                  <button className="w-[10%] h-[70%] ml-2 flex justify-center  border-white border-2 drop-shadow-2xl font-extralight items-center rounded-3xl">Time</button>
+                  <button className="w-[10%] h-[70%] ml-2 flex justify-center  border-white border-2 drop-shadow-2xl font-extralight items-center rounded-3xl">Offers</button>
+                  <button className="w-[10%] h-[70%] ml-2 flex justify-center  border-white border-2 drop-shadow-2xl font-extralight items-center rounded-3xl">Date</button>
+                  <button className="w-[17%] h-[70%] ml-2 flex justify-center  border-white border-2 drop-shadow-2xl font-extralight items-center rounded-3xl">Ascending Order</button>
+                  <button className="w-[17%] h-[70%] ml-2 flex justify-center  border-white border-2 drop-shadow-2xl font-extralight items-center rounded-3xl">Descending Order</button>
                 </div> 
                   
             </div>
             <div className="w-full h-full flex flex-col">
             {members.map(({name}) => (
                 <div className="w-full h-[20%]  flex flex-row">
-                <div className=" w-full mt-6 h-full flex flex-start text-xl font-bold text-white">
-                <div className='rounded-full ml-14 drop-shadow-xl bg-white justify-center flex items-center w-[70px] h-[70px]'>
-                      <FaBus className="text-2xl text-quaternary"/>
+                <div className=" w-full  h-[90%] flex flex-start text-xl font-extralight text-white">
+                <div className='rounded-full ml-14 mt-4 drop-shadow-xl bg-white justify-center flex items-center w-[70px] h-[70px]'>
+                      <FaBus className="text-4xl  text-quaternary"/>
                       </div>
-                   <div className="ml-2 text-2xl mt-4">
+                   <div className="ml-2 text-xl mt-4">
                       <p>{name}</p>
+                      <p>Cash Back Offer</p>
+                      <p>Created Time 4:00 Am</p>
+                      <p>Date : 8/9/2021</p>
                   </div>
                 </div>
-                <div className="flex flex-end w-[10%] items-center h-full text-white">
+                <div className="flex flex-end w-[15%] items-center h-full text-white">
             <div className=" flex flex-row font-bold  text-3xl">
-              <p className="ml-2"> < MdDeleteForever onClick={ handleShowOptions}/> </p>
-              <p className="ml-2"> <FaEye onClick={ handleShowOptions}/> </p>
-              <p className="ml-2"><MdModeEdit/></p>
-             </div>
+              <p className="ml-4"> <FaEye onClick={ handleShowOptions}/></p>
+              <p className="ml-4"><MdModeEdit/></p>
+              <p className=""> < MdDeleteForever onClick={ handleShowOptions}/> </p>
+            </div>
          </div>
           </div>
           ))}

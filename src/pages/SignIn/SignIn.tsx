@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as yup from "yup";
 
 import logo from "../../assets/images/logo.svg";
@@ -9,10 +9,11 @@ import Button from "../../components/Button";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { LOGIN_SUCCESS } from "../../store/reducers/auth.reducer";
+import { constants } from "../../API/constants";
 import axios from "../../API/axios";
 
 const validationSchema = yup.object().shape({
-  jojoId: yup.string().label("user id"),
+  userId: yup.string().label("user id"),
   // .required("User ID is required"),
   password: yup.string().label("Password"),
   // .required("Password is required"),
@@ -22,15 +23,17 @@ const validationSchema = yup.object().shape({
 interface SignInProps {
   jojoId: string;
   password: string;
-  appType: string;
   keepMeLogin: boolean;
 }
 
 const SignIn = () => {
+
+  // useEffect(() => {
+  //   const clearToken = localStorage.clear();
+  // },[])
   const initialState: SignInProps = {
     jojoId: "",
     password: "",
-    appType : "mainAdmin",
     keepMeLogin: false,
   };
   const [isLoading, setIsLoading] = useState(false);
@@ -39,15 +42,15 @@ const SignIn = () => {
 
   const handleSubmit = async (values: SignInProps) => {
     setIsLoading(true);
-    console.log(values, "nlhbhjbhbjhbh");
+    console.log(values);
     try {
-      dispatch(LOGIN_SUCCESS(values));
-      const Response = await axios.post("login", values)
+      const Response = await axios.post(constants.auth.login, values)
       .then( resp => {
         const token = resp.data.token
         localStorage.setItem("token",token);
-        console.log(token, "TOKENNNN");  
+        console.log(token, "TOKENNNN");
         if(token){
+          dispatch(LOGIN_SUCCESS(values));
         }
       })
       setIsLoading(false)
@@ -59,7 +62,7 @@ const SignIn = () => {
     setIsLoading(false);
   };
   return (
-    <div className="bg-white w-screen h-screen flex items-center justify-center">
+    <div className="bg-white w-screen h-screen bg-white flex items-center justify-center">
       <div className="w-[55%] h-[420px] shadow rounded-xl  overflow-hidden">
        
         <div className="w-full h-full flex items-center justify-center flex-col p-5 bg-quaternary bg-opacity-60">
@@ -73,7 +76,7 @@ const SignIn = () => {
               <Input
                 type="text"
                 name="jojoId"
-                placeholder="User Id"
+                placeholder="Jojo Id"
                 className="border-none text-black outline-none shadow-lg w-96"
                 inputContainerClassName="mb-3"
               />

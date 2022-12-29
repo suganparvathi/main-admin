@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import Notifcation from "../../components/Notification";
 import BackButton from "../../components/BackButton";
@@ -10,13 +10,14 @@ import {FaUserPlus} from "react-icons/fa";
 import{FaUserAltSlash} from "react-icons/fa";
 import { type } from "@testing-library/user-event/dist/type";
 import Overlay from "../../components/Overlay";
-import axios from "axios";
 
 
 
 const members =[ {
   img: <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[70px] h-[70px]"/>,
   name:"Laura Parker"
+ 
+  
 },
 {
   img: <img src="https://sp-images.summitpost.org/947006.jpg?auto=format&fit=max&h=800&ixlib=php-2.1.1&q=35&s=876696700800816d01e0d1eb31ce7ab0" className="rounded-full w-[70px] h-[70px]"/>,
@@ -62,19 +63,6 @@ const members =[ {
 
 
 export const DelegateTask = () => {
-  useEffect(() => {
-    const GetName = async () => {
-      try{
-        const response = await axios.get("http://192.168.1.32:82/getDriverData").
-        then(res => 
-          console.log(res, "jhsavagvcsgh")
-          )
-        } catch (err){
-          console.log(err, "jshvajhvhj");
-        }
-    }
-    GetName();
-  },[])
 
   const [showMoreOptions, setShowMoreOptions] = useState(false);
   
@@ -99,12 +87,12 @@ export const DelegateTask = () => {
       <div className="relative">
       {showMoreOptions && (
         <>
-         {/* <Overlay onClick={handleOpenFeatures} /> */}
-         <div className="absolute z-10 bg-red-200">
+        
+         <div className="absolute z-10">
           <Overlay onClick={handleShowOptions} />
          </div>
     <div className="absolute  flex justify-center items-center w-full h-full">
-    {/* <div className="z-10 absolute  w-full  h-full"></div>  */}
+   ss
       <div className=" w-full flex justify-center items-center h-full">
        <div className="bg-white z-20  flex text-black text-[12px] flex-row mr-14 drop-shadow-2xl justify-center items-center w-[9%] h-[15%]">
         <div className="w-full h-full flex  justify-center items-center flex-col">
@@ -121,14 +109,12 @@ export const DelegateTask = () => {
       <div className="w-screen h-screen overflow-hidden flex">
       <div className="w-[100%] flex-col items-center bg-white overflow-hidden h-[100%] flex">
         {/* top-div */}
-        <div className="flex  w-full h-[12%] ">
-          <div className="w-full h-full  flex items-center ">
+        <div className="flex  w-full items-center h-[3%] ">
+          
             <BackButton />
-          </div>
+         
         
-          <div className="w-full h-full flex items-center">
-            <Notifcation />
-          </div>
+          
         </div>
         {/* center div */}
         <div className="w-full h-full flex justify-center ">
@@ -140,18 +126,22 @@ export const DelegateTask = () => {
               <div className=" w-full  h-[15%]">
                 <SearchLogin placeholder="Search Logins"/>
               </div>
-              <div className=" w-[90%] flex-end grid grid-cols-2 justify-center gap-x-[15%] gap-y-[15%] overflow-y-auto h-[60%]">
+              <div className=" w-[90%]  flex flex-end grid grid-cols-2 justify-center gap-x-[15%] gap-y-[15%] overflow-y-auto h-[60%]">
                 {members.map((data) => (
                   <div className="w-full items-center text-2xl font-bold h-full flex justify-start">
                     
                 <div className="">{data.img}</div>
                 <div className="ml-2 w-52">{data.name}</div>
                 {/* <div className="ml-2" >{data.icon}</div> */}
-                <div className="text-quaternary ml-2" onClick={ handleShowOptions}><FaUserPlus /></div>
+                <div className="text-quaternary cursor-pointer ml-2" onClick={ handleShowOptions}><FaUserPlus /></div>
+                
                 </div>
                 ))}
               </div>
             </div>
+            
+           
+          
           </div>
         </div>
       </div>

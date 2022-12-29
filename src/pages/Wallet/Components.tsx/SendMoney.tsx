@@ -61,17 +61,15 @@ const productCategories = [
 export const SendMoney = () => {
   return (
     <div className="w-screen h-screen overflow-hidden flex">
-      <div className="w-[100%] flex-col items-center bg-secondary overflow-hidden h-[100%] flex">
+      <div className="w-[100%] flex-col bg-white overflow-hidden h-[100%] flex">
         {/* top-div */}
-        <div className="flex  w-full h-[12%] ">
-          <div className="w-full h-full  flex items-center ">
+        <div className="flex  w-full h-[5%] ">
+          
             <BackButton />
-          </div>
-          <div className="mt-6 font-bold w-[35%] text-3xl">Send Money</div>
-          <div className="w-full h-full flex items-center">
-            <Notifcation />
-          </div>
-        </div>
+            </div>
+          <div className="font-bold w-full h-[5%] flex justify-center items-center text-3xl">Send Money</div>
+          
+       
         {/* center div */}
         <div className="w-full h-full flex justify-center ">
           <div className="mt-4 w-[90%] h-full flex flex-col   bg-quaternary rounded-xl">

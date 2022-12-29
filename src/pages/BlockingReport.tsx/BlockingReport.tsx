@@ -31,27 +31,25 @@ export const BlockingReport = () => {
   return (
    
     <div className="w-screen h-screen overflow-hidden flex">
-      <div className="w-[100%] flex-col items-center bg-secondary overflow-hidden h-[100%] flex">
+      <div className="w-[100%] flex-col items-center bg-white overflow-hidden h-[100%] flex">
                           {/* top-div */}
-       <div className="flex  w-full h-[12%] ">
-          <div className="w-full h-full flex items-center ">
+       <div className="flex  w-full h-[10%]">
+         
             <BackButton/>
-          </div>
-          <div className="w-full h-full flex items-center">
-            <Notifcation/>
-          </div>
+          
+         
         </div>
                          {/* center div */}
-        <div className="w-full h-full flex justify-center ">
+        <div className="w-full h-full flex  justify-center">
           <div className="mt-4 w-[90%] h-full bg-quaternary rounded-xl">
             <div className="w-full h-[10%]  text-white text-xl"><Searchbar placeholder= "Search By Customer Name/Customer ID"/> </div>
-            <div className="w-[65%] h-[100%] flex justify-center  text-white font-bold">
-            <div className='w-[95%]  h-[70%] flex  items-center  flex-col justify-center '>
-                <div className='w-[90%] h-[80%] flex flex-col   overflow-auto '>
+            <div className="w-[100%] h-[100%] flex justify-center text-white font-bold">
+            <div className='w-[90%]  h-[60%] flex  items-center  flex-col justify-center '>
+                <div className='w-[90%] h-[80%] flex flex-col  overflow-auto '>
 
                     {members.map((data) => (
                          <div className='w-full py-4 px-2 h-full  flex flex-row '>
-                         <div className='flex flex-col w-[15%]'>
+                         <div className='flex flex-col w-[10%]'>
                          <Link to="/user-blocking-report">
                              <div>{data.img}</div>
                         </Link>

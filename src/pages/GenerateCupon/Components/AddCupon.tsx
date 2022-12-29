@@ -28,9 +28,9 @@ export const AddCupon= () => {
   return (
     
     <div className="w-screen h-screen overflow-hidden flex">
-      <div className="w-[100%] flex-col items-center bg-secondary overflow-hidden h-[100%] flex">
+      <div className="w-[100%] flex-col items-center bg-white overflow-hidden h-[100%] flex">
         {/* top-div */}
-        <div className="flex  w-full h-[12%] ">
+        <div className="flex  w-full h-[10%]">
           <div className="w-full h-full  flex items-center ">
             <BackButton />
           </div>
@@ -38,7 +38,7 @@ export const AddCupon= () => {
                 <FaBus className="text-7xl text-quaternary"/>
             </div>
         <div className="w-full h-full flex items-center">
-            <Notifcation />
+           
           </div>
         </div>
         {/* center div */}
@@ -140,7 +140,7 @@ export const AddCupon= () => {
             </div>
             <div className="w-full h-[20%] flex justify-center">
                 <div className="w-[20%] text-3xl drop-shadow-2xl font-bold rounded-2xl h-[60%] flex justify-center items-center bg-white text-black">
-                    <p>Generate Cupon</p></div>
+                    <button>Generate Cupon</button></div>
 
             </div>
             </div>

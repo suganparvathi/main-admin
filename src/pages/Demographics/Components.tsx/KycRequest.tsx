@@ -7,17 +7,10 @@ import { Link } from 'react-router-dom';
 const members = [
     { name : "Harsha"},
     { name : "Muthu"},
-   
-]  
-
-
+   ]  
 export const KycRequest = () => {
-
-    
-
-
-    return ( 
-   <div className="w-full h-full flex  flex-col  ">
+   return ( 
+   <div className="w-full h-full flex  flex-col ">
              {members.map(({name}) => (
             <div className="w-full h-[20%] flex flex-row">
                   <div className=" w-full h-full flex flex-start text-xl font-bold text-white">

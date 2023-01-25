@@ -17,7 +17,7 @@ export const AxiosCall = async (
         data: data || {},
         responseType: responseType || "json",
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          Authorization: `${localStorage.getItem("token")}`,
         },
       });
       return {
@@ -28,7 +28,10 @@ export const AxiosCall = async (
       const response = await axios({
         url: `${url}`,
         method,
-        // data: data || {},
+        // headers: {
+        //   Authorization: `${localStorage.getItem("token")}`,
+        // },
+        data: data || {},
       });
       return {
         success: true,

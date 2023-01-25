@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Notifcation from "../../../components/Notification";
 import BackButton from "../../../components/BackButton";
@@ -9,6 +9,8 @@ import { AiFillCaretDown } from "react-icons/ai";
 import { AiFillCaretUp } from "react-icons/ai";
 import Overlay from "../../../components/Overlay";
 import Searchbar from "../../../components/Searchbar";
+import axios from "../../../API/axios";
+import { AxiosCall } from "../../../API/AxiosCall";
 
  interface TransactionProps{
    Members?: string
@@ -54,34 +56,28 @@ export const Mytransaction = () => {
 
   const [members, setMembers] = useState("5")
   const handleChange = (e: any) => {
-   
         const a = e.target.value
         setMembers(a)        
-   
      console.log(a);
-}
+};
+
+const [transactions, setTransactions] = useState<any>()
 
 
-//   const [members, setmembers] = useState(true)
-//  const [Transaction, setTransaction] = useState<TransactionProps>({
-//      members: "",
-   
-    
-//  })
-//  console.log(members,"hai");
+useEffect(() => {
+ const getTransactionData = async () => {
+  const response = await AxiosCall ('transactions', "GET")
+  console.log("Transactions Data", response?.data); 
+  setTransactions(response?.data)
+ };
+ getTransactionData(); 
+},[])
+
+
+
  const [color, setcolor] = useState(true)
-// console.log(color,"bluee");
 const [color1, setcolor1] = useState(true)
-// console.log(color1,"red");
 
-//   const [showMoreOptions, setShowMoreOptions] = useState(false);
-  
-
-//     const handleShowOptions = () => {
-//       setShowMoreOptions(!showMoreOptions);
-      
-//      }
-//      console.log(showMoreOptions,"haiiii");
 
     
 
@@ -142,19 +138,20 @@ const [color1, setcolor1] = useState(true)
             </div> 
             <div className="flex flex-row items-center text-white w-full h-[60%]">
             <div className="h-full w-[75%]">
-            {Members.map((data) => (
+            {transactions?.map((data:any) => (
             <div className="w-full h-[20%]  mt-6 flex flex-row">
-           
             <div className=" w-[50%] h-full flex   flex-start text-xl font-bold text-white">
-              <div className="w-[70px]  ml-4" onChange={handleChange} > {data.img}</div>
+              <div className="w-[70px]  ml-4" onChange={handleChange} > 
+                <img src={data?.image} alt="" />
+              </div>
                <div className="ml-6 mt-2">
-                    <p>{data.name}</p>
-                    <p className="text-[14px] font-normal">{data.details}</p>
+                    <p>{data?.senderName}</p>
+                    <p className="text-[14px] font-normal">{data?.details}</p>
                 </div>
             </div>
             <div className="w-[30%] flex items-center  text-2xl font-bold">
-              <div className="w-[40%] h-full flex justify-end items-center">  {data.amount} </div>
-              <div className="text-[30px] ml-4">{data.icon}</div>  
+              <div className="w-[40%] h-full flex justify-end items-center">  {data?.amount} </div>
+              <div className="text-[30px] ml-4">{data?.icon}</div>  
             </div>
             <div className="flex flex-end w-[20%] items-center h-full text-white">
               <div>

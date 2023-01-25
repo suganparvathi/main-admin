@@ -13,9 +13,8 @@ export const Wallet = () => {
     <div className="w-[100%] flex-col items-center bg-white overflow-hidden h-[100%] flex">
     {/* top-div */}
      <div className="flex  w-full h-[5%] ">
-       
           <BackButton/>
-        </div>
+      </div>
        
       {/* center div */}
       <div className="w-full h-full flex justify-center ">

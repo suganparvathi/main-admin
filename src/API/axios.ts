@@ -1,11 +1,12 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://192.168.1.9:80/",
+  // baseURL: "http://192.168.1.9:80/",
+  baseURL: "http://13.232.250.90/",
 });
 
 instance.interceptors.request.use((req: any) => {
-  req.headers.Authorization = `Bearer ${localStorage.getItem("token")}`;
+  req.headers.Authorization = `${localStorage.getItem("token")}`;
   return req;
 });
 

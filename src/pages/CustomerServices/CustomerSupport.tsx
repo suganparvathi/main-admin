@@ -1,4 +1,4 @@
-import react from 'react'
+import react, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import BackButton from '../../components/BackButton'
 import Notifcation from '../../components/Notification'
@@ -39,6 +39,21 @@ const data = [
 
 
 export const CustomerSupport = () => {
+
+    const [name, setName] = useState<any>()
+    const [filters, setFilters] = useState<any>(members)
+
+    const Search = (e: any) => {
+        console.log(e.target.value, "jygsjhj")
+        setName(e.target.value)
+    };
+    console.log(filters, "filterss");
+    
+    // const handleFilter = filters.filter((filters:any) =>
+    //     filters.name.toLowerCase().includes(name.toLowerCase())
+    //     ); 
+
+        
     return (
         <div className='text-black  flex-col flex w-full h-screen'>
             <div className='flex flex-row w-full  h-[10%] '>
@@ -50,7 +65,7 @@ export const CustomerSupport = () => {
             <div className='w-full flex flex-row  h-[90%] '>
                 <div className='w-[60%] h-full'>
                     <div className=' w-full mt-4 h-[8%] '>
-                    <SearchLogin placeholder='Search By Name/Ticket Id'/>
+                    <SearchLogin handleSubmit={Search} placeholder='Search By Name/Ticket Id'/>
                     </div>
                 <div className='w-full flex flex-row h-[15%] '>
                     <div className='w-[20%] h-full flex justify-end items-center flex-row'>
@@ -74,28 +89,31 @@ export const CustomerSupport = () => {
                 <div className='w-[95%]  h-[70%] flex  items-center  flex-col justify-center '>
                 <div className='w-[90%] h-full flex flex-col   overflow-auto '>
 
-                    {members.map(({name}) => (
-                         <div className='w-full py-4 px-2 h-full flex flex-row '>
-                         <div className=' w-[15%]'>
+                    {filters?.map(({name}:any) => {
+                        if(filters.name === "" || name.toLowerCase().includes(name.toLowerCase())){
+                            <div className='w-full py-4 px-2 h-full flex flex-row '>
+                            <div className=' w-[15%]'>
                             
-                             <div className='rounded-full drop-shadow-xl bg-white justify-center flex items-center w-[70px] h-[70px]'>
-                             <Link to="/piolts-and-co-piolts">
-                             <ImUsers className="text-2xl text-quaternary"/>
-                             </Link>
-                             </div>
-                         </div>
-                         <div className='flex text-lg w-full flex-col pl-2 py-2'>
-                             <p>{name}</p>
-                             <p>nnhm m, cd ld d dskmkdmfkdmjkmjknh</p>
-                         </div>
-                         {/* {paid.map(({name}) => ( */}
-                         <div className='flex w-[30%] font-semibold text-xl flex flex-col py-4 text-green items-end justify-end'>
+                            <div className='rounded-full drop-shadow-xl bg-white justify-center flex items-center w-[70px] h-[70px]'>
+                            <Link to="/piolts-and-co-piolts">
+                            <ImUsers className="text-2xl text-quaternary"/>
+                            </Link>
+                            </div>
+                            </div>
+                            <div className='flex text-lg w-full flex-col pl-2 py-2'>
+                            <p>{name}</p>
+                            <p>nnhm m, cd ld d dskmkdmfkdmjkmjknh</p>
+                            </div>
+                            {/* {paid.map(({name}) => ( */}
+                            <div className='flex w-[30%] font-semibold text-xl flex-col py-4 text-green items-end justify-end'>
                            
                             <p>paid</p>
                             </div>
                             {/* ))} */}
-                     </div>
-                          ))}
+                            </div>
+                        }
+                        return null;
+                    })}
                 </div>
                 </div>
                 </div>

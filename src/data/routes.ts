@@ -1,4 +1,3 @@
-
 import MonthlyChart from "../components/MonthlyChart";
 import AddBusCompany from "../pages/AddBusCompany/AddBusCompany";
 import { AddNewBusCompany } from "../pages/AddBusCompany/Components/AddNewBusCompany";
@@ -15,13 +14,13 @@ import { PioltsAndCopiolts } from "../pages/Chat/PioltsAndCopiolts";
 import { Token } from "../pages/Chat/Token";
 import { CustomerSupport } from "../pages/CustomerServices/CustomerSupport";
 import { DelegateTask } from "../pages/DelegateTask/DelegateTask";
-import { Approve } from "../pages/Demographics/Components.tsx/Approve";
-import { Demograph } from "../pages/Demographics/Components.tsx/Demograph";
-import { DemoUserHistory } from "../pages/Demographics/Components.tsx/DemoUserHistory";
-import { JopayGrowth } from "../pages/Demographics/Components.tsx/JopayGrowth";
-import { KycVerification } from "../pages/Demographics/Components.tsx/KycVerification";
-import { pendingrequest } from "../pages/Demographics/Components.tsx/Pendingrequest";
-import { Reject } from "../pages/Demographics/Components.tsx/Rejact";
+import { Approve } from "../pages/Demographics/Components/Approve";
+import { Demograph } from "../pages/Demographics/Components/Demograph";
+import { DemoUserHistory } from "../pages/Demographics/Components/DemoUserHistory";
+import { JopayGrowth } from "../pages/Demographics/Components/JopayGrowth";
+import { KycVerification } from "../pages/Demographics/Components/KycVerification";
+import { pendingrequest } from "../pages/Demographics/Components/Pendingrequest";
+import { Reject } from "../pages/Demographics/Components/Rejact";
 import { Demographics } from "../pages/Demographics/Demographics";
 import { AddBusBin } from "../pages/GenerateCupon/Components/AddBusBin";
 import { AddCupon } from "../pages/GenerateCupon/Components/AddCupon";
@@ -52,71 +51,59 @@ import { UserSendMoney } from "../pages/Wallet/Components.tsx/UserSendMoney";
 import { Withdrawl } from "../pages/Wallet/Components.tsx/Withdrawl";
 import { Wallet } from "../pages/Wallet/Wallet";
 
-
-
-
 const routes: { path: string; Element: () => JSX.Element }[] = [
-
-  {path: "/demographics" , Element: Demographics},
-  {path: "/wallet" , Element:Wallet},
-  {path:"/demograph" , Element: Demograph},
-  {path:"/demo-user-history", Element: DemoUserHistory},
-  {path:"/jopay-growth", Element: JopayGrowth},
-  {path:"/kyc-verification", Element: KycVerification},
-  {path:"/pending-request", Element: pendingrequest},
-  {path:"/approve", Element: Approve},
-  {path:"/reject", Element: Reject},
-  {path:"/my-transaction", Element: Mytransaction},
-  {path:"/wallet-withdrawl", Element: Withdrawl},
-  {path:"/send-money", Element:SendMoney},
-  {path:"/user-send-money", Element:UserSendMoney},
-  {path:"/delegate-task", Element: DelegateTask},
-  {path:"/direct-support",Element: DirectSupport },
-  {path:"/piolts-and-co-piolts", Element: PioltsAndCopiolts},
-  {path:"/direct-support-chat", Element: DirectSupportChat},
-  {path:"/chat-help", Element:ChatHelp},
-  {path:"bus-company-wallet", Element: BusCompanyWallet},
-  {path:"/customer-support", Element: CustomerSupport},
-  {path:"/blocking-report", Element: BlockingReport},
-  {path:"/user-blocking-report", Element: UserBlockingReport},
-  {path:"/monthly-chart", Element: MonthlyChart},
-  {path:"/add-bus-company", Element: AddBusCompany},
-  {path:"/add-new-bus-company", Element: AddNewBusCompany},
-  {path:"/deleted-successfully", Element: DeletedSuccessfully},
-  {path:"/bus-company-list", Element: BusCompanyList},
-  {path:"/bin", Element: Bin},
-  {path:"/generate-cupon", Element: GenerateCupon},
-  {path:"/add-cupon", Element: AddCupon},
-  {path:"/remove-cupon", Element: RemoveCupon},
-  {path:"/cupon-history", Element: CuponHistory},
-  {path:"/add-offer", Element: AddOffer},
-  {path:"/remove-offer", Element: RemoveOffer},
-  {path:"/offer-history", Element: OfferHistory},
-  {path:"add-bus-bin", Element: AddBusBin},
-  {path:"/jogoo-image", Element: JogooImages},
-  {path:"/add-images", Element: AddImages},
-  {path:"/view-images", Element: ViewImages},
-  {path:"/refunding", Element: Refunding},
-  {path:"/time-shedule", Element: TimeSchedule},
-  {path:"/new-time-schedule", Element: NewTimeSchedule},
-  {path:"/trips-list", Element: TripsList},
-  {path:"/ola-bus-company", Element: OlaBusCompany},
-  {path:"/ola-bus-company-trip-list", Element: OlaBusCompanyTripList},
-  {path:"schedule-send", Element:ScheduleSend},
-  {path:"/bus-transaction", Element: BusTransaction},
-  {path:"/trips-history", Element:TripsHistory},
-  {path:"/place-ads", Element: PlaceAds},
-  {path:"/token", Element: Token},
-  {path:"/profile", Element: Prof},
-  {path:"/view-time-schedule", Element: ViewTimeSchedule},
-  
-  
- 
-  
- 
-
-  
-
+  { path: "/demographics", Element: Demographics },
+  { path: "/wallet", Element: Wallet },
+  { path: "/demograph", Element: Demograph },
+  { path: "/demo-user-history", Element: DemoUserHistory },
+  { path: "/jopay-growth", Element: JopayGrowth },
+  { path: "/kyc-verification", Element: KycVerification },
+  { path: "/pending-request", Element: pendingrequest },
+  { path: "/approve", Element: Approve },
+  { path: "/reject", Element: Reject },
+  { path: "/my-transaction", Element: Mytransaction },
+  { path: "/wallet-withdrawl", Element: Withdrawl },
+  { path: "/send-money", Element: SendMoney },
+  { path: "/user-send-money", Element: UserSendMoney },
+  { path: "/delegate-task", Element: DelegateTask },
+  { path: "/direct-support", Element: DirectSupport },
+  { path: "/piolts-and-co-piolts", Element: PioltsAndCopiolts },
+  { path: "/direct-support-chat", Element: DirectSupportChat },
+  { path: "/chat-help", Element: ChatHelp },
+  { path: "bus-company-wallet", Element: BusCompanyWallet },
+  { path: "/customer-support", Element: CustomerSupport },
+  { path: "/blocking-report", Element: BlockingReport },
+  { path: "/user-blocking-report", Element: UserBlockingReport },
+  { path: "/monthly-chart", Element: MonthlyChart },
+  { path: "/add-bus-company", Element: AddBusCompany },
+  { path: "/add-new-bus-company", Element: AddNewBusCompany },
+  { path: "/deleted-successfully", Element: DeletedSuccessfully },
+  { path: "/bus-company-list", Element: BusCompanyList },
+  { path: "/bin", Element: Bin },
+  { path: "/generate-cupon", Element: GenerateCupon },
+  { path: "/add-cupon", Element: AddCupon },
+  { path: "/remove-cupon", Element: RemoveCupon },
+  { path: "/cupon-history", Element: CuponHistory },
+  { path: "/add-offer", Element: AddOffer },
+  { path: "/remove-offer", Element: RemoveOffer },
+  { path: "/offer-history", Element: OfferHistory },
+  { path: "add-bus-bin", Element: AddBusBin },
+  { path: "/jogoo-image", Element: JogooImages },
+  { path: "/add-images", Element: AddImages },
+  { path: "/view-images", Element: ViewImages },
+  { path: "/refunding", Element: Refunding },
+  { path: "/time-shedule", Element: TimeSchedule },
+  { path: "/new-time-schedule", Element: NewTimeSchedule },
+  { path: "/trips-list", Element: TripsList },
+  { path: "/ola-bus-company", Element: OlaBusCompany },
+  { path: "/ola-bus-company-trip-list", Element: OlaBusCompanyTripList },
+  { path: "schedule-send", Element: ScheduleSend },
+  { path: "/bus-transaction", Element: BusTransaction },
+  { path: "/trips-history", Element: TripsHistory },
+  { path: "/place-ads", Element: PlaceAds },
+  { path: "/token", Element: Token },
+  { path: "/profile", Element: Prof },
+  { path: "/view-time-schedule", Element: ViewTimeSchedule },
 ];
 
 export default routes;

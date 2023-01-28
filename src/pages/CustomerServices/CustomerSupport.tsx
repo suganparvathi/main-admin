@@ -1,7 +1,6 @@
-import react from 'react'
+import react, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import BackButton from '../../components/BackButton'
-import Notifcation from '../../components/Notification'
 import SearchLogin from '../../components/SearchLogin'
 import {ImUsers} from "react-icons/im";
 import { FiFilter } from "react-icons/fi";
@@ -27,18 +26,19 @@ const paid = [
     { name : "Unpaid"},
     
 ] 
-const data = [
+const Filter = [
     {name:"Data"},
     {name:"year"},
     {name:"Recent"},
     {name:"Ticket Id"},
     {name:"Montly"},
     {name:"paid Customer"},
-    {name:""},
+    {name:"unpaid"},
 ]
 
 
 export const CustomerSupport = () => {
+    const[state,setState]=useState<string>();
     return (
         <div className='text-black  flex-col flex w-full h-screen'>
             <div className='flex flex-row w-full  h-[10%] '>
@@ -56,19 +56,20 @@ export const CustomerSupport = () => {
                     <div className='w-[20%] h-full flex justify-end items-center flex-row'>
                         <p className='font-semibold text-quaternary text-lg'>Filter By</p><FiFilter className="ml-2 text-quaternary text-2xl"/>
                     </div>
-                    <div className=' w-full h-full flex flex-col justify-start'>
-                  
-                        <div className='w-full h-[50%] font-semibold text-green flex flex-row'> 
-                        <button className='w-[20%] h-[80%] border-green m-2 flex items-center justify-center rounded-full border'><p>Data</p></button>
-                        <button className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Year</p></button>
-                        <button className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Recent</p></button>
-                        <button className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Ticket Id</p></button>
-                        </div>
-                        <div className='w-full h-[50%]  text-green  font-semibold flex flex-row'>
-                        <button className='w-[20%] h-[80%] border-green  m-2 items-center flex justify-center rounded-full border'><p>Montly</p></button>
-                        <button className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Paid Customer</p></button>
-                        <button className='w-[20%] h-[80%] border-green  m-2 flex items-center justify-center rounded-full border'><p>Unpaid</p></button>
-                        </div>
+                    <div className=' w-[75%] h-full grid grid-cols-4  flex flex-col justify-start'>
+                        {
+                            Filter.map((a) =>(
+                    <button 
+                    onClick={()=>{
+                        console.log(a.name,"CustomerSupport")
+                        setState(a.name)
+                    }
+                    }
+                    className={`w-[90%] h-[80%] border-green font-semibold  m-2 flex items-center justify-center rounded-full border
+                        ${a.name===state? "bg-green text-black" : "bg-white text-green"}`}><p>{a.name}</p></button>
+                            ))
+                        }                 
+                       
                     </div>
                     </div>
                 <div className='w-[95%]  h-[70%] flex  items-center  flex-col justify-center '>

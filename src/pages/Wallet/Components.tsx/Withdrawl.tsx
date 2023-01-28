@@ -1,13 +1,8 @@
 import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
-import Notifcation from "../../../components/Notification";
 import BackButton from "../../../components/BackButton";
 import Searchbar from "../../../components/Searchbar";
 import Entervalue from "../../../components/Entervalue";
-import CustomForm from "../../../components/Form";
-import Input from "../../../components/Input";
-import { Form } from "formik";
-import * as yup from "yup";
 import Overlay from "../../../components/Overlay";
 
 
@@ -104,8 +99,8 @@ export const Withdrawl = () => {
                <div className="w-full h-[20%] flex justify-center">
                 <button 
                 onClick={colorButton}
-                className={`w-[8%] h-[40%] border-2 text-black  border-white text-xl rounded-full 
-                ${  color? "bg-white" : "bg-green"}`}>Send</button>
+                className={`w-[10%] h-[40%] border-2 border-white text-xl rounded-full 
+                ${  color? "bg-green text-white" : "bg-white text-black"}`}>Withdraw</button>
                </div>
         
           </div>

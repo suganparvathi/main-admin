@@ -3,7 +3,6 @@ import {RiDownload2Fill } from "react-icons/ri";
 import {FaEye } from "react-icons/fa";
 import {TiTick } from "react-icons/ti";
 import {AiOutlineClose } from "react-icons/ai";
-import Notifcation from "../../../components/Notification";
 import BackButton from "../../../components/BackButton";
 import Searchbar from "../../../components/Searchbar";
 import { Link } from 'react-router-dom';
@@ -15,16 +14,11 @@ export const pendingrequest = () => {
 return ( 
 
     <div className="w-screen h-screen overflow-hidden flex">
-    <div className="w-[100%] flex-col items-center bg-secondary overflow-hidden h-[100%] flex">
+    <div className="w-[100%] flex-col items-center bg-white overflow-hidden h-[100%] flex">
                         {/* top-div */}
-     <div className="flex  w-full h-[12%] ">
-        <div className="w-full h-full flex items-center ">
-          <BackButton/>
-        </div>
-        <div className="w-full h-full flex items-center">
-          <Notifcation/>
-        </div>
-      </div>
+     <div className="flex  w-full h-[5%] items-center ">
+       <BackButton/>
+    </div>
                        {/* center div */}
       <div className="w-full h-full flex justify-center ">
         <div className="mt-4 w-[90%] h-full bg-quaternary rounded-xl">
@@ -48,23 +42,21 @@ return (
                 </div>
             </div>
             <div className="flex justify-center items-center  h-full w-[40%]">
-                <div className="w-[60%] h-[70%] flex text-white flex-col items-center">
+                <div className="w-[60%] h-[75%] flex text-white flex-col items-center">
                     <p className="text-3xl font-bold"> Pending Request</p>
                     {/* <div className="w-full h-[50%] justify-center items-center"> */}
-                    <button className="w-[60%] mt-8 h-[14%] text-2xl font-bold flex items-center pl-3  rounded-2xl bg-gn">
+                    <Link to="/approve" className="w-[60%] mt-8 h-[14%] text-2xl font-bold flex items-center pl-3  rounded-2xl bg-gn">
                        <p className="flex justify-start w-full h-full items-center">Approve</p> 
-                       <Link to="/approve">
-                       <p className="flex justify-end w-full -ml-2 h-full justify-end items-center text-5xl "><TiTick/></p>
+                        <p className="flex justify-end w-full -ml-2 h-full justify-end items-center text-5xl "><TiTick/></p>
                        </Link>
-                    </button>
+                   
                    
                     {/* </div> */}
-                    <div className="w-[60%] mt-8 h-[14%] text-2xl font-bold flex items-center  pl-3 rounded-2xl bg-redText">
+                       <Link to="/reject" className="w-[60%] mt-8 h-[14%] text-2xl font-bold flex items-center  pl-3 rounded-2xl bg-redText">
                         <p className="flex flex-start w-full h-full items-center">Reject </p>
-                        <Link to="/reject">
                         <p className="flex flex-end w-full -ml-2 h-full justify-end items-center  text-5xl"> <AiOutlineClose/> </p>
                         </Link>
-                    </div>
+                    {/* </div> */}
                 </div>
             </div>
           </div>

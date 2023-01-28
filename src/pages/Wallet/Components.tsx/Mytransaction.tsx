@@ -9,32 +9,35 @@ import { AiFillCaretDown } from "react-icons/ai";
 import { AiFillCaretUp } from "react-icons/ai";
 import Overlay from "../../../components/Overlay";
 import Searchbar from "../../../components/Searchbar";
+import { Rose } from "./Rose";
+import { You } from "./You";
+import { Jopay } from "./Jopay";
 
- interface TransactionProps{
-   Members?: string
-  }
+ 
 
 const Members = [
   { name : "Rose",
     details  : "Allowance",
     amount : "$42",
     date : "Date",
-    img :  <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[70px] h-[60px]"/>,
-    icon: <AiFillCaretUp className="text-redText"/>
+    img :  "https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" ,
+    icon: <AiFillCaretUp className="text-redText"/>,
+    value: "rose"
    
     },
   { name : "Jopay Wallet",
     details : "Payment",
     amount : "$2000",
-    img: <img src="https://tse1.mm.bing.net/th?id=OIP.ysdd9pBlwnNdnxQoC8y4KQHaHa&pid=Api&P=0" className="rounded-full w-[70px] h-[70px]"/>,
-    icon: <AiFillCaretDown className="text-greenText"/>
+    img: "https://tse1.mm.bing.net/th?id=OIP.ysdd9pBlwnNdnxQoC8y4KQHaHa&pid=Api&P=0",
+    icon: <AiFillCaretDown className="text-greenText"/>,
+    value: "jopay"
 },
   { name : "You",
   details : "Withdrawn",
   amount : "$5000",
-  img: <img src="https://www.venmond.com/demo/vendroid/img/avatar/big.jpg" className="rounded-full w-[70px] h-[70px]"/>,
-  icon: <AiFillCaretDown className="text-greenText"/>
-
+  img: "https://www.venmond.com/demo/vendroid/img/avatar/big.jpg",
+  icon: <AiFillCaretDown className="text-greenText"/>,
+  value: "you"
 },
  ]
  
@@ -50,55 +53,55 @@ const Filter=[
 
 export const Mytransaction = () => {
 
-  const[state, setState] =useState<string>();
+  const[state, setState] =useState<string>()  
 
-  const [members, setMembers] = useState("5")
-  const handleChange = (e: any) => {
-   
-        const a = e.target.value
-        setMembers(a)        
-   
-     console.log(a);
-}
+  const [color, setcolor] = useState<boolean>(true)
+
+  const [color1, setcolor1] = useState<boolean>(true)
 
 
-//   const [members, setmembers] = useState(true)
-//  const [Transaction, setTransaction] = useState<TransactionProps>({
-//      members: "",
-   
-    
-//  })
-//  console.log(members,"hai");
- const [color, setcolor] = useState(true)
-// console.log(color,"bluee");
-const [color1, setcolor1] = useState(true)
-// console.log(color1,"red");
+  const [showMoreOptions, setShowMoreOptions] = useState(false)
+  const[name, setName] =useState<string>()
+  console.log(name);
 
-//   const [showMoreOptions, setShowMoreOptions] = useState(false);
+
   
 
-//     const handleShowOptions = () => {
-//       setShowMoreOptions(!showMoreOptions);
+    const handleShowOptions = () => {
+      setShowMoreOptions(!showMoreOptions);
+     
       
-//      }
-//      console.log(showMoreOptions,"haiiii");
+     };
 
+     const [showType, setShowType] = useState("all");
+
+     const renderNotificationTypes = useCallback(() => {
+      switch (showType) {
+        case "rose":
+          return <Rose/>;
+        case "jopay":
+          return <Jopay/>;
+          case "you":
+            return <You/>;
+        default:
+          return null;
+      }
+    }, [showType]);
     
 
   return (
     <div className="relative">
-        {/* {showMoreOptions && (
-           <>
-      <div className="absolute z-10">
+        {showMoreOptions && (
+           <> 
+       <div className="absolute z-10">
       <Overlay onClick={handleShowOptions} />
       </div> 
-      <div className="absolute w-[70%] h-full flex justify-center">
-        <div className="w-[60%] h-full flex mt-10 justify-center items-center">
-          <div className="w-[80%] h-[70%] rounded-3xl z-20 bg-opacity-30 backdrop-blur bg-[#2A2A2B]">hi</div>
-        </div>
-
-      </div>
-       </>)} */}
+     
+     <div className="absolute w-full h-full flex justify-center">
+       {renderNotificationTypes()}
+        
+       </div>
+        </>)} 
     <div className="w-screen h-screen overflow-hidden flex">
       <div className="w-[100%] flex-col items-center bg-white overflow-hidden h-[100%] flex">
         {/* top-div */}
@@ -106,9 +109,7 @@ const [color1, setcolor1] = useState(true)
           <div className="w-full h-full flex items-center ">
             <BackButton />
           </div>
-          {/* <div className="w-full h-full flex items-center">
-            <Notifcation />
-          </div> */}
+         
         </div>
         {/* center div */}
         <div className="w-full h-full flex justify-center ">
@@ -142,19 +143,24 @@ const [color1, setcolor1] = useState(true)
             </div> 
             <div className="flex flex-row items-center text-white w-full h-[60%]">
             <div className="h-full w-[75%]">
-            {members.map((data) => (
+            {Members.map((data) => (
             <div className="w-full h-[20%]  mt-6 flex flex-row">
            
-            <div className=" w-[50%] h-full flex   flex-start text-xl font-bold text-white">
-              <div className="w-[70px]  ml-4"> {data.img}</div>
+            <div className=" w-[50%] h-full flex   flex-start text-xl font-bold text-white"onClick={ handleShowOptions}>
+              <img src ={data.img} alt="" className="w-[70px] cursor-pointer h-[70px] rounded-full ml-4" 
+               onClick={ ()=>{
+                console.log(data.name,"members")
+                setName(data.name)
+                setShowType(data.value)
+               }}/> 
                <div className="ml-6 mt-2">
-                    <p>{e.name}</p>
-                    <p className="text-[14px] font-normal">{e.details}</p>
+                    <p>{data.name}</p>
+                    <p className="text-[14px] font-normal">{data.details}</p>
                 </div>
             </div>
             <div className="w-[30%] flex items-center  text-2xl font-bold">
-              <div className="w-[40%] h-full flex justify-end items-center">  {e.amount} </div>
-              <div className="text-[30px] ml-4">{e.icon}</div>  
+              <div className="w-[40%] h-full flex justify-end items-center">  {data.amount} </div>
+              <div className="text-[30px] ml-4">{data.icon}</div>  
             </div>
             <div className="flex flex-end w-[20%] items-center h-full text-white">
               <div>

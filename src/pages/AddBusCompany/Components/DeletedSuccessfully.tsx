@@ -14,7 +14,7 @@ export const DeletedSuccessfully = () => {
 return ( 
 
     <div className="w-screen h-screen overflow-hidden flex">
-    <div className="w-[100%] flex-col items-center bg-secondary overflow-hidden h-[100%] flex">
+    <div className="w-[100%] flex-col items-center bg-white overflow-hidden h-[100%] flex">
                         {/* top-div */}
      <div className="flex  w-full h-[12%] ">
         <div className="w-full h-full flex items-center ">

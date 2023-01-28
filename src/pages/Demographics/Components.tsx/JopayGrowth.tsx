@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from "react";
-import Notifcation from "../../../components/Notification";
 import BackButton from "../../../components/BackButton";
 import { PieChart } from 'react-minimal-pie-chart'
 import { BsSquareFill } from "react-icons/bs";
@@ -22,9 +21,9 @@ return (
       <div className="w-[100%] flex-col items-center bg-white  overflow-hidden h-[100%] flex">
                           {/* top-div */}
        <div className="flex  w-full h-[5%]">
-          {/* <div className="w-full h-full flex items-center "> */}
+
             <BackButton/>
-          {/* </div> */}
+         
         </div>
                          {/* center div */}
         <div className="w-full  h-full flex  justify-center ">
@@ -108,9 +107,7 @@ return (
                                 ))}
                             </select>
 
-                {/* <div className="wfull font-semibold  h-[20%]">
-                  <p className="flex flex-row">Sort By : Months <span><FaAngleDown className="mt-1 ml-2"/></span></p>
-                </div> */}
+              
                 <div className="w-full mt-10 h-[60%] "><PieChart
                     lineWidth={20}
                     paddingAngle={0}
@@ -129,14 +126,7 @@ return (
             </div>
             
             </div>
-
-        
-
-
-
-
-
-          </div>
+            </div>
 
         </div>
       </div>

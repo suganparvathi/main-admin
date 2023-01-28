@@ -3,7 +3,6 @@ import {RiDownload2Fill } from "react-icons/ri";
 import {FaEye } from "react-icons/fa";
 import {TiTick } from "react-icons/ti";
 import {AiOutlineClose } from "react-icons/ai";
-import Notifcation from "../../../components/Notification";
 import BackButton from "../../../components/BackButton";
 import Searchbar from "../../../components/Searchbar";
 
@@ -20,9 +19,7 @@ return (
         <div className="w-full h-full flex items-center ">
           <BackButton/>
         </div>
-        {/* <div className="w-full h-full flex items-center">
-          <Notifcation/>
-        </div> */}
+       
       </div>
                        {/* center div */}
       <div className="w-full h-full flex justify-center ">

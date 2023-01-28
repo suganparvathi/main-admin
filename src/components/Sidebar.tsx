@@ -66,8 +66,8 @@ export const Sidebar = () => {
           <div className='flex flex-row font-thin p-3'><TbArrowsRandom className='text-2xl'/><p className='ml-2'><Link to="/refunding">Refunding</Link></p></div>
           <div className='flex flex-row font-thin p-3'><FaPenSquare className='text-2xl'/><p className='ml-2'><Link to="/trips-history">Trips History</Link></p></div>
           <div className='flex flex-row font-thin p-3'><FaBuysellads className=' text-2xl'/><p className='ml-2'><Link to="/place-ads">Place Ads</Link></p></div>
-          <div className='flex flex-row font-thin p-3'><FaIdCard className=' text-2xl'/><p className='ml-2'><Link to="/profile">Profile</Link></p></div>
-          <div className='flex flex-row cursor-pointer font-thin p-3'><BiLogOut className=' text-2xl'/><p className='ml-2'>Logout</p></div>
+          <div className='flex flex-row font-thin p-3'><FaIdCard className=' text-2xl'/><p className='ml-2'><Link to="/prof">Profile</Link></p></div>
+          <div className='flex flex-row cursor-pointer font-thin p-3'><BiLogOut className=' text-2xl'/><Link to="/gene-cupon"><p className='ml-2'>Logout</p></Link></div>
         </div>
         </div>
        {/* </container> */}

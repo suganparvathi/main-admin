@@ -1,54 +1,47 @@
 import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
-import Notifcation from "../../../components/Notification";
 import BackButton from "../../../components/BackButton";
 import Searchbar from "../../../components/Searchbar";
-import Entervalue from "../../../components/Entervalue";
-import CustomForm from "../../../components/Form";
-import Input from "../../../components/Input";
-import { Form } from "formik";
-import * as yup from "yup";
-import { Col, Row } from 'antd';
 
-const productCategories = [
+const Categories = [
     {
-        image:  <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[90px] h-[90px]"/>,
+        image:  "https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" ,
         name : 'Albert'
     },
     {
-        image:  <img src="https://tse3.mm.bing.net/th?id=OIP.MTZ1p0jGlY1kcOMHTDqGOwHaJz&pid=Api&P=0" className="rounded-full w-[90px] h-[90px]"/>,
+        image:  "https://tse3.mm.bing.net/th?id=OIP.MTZ1p0jGlY1kcOMHTDqGOwHaJz&pid=Api&P=0",
         name : 'Amy'
     },
     {
-        image:  <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[90px] h-[90px]"/>,
+        image: "https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg",
         name : 'Ellie'
     },
     {
-        image:  <img src="https://tse3.mm.bing.net/th?id=OIP.MTZ1p0jGlY1kcOMHTDqGOwHaJz&pid=Api&P=0" className="rounded-full w-[90px] h-[90px]"/>,
+        image:  "https://tse3.mm.bing.net/th?id=OIP.MTZ1p0jGlY1kcOMHTDqGOwHaJz&pid=Api&P=0",
         name : 'Mary'
     },
     {
-        image:  <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[90px] h-[90px]"/>,
+        image:  "https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg",
         name : 'Bruce'
     },
     {
-        image:  <img src="https://tse3.mm.bing.net/th?id=OIP.MTZ1p0jGlY1kcOMHTDqGOwHaJz&pid=Api&P=0" className="rounded-full w-[90px] h-[90px]"/>,
+        image:  "https://tse3.mm.bing.net/th?id=OIP.MTZ1p0jGlY1kcOMHTDqGOwHaJz&pid=Api&P=0",
         name : ' Leo'
     },
     {
-        image:  <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[90px] h-[90px]"/>,
+        image:  "https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg",
         name : 'Annie'
     },
     {
-        image:  <img src="https://www.attractivepartners.co.uk/wp-content/uploads/2017/06/profile.jpg" className="rounded-full w-[90px] h-[90px]"/>,
+        image:  "https://www.attractivepartners.co.uk/wp-content/uploads/2017/06/profile.jpg",
         name : 'Clara'
     },
     {
-        image:  <img src="https://tse3.mm.bing.net/th?id=OIP.P2ixwd8Oykw_Gaqv98RR2QHaE8&pid=Api&P=0" className="rounded-full w-[90px] h-[90px]"/>,
+        image: "https://tse3.mm.bing.net/th?id=OIP.P2ixwd8Oykw_Gaqv98RR2QHaE8&pid=Api&P=0",
         name : 'Milo'
     },
     {
-        image:  <img src="https://tse4.mm.bing.net/th?id=OIP.XSZAFm-5JI7nriDLwZqRQQHaE7&pid=Api&P=0" className="rounded-full w-[90px] h-[90px]"/>,
+        image: "https://tse4.mm.bing.net/th?id=OIP.XSZAFm-5JI7nriDLwZqRQQHaE7&pid=Api&P=0",
         name : 'Kristin'
     }
    
@@ -78,26 +71,15 @@ export const SendMoney = () => {
             </div>
             <div className="w-full h-full flex justify-center   ">
                 <div className="w-[90%] h-[70%] flex justify-center  mt-10 grid grid-cols-5 gap-2.5  ">
-                {productCategories.map((productCategories ) => (
-
-
-               
-                    <div className=" w-full flex flex-col  text-xl text-white  flex justify-center items-center h-full">
-
-                    <p><Link to="/user-send-money"> {productCategories.image} </Link></p>
-                     <p>{productCategories.name}</p>
-
-
-                    </div>
-                       ))}
-                   
-                   
+                {Categories.map((Categories ) => (
+                <div className=" w-full flex flex-col  text-xl text-white  flex justify-center items-center h-full">
+                    <Link to="/user-send-money">  <img src={Categories.image} className="rounded-full w-[90px] h-[90px]"/></Link>
+                     <p className="mt-2 text-2xl">{Categories.name}</p>
                 </div>
-                
+                       ))}
+                </div>
             </div>
-              
-       
-      </div>
+        </div>
       </div>
       </div>
     </div>

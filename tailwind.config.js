@@ -21,7 +21,8 @@ module.exports = {
         gy:"#B2DF8A",
          bl:"#1F78B4",
          g:"#767676",
-         bl:" #3752B4"
+         bl:" #3752B4",
+         ww:"#7338E2",
 
 
         
@@ -34,6 +35,8 @@ module.exports = {
         "driver-cover": "url(./assets/images/driver-cover.svg)",
         "add-driver-cover": "url(./assets/images/add-driver.png)",
         "wallet-profile": "url(./assets/images/wallet.png)",
+        "auto": "url(./assets/images/Icon ionic-ios-wallet.png)",
+         "logo": "url(./assets/images/Icon ionic-md-wallet.png)",
       },
       screens: {
         "mb" : "500px"

@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from "react";
-import Notifcation from "../../../components/Notification";
 import BackButton from "../../../components/BackButton";
 import Searchbar from "../../../components/Searchbar";
 import { FiFilter } from "react-icons/fi";
@@ -9,7 +8,8 @@ import { Link } from "react-router-dom";
 import Overlay from "../../../components/Overlay";
 import {MdDeleteForever } from "react-icons/md";
 import {FaEye } from "react-icons/fa";
-import {TbArrowsRandom} from 'react-icons/tb'
+import {TbArrowsRandom} from 'react-icons/tb';
+import { BinOlaBus } from "./BinOlaBus";
 
 
 const members = [
@@ -38,6 +38,14 @@ const [showMoreOptions, setShowMoreOptions] = useState(false);
    }
    console.log(showMoreOptions,"sugan");
 
+   const [showMoreOptions1, setShowMoreOptions1] = useState(false);
+  const handleShowOptions1 = () => {
+    setShowMoreOptions1(!showMoreOptions1);
+    }
+    const [showMoreOptions2, setShowMoreOptions2] = useState(false);
+  const handleShowOptions2 = () => {
+    setShowMoreOptions2(!showMoreOptions2);
+    }
 
 
 return ( 
@@ -47,10 +55,10 @@ return (
            <div className="absolute z-10 bg-red-200">
           <Overlay onClick={handleShowOptions} />
          </div>
-    <div className='absolute flex mt-14 justify-center items-center w-full h-full'>
-     <div className='bg-black z-20 flex drop-shadow-2xl  flex-col text-xl  rounded-3xl w-[70%] h-[75%]'>
+    <div className='absolute flex mt-14 justify-center items-center w-full h-[80%]'>
+     <div className='bg-black z-20 flex drop-shadow-2xl  flex-col text-xl  rounded-3xl w-[70%] h-[90%]'>
       <div className="w-full h-[40%] flex flex-col text-white justify-center items-center">
-      <div className='rounded-full  drop-shadow-xl bg-white justify-center flex items-center w-[12%] h-[60%]'>
+      <div className='rounded-full  drop-shadow-xl bg-white justify-center flex items-center w-[8%] h-[45%]'>
       <FaBus className="text-4xl text-quaternary"/>
       </div>
       <p className="font-bold text-4xl mt-2">OLA Bus</p>
@@ -67,13 +75,22 @@ return (
       </div></div></div>
      </>
 )}
-
-{/* {showMoreOptions && (
+{showMoreOptions2 && (
            <>
            <div className="absolute z-10 ">
-          <Overlay onClick={handleShowOptions} />
+          <Overlay onClick={handleShowOptions2} />
          </div>
-     <div className='absolute flex mt-14 justify-center items-center w-full h-full'>
+     <div className='absolute flex  justify-center items-center w-full h-full'>
+     <BinOlaBus/>
+    </div>
+     </>)}
+
+       {showMoreOptions1 && (
+           <>
+           <div className="absolute z-10 bg-red-200">
+          <Overlay onClick={handleShowOptions1} />
+         </div>
+    <div className='absolute flex mt-14 justify-center items-center w-full h-full'>
      <div className='bg-black z-20 flex drop-shadow-2xl  flex-col text-xl  rounded-3xl w-[60%] h-[65%]'>
       <div className="w-full h-[40%] flex flex-col text-white justify-center items-center">
       <div className='rounded-full  drop-shadow-xl bg-white justify-center flex items-center w-[12%] h-[60%]'>
@@ -81,14 +98,17 @@ return (
       </div>
       <p className="font-bold text-4xl mt-2">OLA Bus</p>
       </div>
-      <div className="w-full text-white font-bold text-4xl h-[25%] flex justify-center items-center">
-       knsjdhasuidhuash
+      <div className="w-full text-white font-light text-4xl h-[25%] flex justify-center items-center">
+        Are You Sure You Want To Restore
       </div>
       <div className="w-full flex flex-row justify-evenly items-center text-4xl font-bold text-white h-[20%]">
+        
         <p className=""><Link to="/deleted-successfully">Yes</Link></p>
         <p className="">No</p>
+
       </div></div></div>
-     </>)} */}
+     </>
+)}
 
 
 
@@ -97,11 +117,8 @@ return (
       <div className="w-[100%] flex-col items-center bg-white overflow-hidden h-[100%] flex">
                           {/* top-div */}
        <div className="flex  w-full h-[12%] ">
-        
-            <BackButton/>
-        
+          <BackButton/>
           <div className="text-black text-4xl flex justify-center items-center w-[90%] h-full mt-6 font-bold">Bin</div>
-         
         </div>
                          {/* center div */}
         <div className="w-full h-full flex justify-center ">
@@ -121,7 +138,6 @@ return (
                   )) 
                 }
                   </div> 
-                  
             </div>
             <div className="w-full h-full flex flex-col">
             {members.map(({name}) => (
@@ -136,21 +152,18 @@ return (
                 </div>
                 <div className="flex flex-end w-[10%] items-center h-full text-white">
             <div className=" flex flex-row font-bold  text-3xl">
-              <p className="mr-2"><TbArrowsRandom/></p>
-              <p className="mr-2"> < MdDeleteForever onClick={ handleShowOptions}/> </p>
-              <p className="mr-2"> <FaEye onClick={ handleShowOptions}/> </p>
+              <p className="mr-2"><TbArrowsRandom onClick={ handleShowOptions1}/></p>
+              <p className="mr-2"> < MdDeleteForever onClick={ handleShowOptions} /> </p>
+              <p className="mr-2"> <FaEye onClick={ handleShowOptions2} /> </p>
              </div>
          </div>
           </div>
           ))}
-             
-            </div>
+             </div>
           </div>
         </div>
       </div>
     </div>
     </div>
-        
-       
-        )
+          )
       }  

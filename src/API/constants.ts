@@ -3,4 +3,7 @@ export const constants: any = {
     login: "login",
     signUp: "signup",
   },
+  userDetails: {
+    getUsersCount: "getAllCounts",
+  },
 };

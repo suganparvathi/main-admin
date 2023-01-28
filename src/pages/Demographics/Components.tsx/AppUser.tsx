@@ -3,6 +3,8 @@ import { FiFilter } from "react-icons/fi";
 import Overlay from "../../../components/Overlay";
 import { DemoUserHistory } from "./DemoUserHistory";
 
+
+
 const members = [
     { name : "Harsha"},
     { name : "Muthu"},
@@ -40,9 +42,31 @@ export const AppUser =() => {
 const[state, setState]= useState<string>();
    
 
+const [showMoreOptions, setShowMoreOptions] = useState(false);
+  
 
+  const handleShowOptions = () => {
+    setShowMoreOptions(!showMoreOptions);
+    
+   }
 
     return(  
+//         <div className="relative">
+//         {showMoreOptions && (
+//      <>
+//      <div className="absolute z-10">
+//     <Overlay onClick={handleShowOptions} />
+//    </div>
+//         <div className="absolute w-full justify-center flex h-fulls">
+//           <div className="w-[45%] h-[60%] z-20 bg-black mt-20 rounded-2xl">
+             
+//           </div></div>
+
+//           </>
+
+
+// )}
+           
         <div>
             <div className="flex flex-col  absolute w-full mt-6 h-full">
                 <div className="flex flex-row items-center mt-2 text-white w-full h-[40%] font-semibold ">
@@ -68,7 +92,8 @@ const[state, setState]= useState<string>();
                     {members.map(({name}) => (
                     <div className='flex items-center justify-center ml-12 flex flex-col  w-[70%] h-full'>
                
-                        <div className="w-[50px]" > <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[50px] h-[50px]"/></div>
+                        <div className="w-[50px]" > <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" 
+                        className="rounded-full  w-[50px] h-[50px]"  /></div>
                         <p>{name}</p>
                 
                     </div>
@@ -78,7 +103,7 @@ const[state, setState]= useState<string>();
     </div>
    
     
-     </div>
+     {/* </div> */}
     //  </div>
 
     )

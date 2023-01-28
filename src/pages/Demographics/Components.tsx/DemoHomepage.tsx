@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from 'react-router-dom'
-// import routes from "../../data/routes";
 import { FaAngleDown } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
 import { IoMdNotificationsOutline } from "react-icons/io";
@@ -8,25 +7,12 @@ import { BsSearch } from "react-icons/bs";
 import WalletChart from "../../../components/WalletChart";
 import JopayVault from "../../../components/JopayVault";
 import JopayWallet from "../../../components/JopayWallet";
-import Notifcation from "../../../components/Notification";
-import * as yup from "yup";
-import axios from "axios";
-import CustomForm from "../../../components/Form";
-import Input from "../../../components/Input";
-import { Form } from "formik";
 
-const searchSchema = yup.object().shape({
-    search: yup.string(),
-  });
 
 
 const DemoHomepage = () => {
 
-    const handleSearch = (values: any) => {
-        console.log(values);
-      };
  
-
   return (
     <main className=" flex flex-col w-full h-full overflow-hidden ">
         {/* header */}
@@ -44,9 +30,7 @@ const DemoHomepage = () => {
                      
                 </div>
             </div>
-            {/* <div className="flex justify-end z-20 items-center w-full hh-full">
-               <Notifcation/>
-            </div> */}
+          
         </div>
         {/* center */}
         <div className="w-full flex flex-row  h-[35%] bg-secondary">

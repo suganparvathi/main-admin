@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from "react";
-import Notifcation from "../../../components/Notification";
 import BackButton from "../../../components/BackButton";
 import { Link } from "react-router-dom";
 import {FaAngleDown} from 'react-icons/fa';
@@ -19,6 +18,18 @@ export const NewTimeSchedule = () => {
     
    }
    console.log(showMoreOptions,"Timeschedule");
+
+   
+  const Time = [
+    {copilot: "AM"},
+    {copilot: "PM"},
+   
+]
+const Amount = [
+  {copilot: "*****"},
+  {copilot: "**"},
+ 
+]
 
 return ( 
   <div className='relative'>
@@ -55,8 +66,25 @@ return (
                 <div className="h-full w-[25%] flex justify-center text-white drop-shadow-2xl text-2xl font-light items-center">Refundable Amount</div>
             </div>
             <div className="w-full h-[15%] flex flex-row justify-center">
-            <div className="h-[50%] w-[20%] flex justify-end  rounded-full bg-white text-black items-center pr-2 text-2xl font-light "><FaAngleDown /></div>
-            <div className="h-[50%] w-[20%] flex ml-20 justify-end rounded-full items-center pr-2 bg-white text-black text-2xl font-light "><FaAngleDown/></div>
+            <div className="h-[50%] w-[20%] flex justify-end  rounded-full bg-white text-black items-center pr-2 text-2xl font-light ">
+              {/* <FaAngleDown /> */}
+              <select name="Driver" id="clicking" className='w-[30%] h-6 
+                            text-textblue  focus:outline-none'>
+                                <option ></option>
+                                {Time.map(({ copilot}) => (
+                                    <option className="" value={copilot}>{copilot}</option>
+                                ))}
+                            </select>
+              </div>
+            <div className="h-[50%] w-[20%] flex ml-20 justify-end rounded-full items-center pr-2 bg-white text-black text-2xl font-light ">
+            <select name="Driver" id="clicking" className='w-[30%] h-6 
+                            text-textblue  focus:outline-none'>
+                                <option ></option>
+                                {Amount.map(({ copilot}) => (
+                                    <option className="" value={copilot}>{copilot}</option>
+                                ))}
+                            </select>
+            </div>
             </div>
             <div className="flex justify-center w-full h-[14%]">
                 <button className="w-[12%] h-[75%] rounded-lg text-white text-3xl drop-shadow-2xl font-bold flex justify-center items-center bg-green">Save</button>

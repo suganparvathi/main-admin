@@ -55,7 +55,9 @@ return (
                 </div> 
                   <div className="flex flex-end w-[15%] h-[50%] ml-2 flex justify-center text-2xl items-center text-black rounded-3xl bg-white mr-2 ">Sort By<TiArrowUnsorted/></div>
             </div>
-            <div className="w-full h-full"><KycRequest/></div>
+            <div className="w-full h-full">
+              <KycRequest/>
+              </div>
           </div>
         </div>
       </div>

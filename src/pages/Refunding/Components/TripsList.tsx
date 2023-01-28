@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from "react";
-import Notifcation from "../../../components/Notification";
 import BackButton from "../../../components/BackButton";
 import Searchbar from "../../../components/Searchbar";
 import { FiFilter } from "react-icons/fi";

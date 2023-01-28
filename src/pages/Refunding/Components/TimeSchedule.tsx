@@ -1,10 +1,6 @@
 import React, { useCallback, useState } from "react";
-import Notifcation from "../../../components/Notification";
 import BackButton from "../../../components/BackButton";
 import { Link } from "react-router-dom";
-
-
-
 
 
 export const TimeSchedule = () => {

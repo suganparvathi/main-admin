@@ -13,8 +13,7 @@ export const Wallet = () => {
     <div className="w-[100%] flex-col items-center bg-white overflow-hidden h-[100%] flex">
     {/* top-div */}
      <div className="flex  w-full h-[5%] ">
-       
-          <BackButton/>
+        <BackButton/>
         </div>
        
       {/* center div */}
@@ -32,10 +31,10 @@ export const Wallet = () => {
             <div className='w-[40%]  text-white flex justify-center h-full'>
               <div className='w-full h-[80%] flex flex-col items-center'>
                 <div className=' w-full  items-center flex justify-center h-[50%]'>
-                <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[30%] h-[60%]" />
+                <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[30%] h-[60%]"/>
                 </div>
                 <div className='font-bold text-6xl'>Kate Wilson</div>
-                <div className='font-bold mt-12 text-5xl'>${walletBalc.balance.wallet} </div>
+                <div className='font-bold mt-12 text-5xl'>${walletBalc.balance.wallet}</div>
               </div>
             </div>
         </div>

@@ -15,10 +15,11 @@ const CustomForm = ({
   children,
 }: FormProps) => {
   return (
-    <Formik
+    <Formik className="relative"
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={onSubmit}
+      enableReinitialize={true}
     >
       {() => <Form>{children}</Form>}
     </Formik>

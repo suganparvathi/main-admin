@@ -14,8 +14,7 @@ export const Demograph = () => {
   return (
    
     <div className="w-screen h-screen overflow-hidden flex">
-    {/* <div className="w-[100%] flex-row overflow-hidden h-[100%] flex"> */}
-        <div className=" w-[18%]  flex flex-col h-full bg-white">
+      <div className=" w-[18%]  flex flex-col h-full bg-white">
           <div className='flex items-center  text-black w-full h-[5%] '>
              <BackButton/>
           </div>
@@ -27,7 +26,7 @@ export const Demograph = () => {
         <div className="w-[83%] h-full ">
               <DemoHomepage/>
           </div>
-    {/* </div> */}
+  
 
     </div>
   )

@@ -1,27 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Searchbar from '../../components/Searchbar'
-import Notifcation from '../../components/Notification'
 import BackButton from '../../components/BackButton'
 
 const members = [
     {
-        img: <img src="https://sp-images.summitpost.org/947006.jpg?auto=format&fit=max&h=800&ixlib=php-2.1.1&q=35&s=876696700800816d01e0d1eb31ce7ab0" className="rounded-full w-[70px] h-[70px]"/>,
+        img: "https://sp-images.summitpost.org/947006.jpg?auto=format&fit=max&h=800&ixlib=php-2.1.1&q=35&s=876696700800816d01e0d1eb31ce7ab0",
         name:"Martha",
       
       },
       {
-        img: <img src="https://yt3.ggpht.com/a/AATXAJzXiEdSCcKS1qvyGprSQuizIbCmuHfMgZ5p=s900-c-k-c0xffffffff-no-rj-mo" className="rounded-full w-[70px] h-[70px]"/>,
+        img: "https://yt3.ggpht.com/a/AATXAJzXiEdSCcKS1qvyGprSQuizIbCmuHfMgZ5p=s900-c-k-c0xffffffff-no-rj-mo",
         name:"Edward Shaw",
        
       },
       {
-        img: <img src="https://tse3.mm.bing.net/th?id=OIF.bCW4gKlSfNpc0lrkxPNIyg&pid=Api&P=0" className="rounded-full w-[70px] h-[70px]"/>,
+        img: "https://tse3.mm.bing.net/th?id=OIF.bCW4gKlSfNpc0lrkxPNIyg&pid=Api&P=0",
         name:"Michella",
        
       },
       {
-        img: <img src="https://sp-images.summitpost.org/1057780.jpg?auto=format&fit=max&h=800&ixlib=php-2.1.1&q=35&s=ce1d4b9c67f75459e13fcde3abf4fe3e" className="rounded-full w-[70px] h-[70px]"/>,
+        img: "https://sp-images.summitpost.org/1057780.jpg?auto=format&fit=max&h=800&ixlib=php-2.1.1&q=35&s=ce1d4b9c67f75459e13fcde3abf4fe3e",
         name:"sugan",
        
       },
@@ -51,7 +50,7 @@ export const BlockingReport = () => {
                          <div className='w-full py-4 px-2 h-full  flex flex-row '>
                          <div className='flex flex-col w-[10%]'>
                          <Link to="/user-blocking-report">
-                             <div>{data.img}</div>
+                             <img src={data.img} className='rounded-full w-[70px] h-[70px]'/>
                         </Link>
                         </div>
                          <div className='flex text-lg w-full pl-2 py-6'>

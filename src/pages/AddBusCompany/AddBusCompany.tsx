@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import BackButton from '../../components/BackButton';
-import Notifcation from '../../components/Notification';
+
 
 
 
@@ -11,11 +11,9 @@ function AddBusCompany(){
         <div className="w-[100%] flex-col items-center bg-white overflow-hidden h-[100%] flex">
                             {/* top-div */}
          <div className="flex  w-full h-[12%] ">
-           
-              <BackButton/>
-          
-            
-          </div>
+         <BackButton/>
+         </div>     
+             
                            {/* center div */}
           <div className="w-full h-full flex justify-center ">
               <div className="mt-4 w-[90%] h-full flex flex-row   bg-quaternary rounded-xl">

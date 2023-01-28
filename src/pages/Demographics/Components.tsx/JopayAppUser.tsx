@@ -64,7 +64,9 @@ export const JopayAppUser =() => {
 
     return(
  <div className='flex flex-col items-center w-[95%]  h-[95%] mt-6 bg-quaternary rounded-3xl'>
+           
             {/* jojpay user */}
+
               <div className=" flex justify-center items-center  text-white mt-2 w-[70%] h-[30%] ">
                          <div className=" flex  items-center justify-center   text-3xl w-full h-full border-b-4 border-white  gap-12 p-4 ">
                               {notificationTypes.map(({ label, value }) => (

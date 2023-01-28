@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from "react";
-import Notifcation from "../../../components/Notification";
 import BackButton from "../../../components/BackButton";
 import Searchbar from "../../../components/Searchbar";
 import { Link } from "react-router-dom";
@@ -16,11 +15,9 @@ return (
       <div className="w-[100%] flex-col bg-white overflow-hidden h-[100%] flex">
                           {/* top-div */}
        <div className="flex  w-full h-[10%]">
-         
-            <BackButton/>
-          </div>
-          
-          
+       <BackButton/>
+       </div>   
+              
                          {/* center div */}
         <div className="w-full h-full flex justify-center ">
           <div className="mt-4 w-[90%] h-full bg-quaternary rounded-xl">
@@ -35,8 +32,7 @@ return (
             <div className="w-[17%] ml-10 h-[60%] flex justify-center items-center rounded-xl bg-white"><ImPlus className="text-6xl text-quaternary"/></div>
             <div className="ml-10 text-4xl text-white font-bold">Add New Jogoo Images</div>
            </div>
-        
-          </div>
+         </div>
         </div>
       </div>
     </div>

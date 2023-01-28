@@ -8,6 +8,9 @@ import * as yup from "yup";
 import Overlay from "../../../components/Overlay";
 import { FaBus } from "react-icons/fa";
 import {FiPaperclip} from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../store";
+import { AddCuponDetailsProps, defaultAddCuponValue, UPDATE_ADDCUPON } from "../../../store/reducers/AddCupon.reducer";
 
 const validateAddCupon = yup.object().shape({
   CuponType: yup
@@ -31,39 +34,57 @@ const validateAddCupon = yup.object().shape({
                             
   })
   
-  interface AddCuponDetailsProps{
-    CuponType: string;
-    Applicable: string;
-    AddBannerImage: string;
-    ValidFrom: string;
-    ValidTo: string;
-    Company: string;
+  // interface AddCuponDetailsProps{
+  //   CuponType: string;
+  //   Applicable: string;
+  //   AddBannerImage: string;
+  //   ValidFrom: string;
+  //   ValidTo: string;
+  //   Company: string;
    
    
-  }
+  // }
 
 
 
 
 export const AddCupon= () => {
   
-  const initialState:  AddCuponDetailsProps = {
-    CuponType: "",
-    Applicable: "",
-    AddBannerImage: "",
-    ValidFrom: "",
-    ValidTo: "",
-    Company: "",
+//   const initialState:  AddCuponDetailsProps = {
+//     CuponType: "",
+//     Applicable: "",
+//     AddBannerImage: "",
+//     ValidFrom: "",
+//     ValidTo: "",
+//     Company: "",
 
-}
-const handleSubmit = (values: AddCuponDetailsProps) => {
-console.log(values);
+// }
+// const handleSubmit = (values: AddCuponDetailsProps) => {
+// console.log(values);
 
-}
+// }
  
 
    const[color,setcolor]=useState(false);
    const colorButton = () =>setcolor(!color);
+   const dispatch = useDispatch();
+
+   const addcuponData = useSelector((state:RootState)=>state.addcupon)
+
+   const initialState: AddCuponDetailsProps =  defaultAddCuponValue;
+
+const handleSubmit = (values: AddCuponDetailsProps) => {
+dispatch( UPDATE_ADDCUPON(values));
+
+
+
+  // console.log(values);
+  
+}
+ React.useEffect(()=>{
+  console.log( addcuponData,'reducerData');
+ },[ addcuponData])
+
 
   return (
     

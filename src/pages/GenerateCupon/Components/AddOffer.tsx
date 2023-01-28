@@ -7,6 +7,11 @@ import { Form } from "formik";
 import * as yup from "yup";
 import Overlay from "../../../components/Overlay";
 import { FaBus } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../store";
+import { AddOfferDetailsProps, defaultAddOfferValue, UPDATE_ADDOFFER } from "../../../store/reducers/AddOffer.reducer";
+import { defaultAddCuponValue } from "../../../store/reducers/AddCupon.reducer";
+import { FiPaperclip } from "react-icons/fi";
 
 
 const validateAddOffer = yup.object().shape({
@@ -27,44 +32,60 @@ const validateAddOffer = yup.object().shape({
       .label("AddBannerImage"),                          
   })
   
-  interface AddOfferDetailsProps{
-    EnterOfferDetails: string;
-    VaildFrom: string;
-    EnterOfferType: string;
-    ValidTo: string;
-    AddBannerImage: string;
+  // interface AddOfferDetailsProps{
+  //   EnterOfferDetails: string;
+  //   VaildFrom: string;
+  //   EnterOfferType: string;
+  //   ValidTo: string;
+  //   AddBannerImage: string;
     
-  }
+  // }
 
 
 
 export const AddOffer= () => {
 
-  const initialState:  AddOfferDetailsProps = {
-    EnterOfferDetails: "",
-    VaildFrom: "",
-    EnterOfferType: "",
-    ValidTo: "",
-    AddBannerImage: "",
+//   const initialState:  AddOfferDetailsProps = {
+//     EnterOfferDetails: "",
+//     VaildFrom: "",
+//     EnterOfferType: "",
+//     ValidTo: "",
+//     AddBannerImage: "",
   
-}
-const handleSubmit = (values: AddOfferDetailsProps) => {
-console.log(values);
+// }
+// const handleSubmit = (values: AddOfferDetailsProps) => {
+// console.log(values);
 
-}
+// }
 
   const[color,setcolor]=useState(false);
   const colorButton= () => setcolor(!color);
+  const dispatch = useDispatch();
+
+   const addofferData = useSelector((state:RootState)=>state.addoffer)
+
+   const initialState: AddOfferDetailsProps =  defaultAddOfferValue;
+
+const handleSubmit = (values: AddOfferDetailsProps) => {
+dispatch( UPDATE_ADDOFFER(values));
+
+
+
+  // console.log(values);
+  
+}
+ React.useEffect(()=>{
+  console.log( addofferData,'reducerData');
+ },[ addofferData])
+
+  // const [showMoreOptions, setShowMoreOptions] = useState(false);
   
 
-  const [showMoreOptions, setShowMoreOptions] = useState(false);
-  
-
-  const handleShowOptions = () => {
-    setShowMoreOptions(!showMoreOptions);
+  // const handleShowOptions = () => {
+  //   setShowMoreOptions(!showMoreOptions);
     
-   }
-   console.log(showMoreOptions,"sugan");
+  //  }
+  //  console.log(showMoreOptions,"sugan");
 
 
   return (
@@ -93,7 +114,7 @@ console.log(values);
             validationSchema={validateAddOffer}
             onSubmit={handleSubmit}>
 
-            <div className="w-full h-full flex absolute flex-col">
+            <div className="w-full h-full  flex absolute flex-col">
             <div className="w-full h-[65%] flex-col flex justify-center items-center">
                 <div className="w-[60%] flex  items-center h-[45%]">
                     <div className="w-[45%]  h-[35%] bg-white drop-shadow-2xl flex  items-center rounded-xl">
@@ -147,20 +168,22 @@ console.log(values);
                     
 
                 </div>
-                <div className="w-[60%] h-[20%] flex justify-center">
-                <div className="w-[55%]  h-[70%] bg-white drop-shadow-2xl flex items-center rounded-xl">
-                    <div className='flex items-center '>
-                     
-                     <Input 
-                     type="text"
-                     name="AddBannerImage"
-                     placeholder='Add Banner Image' 
-                     className="ml-3 w-[100%] rounded-sm  p-[7px] text-2xl leading-tight  bg-transparent  focus:outline-none 
-                     focus:line focus:border-border-blue-500  text-black border-none" /> {" "}
-                 </div>
-                    </div>
+                  
+                <div className="w-full flex justify-center h-[15%]">
+                <label className="w-[30%] h-[90%] bg-white drop-shadow-2xl cursor-pointer pl-6 text-gray-400 text-xl  flex flex-row justify-center items-center rounded-xl">
+                Add Banner Image
+                      {/* <label> */}
+                      <Input 
+                      type="file"
+                      name="AddBannerImage"
+                      placeholder='Add Banner Image' 
+                      className="hidden text-black" /> {" "}
+                    <p className='text-2xl drop-shadow-lg ml-10  text-black  '><FiPaperclip/></p></label>
+                  
+                {/* </div> */}
+                </div> 
+
                 </div>
-            </div>
             <div className="w-full h-[20%] flex justify-center">
                 <button 
                 onClick={colorButton}

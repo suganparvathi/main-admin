@@ -12,6 +12,7 @@ import { LOGIN_SUCCESS } from "../../store/reducers/auth.reducer";
 import { constants } from "../../API/constants";
 import axios from "../../API/axios";
 
+
 const validationSchema = yup.object().shape({
   userId: yup.string().label("user id"),
   // .required("User ID is required"),
@@ -27,7 +28,6 @@ interface SignInProps {
 }
 
 const SignIn = () => {
-
   // useEffect(() => {
   //   const clearToken = localStorage.clear();
   // },[])
@@ -43,7 +43,6 @@ const SignIn = () => {
   const handleSubmit = async (values: SignInProps) => {
     setIsLoading(true);
     console.log(values);
-    dispatch(LOGIN_SUCCESS(values));
     try {
       const Response = await axios.post(constants.auth.login, values)
       .then( resp => {
@@ -51,6 +50,7 @@ const SignIn = () => {
         localStorage.setItem("token",token);
         console.log(token, "TOKENNNN");
         if(token){
+          dispatch(LOGIN_SUCCESS(values));
         }
       })
       setIsLoading(false)
@@ -62,7 +62,7 @@ const SignIn = () => {
     setIsLoading(false);
   };
   return (
-    <div className="w-screen h-screen bg-white flex items-center justify-center">
+    <div className="bg-white w-screen h-screen bg-white flex items-center justify-center">
       <div className="w-[55%] h-[420px] shadow rounded-xl  overflow-hidden">
        
         <div className="w-full h-full flex items-center justify-center flex-col p-5 bg-quaternary bg-opacity-60">

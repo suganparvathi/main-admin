@@ -6,6 +6,8 @@ import adSlice from './CreateAds.reducer';
 import addSlice from './AddNewBusCompany.reducer';
 import AddCuponReducer from "./AddCupon.reducer";
 import AddOfferReducer from "./AddOffer.reducer";
+import CreateMemberReducer from "./CreateMember.reducer";
+
 
 
 const rootReducer = combineReducers({
@@ -15,5 +17,7 @@ const rootReducer = combineReducers({
   addbus: addSlice, 
   addcupon: AddCuponReducer,
   addoffer: AddOfferReducer,
+  createmember: CreateMemberReducer,
+ 
 });
 export default rootReducer;

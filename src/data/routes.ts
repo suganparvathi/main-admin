@@ -70,6 +70,8 @@ import { TimeSchedule } from "../pages/Refunding/Components/TimeSchedule";
 import { TripsList } from "../pages/Refunding/Components/TripsList";
 import { ViewTimeSchedule } from "../pages/Refunding/Components/ViewTimeSchedule";
 import { Refunding } from "../pages/Refunding/Refunding";
+import ForgetPassword from "../pages/SignUp/Components/ForgetPassword";
+
 import { CurrentTrips } from "../pages/TripsHistory/Components/CurrentTrips";
 import { LiveTransaction } from "../pages/TripsHistory/Components/LiveTransaction";
 import { OlaBus } from "../pages/TripsHistory/Components/OlaBus";
@@ -171,6 +173,7 @@ const routes: { path: string; Element: () => JSX.Element }[] = [
   {path:"/gift-voucher", Element: GiftVoucher},
   {path:"/shopping-voucher", Element: ShoppingVoucher},
   {path:"/edit-member", Element: EditMember},
+  {path:"/forget-password", Element: ForgetPassword},
 
  
 

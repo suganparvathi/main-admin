@@ -6,8 +6,11 @@ import {FaUserAlt} from "react-icons/fa";
 import * as yup from "yup";
 import Input from '../../../components/Input';
 import CustomForm from '../../../components/Form';
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../store";
+import { CreateMemberDetailsProps, defaultCreateMemberValue, UPDATE_CREATEMEMBER } from "../../../store/reducers/CreateMember.reducer";
 
-const validateNewMember = yup.object().shape({
+const validateCreateMember = yup.object().shape({
   AddEmployeeName: yup
       .string()
       .label("AddEmployeeName"),
@@ -41,20 +44,7 @@ const validateNewMember = yup.object().shape({
                               
   })
   
-  interface NewMemberDetailsProps{
-    AddEmployeeName: string;
-    AddEmployeeDesignation: string;
-    AddPhoneNumber: string;
-    AddCompanyName: string;
-    AdditionalPhoneNumber: string;
-    AddCompanyID: string;
-    AddEmployeeCode: string;
-    AddLoginID: string;
-    EmployeeAddress: string;
-    AddPassword: string;
-  }
-
-
+  
 
 export const CreateMember= () => {
 
@@ -64,24 +54,26 @@ export const CreateMember= () => {
 const[color1, setcolor1] =useState(false);
 const color1Button = () => setcolor1(!color1);
 
-const initialState:  NewMemberDetailsProps = {
-  AddEmployeeName: "",
-  AddEmployeeDesignation: "",
-  AddPhoneNumber: "",
-  AddCompanyName: "",
-  AdditionalPhoneNumber: "",
-  AddCompanyID: "",
-  AddEmployeeCode: "",
-  AddLoginID: "",
-  EmployeeAddress: "",
-  AddPassword: "",
- 
-}
-const handleSubmit = (values: NewMemberDetailsProps) => {
-console.log(values);
+
+// const handleSubmit = (values: NewMemberDetailsProps) => {
+// console.log(values);
+
+// }
+const dispatch = useDispatch();
+
+const  creatememberData = useSelector((state:RootState)=>state.createmember)
+
+const initialState: CreateMemberDetailsProps = defaultCreateMemberValue;
+
+const handleSubmit = (values: CreateMemberDetailsProps) => {
+dispatch( UPDATE_CREATEMEMBER(values));
+
+// console.log(values);
 
 }
-
+React.useEffect(()=>{
+console.log(creatememberData,'reducerData');
+},[creatememberData])
 
 return ( 
    
@@ -100,7 +92,7 @@ return (
           <div className="mt-4 w-[90%] h-[95%]  bg-quaternary rounded-xl">
           <CustomForm
             initialValues={initialState}
-            validationSchema={validateNewMember}
+            validationSchema={validateCreateMember}
             onSubmit={handleSubmit}>
             <div className="absolute w-full  h-[85%] flex flex-row">
             <div className="w-[60%] ml-10 flex items-center justify-center grid grid-cols-2  flex-row  h-[95%]">
@@ -201,9 +193,10 @@ return (
       </div>
       </div>
       </div>
-   
-    
-        
-       
+          
         )
       }  
+
+function dispatch(arg0: any) {
+  throw new Error("Function not implemented.");
+}

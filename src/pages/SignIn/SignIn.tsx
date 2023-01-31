@@ -28,6 +28,8 @@ interface SignInProps {
 }
 
 const SignIn = () => {
+ 
+
   // useEffect(() => {
   //   const clearToken = localStorage.clear();
   // },[])
@@ -43,6 +45,7 @@ const SignIn = () => {
   const handleSubmit = async (values: SignInProps) => {
     setIsLoading(true);
     console.log(values);
+    
     try {
       const Response = await axios.post(constants.auth.login, values)
       .then( resp => {
@@ -94,7 +97,11 @@ const SignIn = () => {
                 isLoading={isLoading}
                 className="bg-tertiaryText text-white p-2 px-9 w-36 m-auto transform transition-all hover:scale-95"
               />
-            
+             <Button
+                link="/sign-up"
+                title="Join"
+                className="bg-secondaryText text-white p-2 px-9 w-36 m-auto transform transition-all hover:scale-95"
+              />
             </div>
             <div className="flex items-center justify-between mt-10">
               <div className="flex items-center">
@@ -106,9 +113,13 @@ const SignIn = () => {
                   name="keepMeLogin"
                 />
               </div>
-              <Link to="/forgot-password" className="text-black underline">
+               {/* <p  className="text-black underline">
                 Forgot Password
-              </Link>
+              </p> */}
+               {/* <li className="navbar-item">
+                        <a href="/EditBus">Contact</a>
+                    </li> */}
+              
             </div>
           </CustomForm>
         </div>

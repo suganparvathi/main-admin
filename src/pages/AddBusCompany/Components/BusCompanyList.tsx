@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import BackButton from "../../../components/BackButton";
 import Searchbar from "../../../components/Searchbar";
 import { FiFilter } from "react-icons/fi";
@@ -11,11 +11,17 @@ import {FaEye } from "react-icons/fa";
 import {MdModeEdit} from 'react-icons/md';
 import { OlaBus } from "../../TripsHistory/Components/OlaBus";
 import { OlaBusPop } from "./OlaBusPop";
+import axios from "../../../API/axios";
+import { constants } from "../../../API/constants";
 
 
 const members = [
   { name : "OLA Bus(#456TYP)"},
   { name : "Red Bus(#456TYP)"},
+  { name : "Uber Bus(#456TYP)"},
+  { name : "Uber Bus(#456TYP)"},
+  { name : "Uber Bus(#456TYP)"},
+  { name : "Uber Bus(#456TYP)"},
   { name : "Uber Bus(#456TYP)"},
  
 ]  
@@ -32,6 +38,14 @@ export const BusCompanyList = () => {
   
 
 const [showMoreOptions, setShowMoreOptions] = useState(false);
+
+useEffect(() => {
+  const GetCompanyData = async () => {
+    const response = await axios.get(constants.userDetails.getProfileData);
+    console.log(response?.data, "bus company list");
+  }
+  GetCompanyData();
+}, [])
   
 
   const handleShowOptions = () => {
@@ -43,8 +57,8 @@ const [showMoreOptions, setShowMoreOptions] = useState(false);
    const [showMoreOptions1, setShowMoreOptions1] = useState(false);
   const handleShowOptions1 = () => {
      setShowMoreOptions1(!showMoreOptions1);
-     
     }
+    // getProfileData
 
 
 return ( 
@@ -114,14 +128,14 @@ return (
                 </div> 
                   
             </div>
-            <div className="w-full h-full flex flex-col">
+            <div className="w-full h-[55%] flex flex-col overflow-y-auto overflow-x-hidden">
             {members.map(({name}) => (
-                <div className="w-full h-[20%]  flex flex-row">
-                <div className=" w-full mt-6 h-full flex flex-start text-xl font-bold text-white">
+                <div className="w-full h-[20%] mb-4 flex flex-row">
+                <div className="w-full mt-6 h-full flex flex-start text-xl font-bold text-white">
                 <div className='rounded-full ml-14 drop-shadow-xl bg-white justify-center flex items-center w-[70px] h-[70px]'>
                       <FaBus className="text-2xl text-quaternary"/>
                       </div>
-                   <div className="ml-2 text-2xl mt-4">
+                   <div className="text-2xl mt-4 ml-6">
                       <p>{name}</p>
                   </div>
                 </div>

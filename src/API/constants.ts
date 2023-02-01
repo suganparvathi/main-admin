@@ -5,5 +5,6 @@ export const constants: any = {
   },
   userDetails: {
     getUsersCount: "getAllCounts",
+    getProfileData: "getProfileData",
   },
 };

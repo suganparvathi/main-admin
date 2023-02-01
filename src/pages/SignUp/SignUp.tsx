@@ -27,6 +27,7 @@ const validationSchema = yup.object().shape({
     .label("Last Name"),
   MailId: yup 
     .string()
+    .email("Enter a Valid Email id")
     .required("Mail Id is required")
     .label("Mail Id"),
   PhoneNumber: yup
@@ -76,16 +77,10 @@ const SignUp = () => {
   const [error, setError] = useState<string>("error")
   
 
-  // useEffect(() => {
-  //   const checkUpload = async (values: SignUpProps) => {
-  //     setStoreValue(values)
-  //     }
-  //     // checkUpload();
-  //     }, [])
-      
   const handleSubmit = async (values: SignUpProps) => {
-      setIsLoading(true);
+      // setIsLoading(true);
       console.log(values);
+      // setLogin(true)
     //   try{
     //     // const Response = await axios.post(constants.auth.register, values)
     //     const respose = await axios.post(constants.auth.register, values)
@@ -108,14 +103,12 @@ const SignUp = () => {
     // }
 
   };
-console.log("USERIID", userId?.data);
 
 const SignupData = [
   {name: "FirstName", placeholder:"First Name"},
   {name: "LastName", placeholder:"Last Name"},
   {name: "MailId", placeholder:"Mail Id"},
   {name: "PhoneNumber", placeholder:"Phone Number"},
-  {name: "companyId", placeholder:"Company Id"},
  
 ]
 
@@ -134,26 +127,24 @@ const SignupData = [
             Welcome To JoJoPay Family
           </h5>
           {!login ?
-          <div className="w-[980px] h-full bg-quaternary px-4 py-10 rounded-lg rounded-3xl shadow-md">
+          <div className="w-[980px] h-full bg-quaternary px-4 py-10 rounded-3xl shadow-md">
           <CustomForm
             initialValues={initialState}
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
           >
             <div className="grid grid-cols-2  gap-1 mt-10  ml-14">
-                {SignupData.map((data) => (
+                {SignupData.map((data:any) => (
                   <div>
                     <Input
                     type="text"
                     name={data.name}
                     placeholder={data.placeholder}
-                    className="border-none text-black outline-none bg-blue   shadow-md w-96"
-                    inputContainerClassName="mb-6"
+                    className="border-none text-black outline-none bg-blue   shadow-md w-96 mt-4"
                     />
                     <ErrorMessage name={data.name} render={renderError}/>
                 </div>
                   ))}
-             
             </div>
             <div className="w-full flex justify-end">
               <Button
@@ -164,15 +155,10 @@ const SignupData = [
               />
             </div>
           </CustomForm>
-          {error === "error" ?  
-          null
-          : 
-          <p className="text-red-200 w-full text-center mt-2">{`${error} already exist`}</p>
-        }
             </div>
           :
-          <div className="w-[500px] h-[10px] bg-white  rounded-lg shadow-md">
-            {/* {/ <CreateUser jojoUserId={userId} /> /} */}
+          <div className="flex justify-center w-[980px] h-full bg-quaternary px-4 py-10 rounded-3xl shadow-md">
+              hi
            </div>  
           
           }

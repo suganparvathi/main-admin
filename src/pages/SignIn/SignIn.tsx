@@ -6,7 +6,7 @@ import heroImage from "../../assets/images/signin-hero-image.png";
 import CustomForm from "../../components/Form";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { LOGIN_SUCCESS } from "../../store/reducers/auth.reducer";
 import { constants } from "../../API/constants";
@@ -29,7 +29,7 @@ interface SignInProps {
 
 const SignIn = () => {
  
-
+  const navigate = useNavigate();
   // useEffect(() => {
   //   const clearToken = localStorage.clear();
   // },[])
@@ -45,7 +45,7 @@ const SignIn = () => {
   const handleSubmit = async (values: SignInProps) => {
     setIsLoading(true);
     console.log(values);
-    
+    dispatch(LOGIN_SUCCESS(values));
     try {
       const Response = await axios.post(constants.auth.login, values)
       .then( resp => {
@@ -53,7 +53,7 @@ const SignIn = () => {
         localStorage.setItem("token",token);
         console.log(token, "TOKENNNN");
         if(token){
-          dispatch(LOGIN_SUCCESS(values));
+          
         }
       })
       setIsLoading(false)
@@ -113,13 +113,12 @@ const SignIn = () => {
                   name="keepMeLogin"
                 />
               </div>
-               {/* <p  className="text-black underline">
-                Forgot Password
-              </p> */}
-               {/* <li className="navbar-item">
-                        <a href="/EditBus">Contact</a>
-                    </li> */}
-              
+              <Button
+                link="/forgot-password"
+                title="Forgot Password"
+                className="text-black underline font-bold"
+              />
+               
             </div>
           </CustomForm>
         </div>

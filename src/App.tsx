@@ -37,6 +37,8 @@ import SignUp from "./pages/SignUp/SignUp";
 import routes from "./data/routes";
 import PublicRoute from "./routes/PublicRoute";
 import { RootState } from "./store";
+import ForgotPassword from "./pages/SignUp/Components/ForgotPassword";
+import Validation from "./pages/SignUp/Components/Validation";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -71,6 +73,18 @@ function App() {
           path="/sign-up"
           element={
             <PublicRoute Component={SignUp} restricted={auth.isLoggedIn} />
+          }
+        />
+          <Route
+          path="/forgot-password"
+          element={
+            <PublicRoute Component={ForgotPassword} restricted={auth.isLoggedIn} />
+          }
+        />
+         <Route
+          path="validation-password"
+          element={
+            <PublicRoute Component={Validation} restricted={auth.isLoggedIn} />
           }
         />
         <Route path="/" element={<Dashboard />}>

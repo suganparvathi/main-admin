@@ -70,7 +70,8 @@ import { TimeSchedule } from "../pages/Refunding/Components/TimeSchedule";
 import { TripsList } from "../pages/Refunding/Components/TripsList";
 import { ViewTimeSchedule } from "../pages/Refunding/Components/ViewTimeSchedule";
 import { Refunding } from "../pages/Refunding/Refunding";
-import ForgetPassword from "../pages/SignUp/Components/ForgetPassword";
+import ForgotPassword from "../pages/SignUp/Components/ForgotPassword";
+import Validation from "../pages/SignUp/Components/Validation";
 
 import { CurrentTrips } from "../pages/TripsHistory/Components/CurrentTrips";
 import { LiveTransaction } from "../pages/TripsHistory/Components/LiveTransaction";
@@ -173,7 +174,11 @@ const routes: { path: string; Element: () => JSX.Element }[] = [
   {path:"/gift-voucher", Element: GiftVoucher},
   {path:"/shopping-voucher", Element: ShoppingVoucher},
   {path:"/edit-member", Element: EditMember},
-  {path:"/forget-password", Element: ForgetPassword},
+  {path:"/forgot-password", Element: ForgotPassword},
+  {path:"/validation-password", Element: Validation},
+  
+  
+ 
 
  
 

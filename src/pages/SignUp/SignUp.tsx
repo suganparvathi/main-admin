@@ -1,226 +1,186 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import * as yup from "yup";
-import {FaUserAlt} from "react-icons/fa";
+// import constants from "../../API/constants";
+
 import logo from "../../assets/images/logo.svg";
-import heroImage from "../../assets/images/signin-hero-image.png";
+import heroImage from "../../assets/images/signup-hero-image.png";
+import Button from "../../components/Button";
 import CustomForm from "../../components/Form";
 import Input from "../../components/Input";
-import Button from "../../components/Button";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { LOGIN_SUCCESS } from "../../store/reducers/auth.reducer";
-import { constants } from "../../API/constants";
+
+import {BiUpload} from 'react-icons/bi'
+// import { CreateUser } from "./components/CreateUser";
 import axios from "../../API/axios";
-import { RootState } from "../../store";
+import { ErrorMessage } from "formik";
 
-
-const validateCreateMember = yup.object().shape({
-  AddEmployeeName: yup
-      .string()
-      .label("AddEmployeeName"),
-  AddEmployeeDesignation: yup
-      .string()
-      .label("AddEmployeeDesignation"),
-  AddPhoneNumber: yup 
-      .string()
-      .label("AddPhoneNumber"),
-  AddCompanyName: yup  
-      .string()
-      .label("AddCompanyName"),
-  AdditionalPhoneNumber: yup
-      .string()
-      .label("AdditionalPhoneNumber"),
-  AddCompanyID: yup  
-      .string()
-      .label("AddCompanyID"),
-  AddEmployeeCode: yup  
-      .string()
-      .label("AddEmployeeCode"),
-  AddLoginID: yup  
-      .string()
-      .label("AddLoginID"),
-  EmployeeAddress:yup
-      .string()
-      .label("EmployeeAddress") ,
-  AddPassword: yup
-      .string()
-      .label("AddPassword"),
-                              
-  })
-  interface  CreateMemberDetailsProps{
-    AddEmployeeName: string;
-    AddEmployeeDesignation: string;
-    AddPhoneNumber: string;
-    AddCompanyName: string;
-    AdditionalPhoneNumber: string;
-    AddCompanyID: string;
-    AddEmployeeCode: string;
-    AddLoginID: string;
-    EmployeeAddress: string;
-    AddPassword: string;
-  }
+const validationSchema = yup.object().shape({
+  FirstName: yup
+    .string()
+    .required("First Name is required")
+    .label("Firsts Name"),
+  LastName: yup
+    .string()
+    .required("Last Name is required")
+    .label("Last Name"),
+  MailId: yup 
+    .string()
+    .required("Mail Id is required")
+    .label("Mail Id"),
+  PhoneNumber: yup
+    .string()
+    .required("Phone Number is required")
+    .label("Phone Number"),
+  companyId: yup  
+    .string()
+    .required("Company Id is required")
+    .label("Company Id"),
+ 
   
-  
-
-export const SignUp= () => {
-
-  const initialState: CreateMemberDetailsProps = {
-    AddEmployeeName: "",
-    AddEmployeeDesignation: "",
-    AddPhoneNumber: "",
-    AddCompanyName: "",
-    AdditionalPhoneNumber: "",
-    AddCompanyID: "",
-    AddEmployeeCode: "",
-    AddLoginID: "",
-    EmployeeAddress: "",
-    AddPassword: "",
-   
-  }
-
-  const[color, setcolor] =useState(false);
-  const colorButton = () => setcolor(!color);
-
-const[color1, setcolor1] =useState(false);
-const color1Button = () => setcolor1(!color1);
+});
 
 
-const handleSubmit = (values:  CreateMemberDetailsProps) => {
-console.log(values);
-
+interface SignUpProps {
+  FirstName: string;
+  LastName:string;
+  MailId: string;
+  PhoneNumber: string;
+  companyId: string;
+ 
 }
-// const dispatch = useDispatch();
 
-// const  creatememberData = useSelector((state:RootState)=>state.createmember)
 
-// const initialState: CreateMemberDetailsProps = defaultCreateMemberValue;
+const initialState: SignUpProps = ({
+  FirstName: "",
+  LastName:"",
+  MailId: "",
+  PhoneNumber: "",
+  companyId: "",
+ 
+});
 
-// const handleSubmit = (values: CreateMemberDetailsProps) => {
-// dispatch( UPDATE_CREATEMEMBER(values));
 
-// // console.log(values);
 
-// }
-// React.useEffect(()=>{
-// console.log(creatememberData,'reducerData');
-// },[creatememberData])
+const SignUp = () => {
 
+  const dispatch = useDispatch();
+
+
+  
+  const [isLoading, setIsLoading] = useState(false);
+  const [login, setLogin] = useState(false);
+  const [userId, setUserId] = useState<any>()
+  const [storeValue, setStoreValue] = useState<any>()
+  const [error, setError] = useState<string>("error")
+  
+
+  // useEffect(() => {
+  //   const checkUpload = async (values: SignUpProps) => {
+  //     setStoreValue(values)
+  //     }
+  //     // checkUpload();
+  //     }, [])
+      
+  const handleSubmit = async (values: SignUpProps) => {
+      setIsLoading(true);
+      console.log(values);
+    //   try{
+    //     // const Response = await axios.post(constants.auth.register, values)
+    //     const respose = await axios.post(constants.auth.register, values)
+    //     .then( resp => {
+    //       if(resp?.status === 200 && resp?.data?.error){
+    //         setError(resp?.data?.error)
+    //         console.log(error, "not worked")
+    //       }
+    //       else {
+    //         setLogin(true);
+    //         setUserId(resp); 
+    //         setError("error");
+    //         console.log("worked");    
+    //       }
+    //     });
+    //     setIsLoading(false);
+    // }catch(err){
+    //   // console.log(err,"hiii");
+    //   setIsLoading(false)
+    // }
+
+  };
+console.log("USERIID", userId?.data);
+
+const SignupData = [
+  {name: "FirstName", placeholder:"First Name"},
+  {name: "LastName", placeholder:"Last Name"},
+  {name: "MailId", placeholder:"Mail Id"},
+  {name: "PhoneNumber", placeholder:"Phone Number"},
+  {name: "companyId", placeholder:"Company Id"},
+ 
+]
+
+ const renderError = (msg:string) => 
+      <div className='text-sm  w-full'>
+        <p className='text-red-400'>{msg}</p>
+      </div>
+
+  
   return (
-    <div className="w-screen h-screen overflow-hidden flex">
-    <div className="w-[100%] flex-col items-center bg-white overflow-hidden h-[100%] flex">
-        
-    {/* <div className="flex w-full font-bold text-3xl justify-center -ml-10  items-center">
-          <p>Create New Member</p>
-          </div> */}
-       
-      <div className="w-full h-full flex justify-center ">
-          <div className="mt-10 w-[90%] h-[95%]  bg-quaternary rounded-xl">
+
+    <div className="bg-white w-screen h-screen flex items-center justify-center">
+      <div className="flex justify-center w-[90%] h-[500px]  bg-[#F3F3FF] shadow rounded-xl overflow-hidden  bg-opacity-50 backdrop-blur">
+        <div className="w-full col-span-1 flex items-center justify-center flex-col p-7">
+          <h5 className="text-black font-bold text-3xl capitalize mb-5">
+            Welcome To JoJoPay Family
+          </h5>
+          {!login ?
+          <div className="w-[980px] h-full bg-quaternary px-4 py-10 rounded-lg rounded-3xl shadow-md">
           <CustomForm
             initialValues={initialState}
-            validationSchema={validateCreateMember}
-            onSubmit={handleSubmit}>
-            <div className="absolute w-full  h-[85%] flex flex-row">
-            <div className="w-[60%] ml-10 flex items-center justify-center mt-12 grid grid-cols-2  flex-row  h-[95%]">
-                  <div className="w-[90%] h-[60%] bg-white drop-shadow-2xl flex justify-center items-center rounded-xl">
-                      <Input 
-                      type="text"
-                      name="AddEmployeeName"
-                      placeholder='Add Employee Name' 
-                      className="ml-3 w-[100%] rounded-sm  p-[7px] text-xl leading-tight  bg-transparent  focus:outline-none 
-                      focus:line focus:border-border-blue-500  text-black border-none" /> {" "} </div>
-                  <div className="w-[90%] h-[60%] bg-white drop-shadow-2xl flex justify-center items-center rounded-xl">
-                      <Input 
-                      type="text"
-                      name="AddEmployeeDesignation"
-                      placeholder='Add Employee Designation' 
-                      className="ml-3 w-[100%] rounded-sm  p-[7px] text-xl leading-tight  bg-transparent  focus:outline-none 
-                      focus:line focus:border-border-blue-500  text-black border-none" /> {" "} </div>
-                 <div className="w-[90%] h-[60%] bg-white drop-shadow-2xl flex justify-center items-center rounded-xl">
-                      <Input 
-                      type="text"
-                      name="AddPhoneNumber"
-                      placeholder='Add Phone Number' 
-                      className="ml-3 w-[100%] rounded-sm  p-[7px] text-xl leading-tight  bg-transparent  focus:outline-none 
-                      focus:line focus:border-border-blue-500  text-black border-none" /> {" "}</div>
-                 <div className="w-[90%] h-[60%] bg-white drop-shadow-2xl flex justify-center items-center rounded-xl">
-                      <Input 
-                      type="text"
-                      name="AddCompanyName"
-                      placeholder='Add Company Name' 
-                      className="ml-3 w-[100%] rounded-sm  p-[7px] text-xl leading-tight  bg-transparent  focus:outline-none 
-                      focus:line focus:border-border-blue-500  text-black border-none" /> {" "}</div>
-                <div className="w-[90%] h-[60%] bg-white drop-shadow-2xl flex justify-center items-center rounded-xl">
-                      <Input 
-                      type="text"
-                      name="AdditionalPhoneNumber"
-                      placeholder='Additional Phone Number' 
-                      className="ml-3 w-[100%] rounded-sm  p-[7px] text-xl leading-tight  bg-transparent  focus:outline-none 
-                      focus:line focus:border-border-blue-500  text-black border-none" /> {" "}</div>
-                 <div className="w-[90%] h-[60%] bg-white drop-shadow-2xl flex justify-center items-center rounded-xl">
-                      <Input 
-                      type="text"
-                      name="AddCompanyID"
-                      placeholder='Add Company ID' 
-                      className="ml-3 w-[100%] rounded-sm  p-[7px] text-xl leading-tight  bg-transparent  focus:outline-none 
-                      focus:line focus:border-border-blue-500  text-black border-none" /> {" "} </div>
-                 <div className="w-[90%] h-[60%] bg-white drop-shadow-2xl flex justify-center items-center rounded-xl">
-                      <Input 
-                      type="text"
-                      name="AddEmployeeCode"
-                      placeholder='Add Employee Code' 
-                      className="ml-3 w-[100%] rounded-sm  p-[7px] text-xl leading-tight  bg-transparent  focus:outline-none 
-                      focus:line focus:border-border-blue-500  text-black border-none" /> {" "}</div>
-                 <div className="w-[90%] h-[60%] bg-white flex drop-shadow-2xl justify-center items-center rounded-xl">
-                      <Input 
-                      type="text"
-                      name="AddLoginID"
-                      placeholder='Add Login ID' 
-                      className="ml-3 w-[100%] rounded-sm  p-[7px] text-xl leading-tight  bg-transparent  focus:outline-none 
-                      focus:line focus:border-border-blue-500  text-black border-none" /> {" "}</div>
-                 <div className="w-[90%] h-[60%] bg-white drop-shadow-2xl flex justify-center items-center rounded-xl">
-                      <Input 
-                      type="text"
-                      name="EmployeeAddress"
-                      placeholder='Employee Address' 
-                      className="ml-3 w-[100%] rounded-sm  p-[7px] text-xl leading-tight  bg-transparent  focus:outline-none 
-                      focus:line focus:border-border-blue-500  text-black border-none" /> {" "}</div>
-                  <div className="w-[90%] h-[60%] bg-white drop-shadow-2xl flex justify-center items-center rounded-xl">
-                      <Input 
-                      type="text"
-                      name="AddPassword"
-                      placeholder='Add Password' 
-                      className="ml-3 w-[100%] rounded-sm  p-[7px] text-xl leading-tight  bg-transparent  focus:outline-none 
-                      focus:line focus:border-border-blue-500  text-black border-none" /> {" "}</div>
-               </div>
-             <div className="w-[35%] h-full flex flex-col">
-              <div className="w-full flex justify-evenly items-center  h-[45%]">
-                <div className="w-[40%] h-[75%] flex justify-center items-center bg-white rounded-full"><FaUserAlt className="text-8xl"/></div>
-              </div>
-              <div className="w-full  flex flex-col   h-[50%]">
-
-                <div className="w-full h-[30%] flex justify-center ">
-                  <button 
-                  onClick={colorButton}
-                  className={`w-[35%] h-[60%] rounded-full flex drop-shadow-2xl justify-center items-center border-4 text-2xl border-white text-white
-                   ${ color? "text-green" : "text-white"}`}>Save</button>
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+          >
+            <div className="grid grid-cols-2  gap-1 mt-10  ml-14">
+                {SignupData.map((data) => (
+                  <div>
+                    <Input
+                    type="text"
+                    name={data.name}
+                    placeholder={data.placeholder}
+                    className="border-none text-black outline-none bg-blue   shadow-md w-96"
+                    inputContainerClassName="mb-6"
+                    />
+                    <ErrorMessage name={data.name} render={renderError}/>
                 </div>
-                <div className="w-full h-[35%]  flex justify-center ">
-                  <button
-                   onClick={color1Button}
-                  className={`w-[35%] h-[50%] rounded-full flex drop-shadow-2xl justify-center items-center border-4 text-2xl border-white
-                    ${ color1? "text-red-700" : "text-white"}`}>Cancel</button>
-                </div>
-              </div>
+                  ))}
+             
             </div>
-        </div>
+            <div className="w-full flex justify-end">
+              <Button
+                type="submit"
+                title="Next"
+                isLoading={isLoading}
+                className="bg-secondaryText text-white p-2 px-9 w-36 m-auto mt-6 transform transition-all hover:scale-95"
+              />
+            </div>
           </CustomForm>
-          </div>
-      </div>
+          {error === "error" ?  
+          null
+          : 
+          <p className="text-red-200 w-full text-center mt-2">{`${error} already exist`}</p>
+        }
+            </div>
+          :
+          <div className="w-[500px] h-[10px] bg-white  rounded-lg shadow-md">
+            {/* {/ <CreateUser jojoUserId={userId} /> /} */}
+           </div>  
           
+          }
         </div>
+        
       </div>
-    
+    </div>
   );
-}
+};
 
 export default SignUp;

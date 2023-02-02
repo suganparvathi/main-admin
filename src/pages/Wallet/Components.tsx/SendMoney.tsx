@@ -57,12 +57,10 @@ export const SendMoney = () => {
       <div className="w-[100%] flex-col bg-white overflow-hidden h-[100%] flex">
         {/* top-div */}
         <div className="flex  w-full h-[5%] ">
-          
-            <BackButton />
+           <BackButton />
             </div>
           <div className="font-bold w-full h-[5%] flex justify-center items-center text-3xl">Send Money</div>
-          
-       
+           
         {/* center div */}
         <div className="w-full h-full flex justify-center ">
           <div className="mt-4 w-[90%] h-full flex flex-col   bg-quaternary rounded-xl">
@@ -73,7 +71,7 @@ export const SendMoney = () => {
                 <div className="w-[90%] h-[70%] flex justify-center  mt-10 grid grid-cols-5 gap-2.5  ">
                 {Categories.map((Categories ) => (
                 <div className=" w-full flex flex-col  text-xl text-white  flex justify-center items-center h-full">
-                    <Link to="/user-send-money">  <img src={Categories.image} className="rounded-full w-[90px] h-[90px]"/></Link>
+                    <Link to="/user-send-money">  <img src={Categories.image} className="rounded-full hover:scale-90 w-[90px] h-[90px]"/></Link>
                      <p className="mt-2 text-2xl">{Categories.name}</p>
                 </div>
                        ))}

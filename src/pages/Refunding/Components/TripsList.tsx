@@ -38,7 +38,7 @@ return (
                 <div className="w-full h-[30%]  flex flex-row">
                 <div className=" w-full  h-[90%] flex flex-start text-xl font-extralight text-white">
                     <Link to ="/ola-bus-company">
-                <div className='rounded-full ml-14 mt-4 drop-shadow-2xl bg-white justify-center flex items-center w-[130px] h-[130px]'>
+                <div className='rounded-full ml-14 mt-4 drop-shadow-2xl  hover:scale-90 bg-white justify-center flex items-center w-[130px] h-[130px]'>
                       <FaBus className="text-7xl  text-black"/>
                 </div>
                 </Link>

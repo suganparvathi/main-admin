@@ -67,8 +67,8 @@ return (
       </div>
       <div className="w-full flex flex-row justify-evenly items-center text-4xl font-bold text-white h-[20%]">
         
-        <p className=""><Link to="/deleted-successfully">Yes</Link></p>
-        <p className="">No</p>
+        <p className=" hover:scale-90"><Link to="/deleted-successfully">Yes</Link></p>
+        <p className=" hover:scale-90">No</p>
 
       </div></div></div>
      </>
@@ -107,7 +107,7 @@ return (
                     console.log(data.name,"appuser")
                     setState(data.name)
                 }}
-                  className={`w-[13%] h-[75%] ml-2 flex justify-center drop-shadow-2xl font-extralight items-center rounded-3xl bg-white
+                  className={`w-[13%] h-[75%] ml-2 flex  hover:scale-90 justify-center drop-shadow-2xl font-extralight items-center rounded-3xl bg-white
                   ${data.name ===state? "bg-green text-white" : "bg-white text-black"} `}>{data.name}</button>
                     )) 
                 }
@@ -127,9 +127,9 @@ return (
                 </div>
                 <div className="flex flex-end w-[10%] items-center h-full text-white">
             <div className=" flex flex-row font-bold  text-3xl">
-              <p className="ml-2"> < MdDeleteForever onClick={ handleShowOptions}/> </p>
-              <p className="ml-2"> <FaEye onClick={ handleShowOptions1}/> </p>
-              <p className="ml-2">
+              <p className="ml-2  hover:scale-90"> < MdDeleteForever onClick={ handleShowOptions}/> </p>
+              <p className="ml-2  hover:scale-90"> <FaEye onClick={ handleShowOptions1}/> </p>
+              <p className="ml-2  hover:scale-90">
               <Link to="/edit-bus-company">
                 <MdModeEdit/>
                 </Link>

@@ -86,8 +86,8 @@ return (
       <p className="text-2xl font-light mt-10"> If You Select Yes You Can't Able to Restore the Data cl</p>
       </div>
       <div className="w-full flex flex-row justify-evenly items-center text-4xl font-bold mt-20 text-white h-[20%]">
-        <p className=""><Link to="/deleted-successfully">Yes</Link></p>
-        <p className="">No</p>
+        <p className=" hover:scale-90"><Link to="/deleted-successfully">Yes</Link></p>
+        <p className=" hover:scale-90">No</p>
       </div></div></div>
      </>)}
 
@@ -122,9 +122,9 @@ return (
                 </div>
                 <div className="flex flex-end w-[15%] items-center h-full text-white">
             <div className=" flex flex-row font-bold  text-3xl">
-              <p className="ml-4"> <FaEye onClick={ handleShowOptions}/></p>
+              <p className="ml-4  hover:scale-90"> <FaEye onClick={ handleShowOptions}/></p>
              
-              <p className="ml-16"> < MdDeleteForever onClick={ handleShowOptions1}/> </p>
+              <p className="ml-16  hover:scale-90"> < MdDeleteForever onClick={ handleShowOptions1}/> </p>
             </div>
          </div>
           </div>

@@ -45,14 +45,14 @@ return (
                 <div className="w-[60%] h-[75%] flex text-white flex-col items-center">
                     <p className="text-3xl font-bold"> Pending Request</p>
                     {/* <div className="w-full h-[50%] justify-center items-center"> */}
-                    <Link to="/approve" className="w-[60%] mt-8 h-[14%] text-2xl font-bold flex items-center pl-3  rounded-2xl bg-gn">
+                    <Link to="/approve" className="w-[60%] mt-8  hover:scale-90 h-[14%] text-2xl font-bold flex items-center pl-3  rounded-2xl bg-gn">
                        <p className="flex justify-start w-full h-full items-center">Approve</p> 
                         <p className="flex justify-end w-full -ml-2 h-full justify-end items-center text-5xl "><TiTick/></p>
                        </Link>
                    
                    
                     {/* </div> */}
-                       <Link to="/reject" className="w-[60%] mt-8 h-[14%] text-2xl font-bold flex items-center  pl-3 rounded-2xl bg-redText">
+                       <Link to="/reject" className="w-[60%] mt-8  hover:scale-90 h-[14%] text-2xl font-bold flex items-center  pl-3 rounded-2xl bg-redText">
                         <p className="flex flex-start w-full h-full items-center">Reject </p>
                         <p className="flex flex-end w-full -ml-2 h-full justify-end items-center  text-5xl"> <AiOutlineClose/> </p>
                         </Link>

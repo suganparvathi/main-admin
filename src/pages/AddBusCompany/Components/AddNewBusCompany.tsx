@@ -208,13 +208,13 @@ return (
                 <div className="w-full h-[45%] flex  justify-center items-center">
                   <button 
                   onClick={colorButton}
-                  className={`w-[35%] h-[40%] rounded-full flex drop-shadow-2xl justify-center items-center border-4 text-2xl border-white text-black
+                  className={`w-[35%] h-[40%] rounded-full  hover:scale-90 flex drop-shadow-2xl justify-center items-center border-4 text-2xl border-white text-black
                    ${ color? "text-green" : "text-white"}`}>Save</button>
                 </div>
                 <div className="w-full h-[35%]  flex justify-center ">
                   <button
                    onClick={color1Button}
-                  className={`w-[35%] h-[50%] rounded-full flex drop-shadow-2xl justify-center items-center border-4 text-2xl border-white
+                  className={`w-[35%] h-[50%] rounded-full  hover:scale-90 flex drop-shadow-2xl justify-center items-center border-4 text-2xl border-white
                     ${ color1? "text-red-700" : "text-white"}`}>Cancel</button>
                 </div>
               </div>

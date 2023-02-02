@@ -85,11 +85,7 @@ return (
           <div className="w-full h-[5%] justify-center flex  text-3xl  font-bold">
            <p className=""> Offer History</p>
           </div>
-      
-          
-         
-         
-       
+           
                          {/* center div */}
         <div className="w-full h-full flex justify-center ">
           <div className="mt-4 w-[90%] h-full bg-quaternary rounded-xl">
@@ -105,7 +101,7 @@ return (
                     setState(a.name)
 
                   }}
-                  className={`w-[17%] h-[70%] ml-2 flex justify-center  border-white border-2 drop-shadow-2xl font-extralight items-center rounded-3xl
+                  className={`w-[17%] h-[70%] ml-2 flex justify-center  hover:scale-90 border-white border-2 drop-shadow-2xl font-extralight items-center rounded-3xl
                   ${a.name===state? "bg-green text-white":"bg-white text-black"}`}>{a.name}</button>
                   ))}
                   </div> 

@@ -11,8 +11,8 @@ import {FaEye } from "react-icons/fa";
 import {MdModeEdit} from 'react-icons/md';
 import { OlaBus } from "../../TripsHistory/Components/OlaBus";
 import { OlaBusPop } from "./OlaBusPop";
-import axios from "../../../API/axios";
 import { constants } from "../../../API/constants";
+import axios from "axios";
 
 
 const members = [
@@ -35,6 +35,10 @@ const Filter=[
 export const BusCompanyList = () => {
 
   const [state, setState]=useState<string>();
+  const [company, setCompany] = useState<any>()
+  const [deleteCompany, setDeleteCompany] = useState<any>()
+  console.log(deleteCompany, "akg");
+   
   
 
 const [showMoreOptions, setShowMoreOptions] = useState(false);
@@ -43,20 +47,29 @@ useEffect(() => {
   const GetCompanyData = async () => {
     const response = await axios.get(constants.userDetails.getProfileData);
     console.log(response?.data, "bus company list");
+    setCompany(response?.data);
   }
   GetCompanyData();
 }, [])
   
+const handleDelete =  async () => {
+  // const response = await axios.delete(`{http://3.143.53.147:5000/deleteUser/${}}`)
+  // console.log(response, "hjfhjg");
+  
+} 
 
   const handleShowOptions = () => {
     setShowMoreOptions(!showMoreOptions);
-    
    }
+
+
    console.log(showMoreOptions,"sugan");
 
    const [showMoreOptions1, setShowMoreOptions1] = useState(false);
-  const handleShowOptions1 = () => {
+  const handleShowOptions1 = (values:any) => {
      setShowMoreOptions1(!showMoreOptions1);
+     console.log(values?.companyName);
+     
     }
     // getProfileData
 
@@ -81,7 +94,7 @@ return (
       </div>
       <div className="w-full flex flex-row justify-evenly items-center text-4xl font-bold text-white h-[20%]">
         
-        <p className=""><Link to="/deleted-successfully">Yes</Link></p>
+        <p className="" onClick={handleDelete}>Yes</p>
         <p className="">No</p>
 
       </div></div></div>
@@ -113,36 +126,39 @@ return (
             <div className="w-full h-[10%]  flex justify-center text-white font-bold ">
                 <div className="flex flex-row text-black w-full h-full text-2xl font-bold">
                   <div className="w-[10%] h-[50%] ml-2 flex justify-end font-extralight text-white  items-center ">Filter<FiFilter className="text-white ml-4"/></div>
-                  {
-                    Filter.map((data) =>(
-                    
+                  {Filter.map((data) =>( 
                   <button 
-                  onClick={() =>{
+                    onClick={() =>{
                     console.log(data.name,"appuser")
                     setState(data.name)
-                }}
-                  className={`w-[13%] h-[75%] ml-2 flex justify-center drop-shadow-2xl font-extralight items-center rounded-3xl bg-white
-                  ${data.name ===state? "bg-green text-white" : "bg-white text-black"} `}>{data.name}</button>
+                  }}
+                    className={`w-[13%] h-[75%] ml-2 flex justify-center drop-shadow-2xl font-extralight items-center rounded-3xl bg-white
+                    ${data.name ===state? "bg-green text-white" : "bg-white text-black"} `}>{data.name}</button>
                     )) 
-                }
+                  }
                 </div> 
                   
             </div>
             <div className="w-full h-[55%] flex flex-col overflow-y-auto overflow-x-hidden">
-            {members.map(({name}) => (
+            {company?.map((data:any) => (
                 <div className="w-full h-[20%] mb-4 flex flex-row">
                 <div className="w-full mt-6 h-full flex flex-start text-xl font-bold text-white">
                 <div className='rounded-full ml-14 drop-shadow-xl bg-white justify-center flex items-center w-[70px] h-[70px]'>
                       <FaBus className="text-2xl text-quaternary"/>
                       </div>
                    <div className="text-2xl mt-4 ml-6">
-                      <p>{name}</p>
+                      <p>{data?.companyName}</p>
                   </div>
                 </div>
                 <div className="flex flex-end w-[10%] items-center h-full text-white">
             <div className=" flex flex-row font-bold  text-3xl">
-              <p className="ml-2"> < MdDeleteForever onClick={ handleShowOptions}/> </p>
-              <p className="ml-2"> <FaEye onClick={ handleShowOptions1}/> </p>
+              <p className="ml-2"> < MdDeleteForever onClick={() => {
+                handleShowOptions();
+                setDeleteCompany(data?.companyName)
+              }}/> </p>
+              <p className="ml-2"> <FaEye onClick={() => {
+                console.log(data?.jojoId, "dajsyfdj");
+              }}/> </p>
               <p className="ml-2">
               <Link to="/edit-bus-company">
                 <MdModeEdit/>

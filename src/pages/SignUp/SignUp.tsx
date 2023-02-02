@@ -15,52 +15,67 @@ import {BiUpload} from 'react-icons/bi'
 // import { CreateUser } from "./components/CreateUser";
 import axios from "../../API/axios";
 import { ErrorMessage } from "formik";
+import { constants } from "../../API/constants";
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 const validationSchema = yup.object().shape({
-  FirstName: yup
+  firstName: yup
     .string()
     .required("First Name is required")
     .label("Firsts Name"),
-  LastName: yup
+  lastName: yup
     .string()
     .required("Last Name is required")
     .label("Last Name"),
-  MailId: yup 
+  mailId: yup 
     .string()
     .email("Enter a Valid Email id")
     .required("Mail Id is required")
     .label("Mail Id"),
-  PhoneNumber: yup
+  phoneNumber: yup
     .string()
     .required("Phone Number is required")
-    .label("Phone Number"),
-  companyId: yup  
-    .string()
-    .required("Company Id is required")
-    .label("Company Id"),
- 
-  
+    .label("Phone Number"),  
 });
+
+const passwordValidate = yup.object().shape({
+  otp: yup.string().required("Please enter your OTP").label("otp"),
+  password: yup.string()
+  .required("Enter Password")
+    .min(8, "Password must be 8 characters long")
+    .matches(/[a-z]+/, "One lowercase required")
+    .matches(/[A-Z]+/, "One Uppercase required")
+    .matches(/[@$!%*#?&]+/, "One special character required")
+    .matches(/\d+/, "One number required")
+    .label("password"),
+  confirmPassword: yup.string()
+    .required("Please type password once again")
+    .oneOf([yup.ref("password"), null], "Password must match")
+    .label("confirmPassword")
+})
 
 
 interface SignUpProps {
-  FirstName: string;
-  LastName:string;
-  MailId: string;
-  PhoneNumber: string;
-  companyId: string;
+  firstName: string;
+  lastName:string;
+  mailId: string;
+  phoneNumber: string;
  
 }
 
 
 const initialState: SignUpProps = ({
-  FirstName: "",
-  LastName:"",
-  MailId: "",
-  PhoneNumber: "",
-  companyId: "",
- 
+  firstName: "",
+  lastName:"",
+  mailId: "",
+  phoneNumber: "",
 });
+
+const password = ({
+  otp: "",
+  passwrod: "",
+  confirmPassword: "",
+})
 
 
 
@@ -75,40 +90,44 @@ const SignUp = () => {
   const [userId, setUserId] = useState<any>()
   const [storeValue, setStoreValue] = useState<any>()
   const [error, setError] = useState<string>("error")
+  const [viewPassword, setViewPassword] = useState<boolean>(false);
+  const [viewCPassword, setViewCPassword] = useState<boolean>(false);
   
 
   const handleSubmit = async (values: SignUpProps) => {
-      // setIsLoading(true);
-      console.log(values);
-      // setLogin(true)
-    //   try{
-    //     // const Response = await axios.post(constants.auth.register, values)
-    //     const respose = await axios.post(constants.auth.register, values)
-    //     .then( resp => {
-    //       if(resp?.status === 200 && resp?.data?.error){
-    //         setError(resp?.data?.error)
-    //         console.log(error, "not worked")
-    //       }
-    //       else {
-    //         setLogin(true);
-    //         setUserId(resp); 
-    //         setError("error");
-    //         console.log("worked");    
-    //       }
-    //     });
-    //     setIsLoading(false);
-    // }catch(err){
-    //   // console.log(err,"hiii");
-    //   setIsLoading(false)
-    // }
-
+      setIsLoading(true);
+      try{
+        const respose = await axios.post(constants.auth.register, values)
+        .then( resp => {
+          if(resp?.status === 200 && resp?.data?.error){
+            setError(resp?.data?.error)
+            console.log(error, "not worked")
+          }
+          else {
+            setLogin(true);
+            setUserId(resp); 
+            setError("error");
+            console.log("worked");    
+          }
+        });
+        setIsLoading(false);
+    }catch(err){
+      console.log(err,"hiii");
+      setIsLoading(false)
+    }
   };
 
+ const handleRegister = async() => {
+  const response = await axios.post(constants.auth.registerCred)
+  console.log(response);
+  
+  }
+
 const SignupData = [
-  {name: "FirstName", placeholder:"First Name"},
-  {name: "LastName", placeholder:"Last Name"},
-  {name: "MailId", placeholder:"Mail Id"},
-  {name: "PhoneNumber", placeholder:"Phone Number"},
+  {name: "firstName", placeholder:"First Name"},
+  {name: "lastName", placeholder:"Last Name"},
+  {name: "mailId", placeholder:"Mail Id"},
+  {name: "phoneNumber", placeholder:"Phone Number"},
  
 ]
 
@@ -146,19 +165,72 @@ const SignupData = [
                 </div>
                   ))}
             </div>
+            <h1 className="w-full flex justify-center">
+              {error === "error" ? null :
+              `{${error} Already exists}`
+              }
+            </h1>
             <div className="w-full flex justify-end">
               <Button
                 type="submit"
                 title="Next"
-                isLoading={isLoading}
                 className="bg-secondaryText text-white p-2 px-9 w-36 m-auto mt-6 transform transition-all hover:scale-95"
               />
             </div>
           </CustomForm>
             </div>
           :
-          <div className="flex justify-center w-[980px] h-full bg-quaternary px-4 py-10 rounded-3xl shadow-md">
-              hi
+          <div className="flex justify-center items-center w-[980px] h-full bg-quaternary px-4 py-10 rounded-3xl shadow-md">
+            <CustomForm
+            initialValues={password}
+            validationSchema={passwordValidate}
+            onSubmit={handleRegister}
+            >
+                <Input
+                type="text"
+                name="otp"
+                placeholder="Please enter your OTP"
+                className="border-none text-black outline-none bg-blue   shadow-md w-96 mt-4" />
+                <div className="flex items-center">
+                <Input
+                type={viewPassword? "text" : "password"}
+                name="password"
+                placeholder="Password"
+                className="border-none text-black outline-none bg-blue   shadow-md w-96 mt-4" />
+                {viewPassword ?
+                <AiFillEyeInvisible className='text-black mt-3 -ml-10 scale-125 cursor-pointer'
+                onClick={() => setViewPassword(!viewPassword)} 
+                />
+                :
+                <AiFillEye className='text-black -ml-10 mt-3 scale-125 cursor-pointer' 
+                onClick={() => setViewPassword(!viewPassword)}
+                /> 
+              }
+                </div>
+                <div className="flex items-center">
+                <Input
+                type={viewCPassword ? "text" : "password"}
+                name="confirmPassword"
+                placeholder="Confirm password"
+                className="border-none text-black outline-none bg-blue   shadow-md w-96 mt-4" />
+                {viewCPassword ?
+                <AiFillEyeInvisible className='text-black mt-3 -ml-10 scale-125 cursor-pointer'
+                onClick={() => setViewCPassword(!viewCPassword)} 
+                />
+                :
+                <AiFillEye className='text-black -ml-10 mt-3 scale-125 cursor-pointer' 
+                onClick={() => setViewCPassword(!viewCPassword)}
+                /> 
+              } 
+              </div>
+              <div className="w-full flex justify-center">
+              <Button
+              type="submit"
+              title="Register"
+              isLoading={isLoading}
+              className="bg-secondaryText text-white p-2 px-9 w-36 m-auto mt-6 transform transition-all hover:scale-95" />
+              </div>
+            </CustomForm>
            </div>  
           
           }

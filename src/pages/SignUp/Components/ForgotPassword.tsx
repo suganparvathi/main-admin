@@ -25,7 +25,7 @@ import Button from '../../../components/Button';
             <Button
                 link="/validation-password"
                 title="Next"
-                className="mt-6 w-[60%] text-white text-2xl rounded-xl h-[15%] bg-tertiaryText"
+                className="mt-6 w-[60%] text-white  hover:scale-90 text-2xl rounded-xl h-[15%] bg-tertiaryText"
               />
           </div>
         </div>

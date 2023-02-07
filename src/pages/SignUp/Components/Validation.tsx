@@ -93,7 +93,7 @@ const[viewSPassword1,setViewSPassword1]=useState(false);
            Forgot your password?
           </h5>
         
-          <div className="w-[700px] h-[70%]  bg-[#F3F3FF] px-4 mt-10 py-10 rounded-3xl shadow-md">
+      <div className="w-[700px] h-[70%]  bg-[#F3F3FF] px-4 mt-10 py-10 rounded-3xl shadow-md">
           <CustomForm
             initialValues={initialState}
             validationSchema={validationSchema}

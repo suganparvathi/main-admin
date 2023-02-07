@@ -105,9 +105,9 @@ return (
 
           <div className="w-full h-[20%] flex justify-center font-light text-7xl text-white mt-8">View Time Schedule</div>
            
-            <div className="w-full h-full flex flex-col">
+            <div className="w-full h-[60%] overflow-y-auto  flex flex-col">
             {members?.map((m:any) => (
-                <div className="w-full h-[27%]  flex flex-row">
+                <div className="w-full h-[60%] mb-20  flex flex-row">
                 <div className=" w-full  h-full flex flex-start text-xl font-extralight text-white">
                 <div className='rounded-full ml-14 mt-4 drop-shadow-xl bg-white justify-center flex items-center w-[110px] h-[110px]'>
                     <p className="bg-auto bg-los bg-no-repeat bg-center bg-cover rounded-lg w-12 h-10"></p>

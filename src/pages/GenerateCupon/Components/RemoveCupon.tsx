@@ -124,9 +124,9 @@ return (
                 </div> 
                   
             </div>
-            <div className="w-full h-full flex flex-col">
+            <div className="w-full h-[60%] overflow-y-auto  flex flex-col">
             {members.map(({name}) => (
-                <div className="w-full h-[20%]  flex flex-row">
+                <div className="w-full h-[60%] mb-10 flex flex-row">
                 <div className=" w-full  h-[90%] flex flex-start text-xl font-extralight text-white">
                 <div className='rounded-full ml-14 mt-4 drop-shadow-xl bg-white justify-center flex items-center w-[70px] h-[70px]'>
                       <FaBus className="text-4xl  text-quaternary"/>

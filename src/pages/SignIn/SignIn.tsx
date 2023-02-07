@@ -64,6 +64,7 @@ const SignIn = () => {
       }
     setIsLoading(false);
   };
+  const[viewCPassword,setViewCPassword]=useState(false);
   return (
     <div className="bg-white w-screen h-screen bg-white flex items-center justify-center">
       <div className="w-[55%] h-[420px] shadow rounded-xl  overflow-hidden">

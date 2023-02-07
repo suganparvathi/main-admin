@@ -59,7 +59,7 @@ return (
                    console.log(data.name, "verify")
                    setState(data.name)
                    }}
-                   className={`w-[14%] h-[50%] ml-2 flex justify-center  items-center rounded-3xl
+                   className={`w-[14%] h-[50%] ml-2 flex justify-center  hover:scale-90 items-center rounded-3xl
                   ${data.name === state ? "bg-green text-white" : "bg-white"}`}>{data.name}
                   </button>
                   

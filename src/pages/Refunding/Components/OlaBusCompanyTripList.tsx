@@ -131,7 +131,7 @@ return (
                   h-full  ">{a.name} <span className="font-bold">{a.no}</span></p>
                  
                   ))}
-                  <div className="ml-6 text-white text-xl flex flex-row font-light">Refunds : <span className="font-bold ml-2">2</span><span className="text-2xl ml-10"><FaEye   onClick={ handleShowOptions}/></span></div>
+                  <div className="ml-6 text-white text-xl flex flex-row font-light">Refunds : <span className="font-bold ml-2">2</span><span className="text-2xl ml-10  hover:scale-90"><FaEye   onClick={ handleShowOptions}/></span></div>
                 </div>
             </div>
           <div className="w-[35%] mr-6 rounded-t-[50px] flex-col flex  bg-white h-full">

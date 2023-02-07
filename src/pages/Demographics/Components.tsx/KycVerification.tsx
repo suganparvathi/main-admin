@@ -46,7 +46,7 @@ return (
                    console.log(data.name, "verify")
                    setState(data.name)
                    }}
-                   className={`w-[10%] h-[50%] ml-2 flex justify-center hover:bg-blue-200 items-center rounded-3xl
+                   className={`w-[10%] h-[50%] ml-2 flex justify-center  hover:scale-90 items-center rounded-3xl
                   ${data.name === state ? "bg-green text-white" : "bg-white"}`}>{data.name}
                   </button>
                   
@@ -55,7 +55,7 @@ return (
                 </div> 
                   <div className="flex flex-end w-[15%] h-[50%] ml-2 flex justify-center text-2xl items-center text-black rounded-3xl bg-white mr-2 ">Sort By<TiArrowUnsorted/></div>
             </div>
-            <div className="w-full h-full">
+            <div className="w-full mt-4 h-[50%]">
               <KycRequest/>
               </div>
           </div>

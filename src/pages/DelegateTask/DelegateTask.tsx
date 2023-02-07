@@ -124,9 +124,9 @@ export const DelegateTask = () => {
                 {members.map((data) => (
                   <div className="w-full items-center text-2xl font-bold h-full flex justify-start">
 
-                    {icon?<img className="rounded-full w-[70px] h-[70px]" src={data.img}/> : <Link to="/task-dedication"><img className="rounded-full w-[70px] h-[70px]"  src={data.img}/></Link>   }
+                    {icon?<img className="rounded-full w-[70px]  h-[70px]" src={data.img}/> : <Link to="/task-dedication"><img className="rounded-full w-[70px] hover:scale-90 h-[70px]"  src={data.img}/></Link>   }
                  <div className="ml-2 w-52">{data.name}</div>
-                <div className="text-quaternary cursor-pointer ml-2"onClick={ handleShowOptions} >
+                <div className="text-quaternary cursor-pointer hover:scale-90 ml-2"onClick={ handleShowOptions} >
                    {icon? <FaUserAltSlash  />  :  <FaUserPlus/>} 
                   </div>
                 </div>

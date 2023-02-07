@@ -106,18 +106,18 @@ return (
                   }
 
                   }
-                  className={`w-[40%] h-[70%] ml-2 flex justify-center  border-white border-2 drop-shadow-2xl font-extralight items-center rounded-3xl
+                  className={`w-[40%] h-[70%] ml-2 flex justify-center hover:scale-90 border-white border-2 drop-shadow-2xl font-extralight items-center rounded-3xl
                   ${a.name===state? "bg-green text-white":"bg-white text-black"}`}>{a.name}</button>
                     ))  
                 }
                   </div> 
                   
             </div>
-            <div className="w-full h-full flex flex-col">
+            <div className="w-full h-[40%] overflow-y-auto   flex flex-col">
             {members.map(({name}) => (
-                <div className="w-full h-[20%]  flex flex-row">
+                <div className="w-full h-[50%] mb-10 flex flex-row">
                 <div className=" w-full  h-[90%] flex flex-start text-xl font-extralight text-white">
-                <div className='rounded-full ml-14 mt-4 drop-shadow-xl bg-white justify-center flex items-center w-[70px] h-[70px]'   onClick={ handleShowOptions}>
+                <div className='rounded-full ml-14 mt-4 drop-shadow-xl bg-white justify-center  hover:scale-90 flex items-center w-[70px] h-[70px]'   onClick={ handleShowOptions}>
                       <FaBus className="text-4xl  text-quaternary"/>
                       </div>
                    <div className="ml-2 text-xl mt-4">
@@ -130,13 +130,14 @@ return (
                 </div>
           </div>
           ))}
-            <div className="w-full h-full flex -mt-20 -ml-10 justify-end ">
+          </div>
+            <div className="w-full h-full flex  -ml-10 justify-end ">
               <div className="w-[80px] h-[80px] flex justify-center items-center rounded-full bg-white">
                 <ImDownload3 className="text-quaternary text-3xl"/>
 
               </div>
             </div>
-            </div>
+            
           </div>
         </div>
       </div>

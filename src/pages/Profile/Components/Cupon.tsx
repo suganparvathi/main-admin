@@ -54,7 +54,7 @@ return (
                    console.log(data.name, "verify")
                    setState(data.name)
                    }}
-                   className={`w-[10%] h-[50%] ml-2 flex justify-center  items-center rounded-3xl
+                   className={`w-[10%] h-[50%] ml-2  hover:scale-90 flex justify-center  items-center rounded-3xl
                   ${data.name === state ? "bg-green text-white" : "bg-white"}`}>{data.name}
                   </button>
                   
@@ -63,9 +63,9 @@ return (
                 </div> 
                   <div className="flex flex-end w-[15%] h-[50%] ml-2 flex justify-center text-2xl items-center text-black rounded-3xl bg-white mr-2 ">Sort By<TiArrowUnsorted/></div>
             </div>
-            <div className="w-full h-full flex  flex-col ">
+            <div className="w-full h-[50%] overflow-y-auto flex  flex-col ">
              {members.map((a) => (
-            <div className="w-full h-[17%] flex flex-row">
+            <div className="w-full h-[50%] mb-8  flex flex-row">
                   <div className=" w-full h-full flex flex-start text-xl font-bold text-white">
                      <div className="w-[80%] ml-4 flex flex-row">
                     {/* <p className="rounded-full bg-white w-[70px] flex justify-center items-center text-2xl text-quaternary h-[70px]"><FaBus/></p></div> */}

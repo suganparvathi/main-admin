@@ -64,8 +64,8 @@ return (
       </div>
       <div className="w-full flex flex-row justify-evenly items-center text-4xl font-bold text-white h-[20%]">
         
-        <p className=""><Link to="/deleted-successfully">Yes</Link></p>
-        <p className="">No</p>
+        <p className=" hover:scale-90"><Link to="/deleted-successfully">Yes</Link></p>
+        <p className=" hover:scale-90">No</p>
 
       </div></div></div>
      </>
@@ -92,9 +92,6 @@ return (
   </>
 )}
 
-
-
-
 <div className="w-screen h-screen overflow-hidden  flex">
       <div className="w-[100%] flex-col overflow-hidden h-[100%] flex">
                           {/* top-div */}
@@ -104,9 +101,7 @@ return (
             </div>
           <div className="w-full h-[5%] justify-center flex  text-3xl  font-bold">
            <p className=""> Remove Offer</p>
-          </div>
-          
-       
+          </div>       
                          {/* center div */}
         <div className="w-full h-full flex justify-center ">
           <div className="mt-4 w-[90%] h-full bg-quaternary rounded-xl">
@@ -122,16 +117,16 @@ return (
                     setState(a.name)
                   }
                   } 
-                  className={`w-[17%] h-[70%] ml-2 flex justify-center  border-white border-2 drop-shadow-2xl font-extralight items-center rounded-3xl
+                  className={`w-[17%] h-[70%] ml-2 flex justify-center  hover:scale-90 border-white border-2 drop-shadow-2xl font-extralight items-center rounded-3xl
                   ${a.name===state? "bg-green text-white" : "bg-white text-black"}`}>{a.name}</button>
                     ))  
                 }
                   </div> 
                   
             </div>
-            <div className="w-full h-full flex flex-col">
+            <div className="w-full h-[50%] overflow-y-auto flex flex-col">
             {members?.map((m:any) => (
-                <div className="w-full h-[22%]  flex flex-row">
+                <div className="w-full h-[50%] mb-10  flex flex-row">
                 <div className=" w-full  h-[90%] flex flex-start text-xl font-extralight text-white">
                 <div className='rounded-full ml-14 mt-4 drop-shadow-xl bg-white justify-center flex items-center w-[70px] h-[70px]'>
                     <p className="bg-auto bg-logo bg-no-repeat bg-center bg-cover rounded-lg w-12 h-10"></p>
@@ -146,9 +141,9 @@ return (
                 </div>
                 <div className="flex flex-end w-[15%] items-center h-full text-white">
             <div className=" flex flex-row font-bold  text-3xl">
-              <p className="ml-4"> <FaEye onClick={ handleShowOptions1}/></p>
-              <p className="ml-4"><MdModeEdit/></p>
-              <p className="ml-4"> < MdDeleteForever onClick={ handleShowOptions}/> </p>
+              <p className="ml-4  hover:scale-90"> <FaEye onClick={ handleShowOptions1}/></p>
+              <p className="ml-4  hover:scale-90"><MdModeEdit/></p>
+              <p className="ml-4  hover:scale-90"> < MdDeleteForever onClick={ handleShowOptions}/> </p>
             </div>
          </div>
           </div>

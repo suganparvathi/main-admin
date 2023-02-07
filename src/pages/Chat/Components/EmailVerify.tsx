@@ -53,7 +53,7 @@ const initialState: ValidationProps  = ({
 });
 
 
-const Validation = () => {
+const EmailVerify = () => {
 
 
   const dispatch = useDispatch();
@@ -79,7 +79,7 @@ const[viewSPassword1,setViewSPassword1]=useState(false);
 
 
  const renderError = (msg:string) => 
-      <div className='text-sm -mt-4  w-full'>
+      <div className='text-sm  w-full'>
         <p className='text-red-400'>{msg}</p>
       </div>
 
@@ -89,70 +89,63 @@ const[viewSPassword1,setViewSPassword1]=useState(false);
     <div className="bg-white w-screen h-screen flex items-center justify-center">
       <div className="flex justify-center w-[70%] h-[580px] bg-quaternary shadow rounded-xl overflow-hidden  bg-opacity-50 backdrop-blur">
         <div className="w-full col-span-1 flex items-center justify-center flex-col p-7">
-          <h5 className="text-black font-bold text-4xl  capitalize -mt-8">
-           Forgot your password?
+          <h5 className="text-black font-bold text-4xl  capitalize -mt-10">
+         Verification
           </h5>
+          <p className="mt-4">Enter Your OTP code number</p>
         
-      <div className="w-[700px] h-[70%]  bg-[#F3F3FF] px-4 mt-10 py-10 rounded-3xl shadow-md">
+      <div className="w-[700px] h-[70%]  px-4 mt-10 py-10 rounded-3xl ">
           <CustomForm
             initialValues={initialState}
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
           >
-            <div className="flex flex-col justify-center items-center mt-2">
-              <div className="flex flex-col">
+            <div className="flex flex-col w-full h-full ml-20 ">
+            
+                <div className="flex  flex-row w-full h-[50%] ">
               <Input 
                  type="text"
                  name="ValidationCode"
-                 placeholder="Validation Code"
-                 className="border-none text-black outline-none bg-blue   shadow-md w-96" inputContainerClassName="mb-8"/>
-                 <ErrorMessage name="ValidationCode" render={renderError}/>
-                 <div className="flex flex-row">
-                 <Input
-                  type={viewCPassword ? "text" : "password"}
-                 name='NewPassword'
-                  placeholder='New Password'
-                  className='border-none text-black outline-none shadow-md w-96'
-                 inputContainerClassName="mb-8"
-                />
-              {viewCPassword ?
-                <AiFillEyeInvisible className='text-black -ml-10 mt-3 scale-125 cursor-pointer'
-                onClick={() => setViewCPassword(!viewCPassword)} 
-                />
-                :
-                <AiFillEye className='text-black -ml-10 mt-3 scale-125 cursor-pointer' 
-                onClick={() => setViewCPassword(!viewCPassword)}
-                /> 
-              }
-             </div>
-                <ErrorMessage name="NewPassword" render={renderError}/>
-                <div className="flex flex-row">
-                 <Input
-                  type={viewSPassword1 ? "text" : "password"}
-                 name='VerifyPassword'
-                  placeholder='Verify Password'
-                  className='border-none text-black outline-none shadow-md w-96'
-                 inputContainerClassName="mb-8"
-                />
-              {viewSPassword1 ?
-                <AiFillEyeInvisible className='text-black -ml-10 mt-3 scale-125 cursor-pointer'
-                onClick={() => setViewSPassword1(!viewSPassword1)} 
-                />
-                :
-                <AiFillEye className='text-black -ml-10 mt-3 scale-125 cursor-pointer' 
-                onClick={() =>setViewSPassword1(!viewSPassword1)}
-                /> 
-               }
-              </div>
-                <ErrorMessage name="VerifyPassword" render={renderError}/>
+                 placeholder="Email Validation Code"
+                 className="border-none text-black outline-none bg-blue   shadow-md w-96" inputContainerClassName="mb-6"/>
+                 <Button
+               
+                title="Verify"
+                className=" w-[20%] text-white ml-10 p-2 hover:scale-90 text-sm rounded-xl h-[65%] bg-tertiaryText"
+              
+                 />
                  </div>
+                
+                  <ErrorMessage name="ValidationCode" render={renderError}/>
+                  <div className="flex flex-row w-full h-[5%] font-bold">
+         Didn't receive an OTP? <p className=" text-blue-600 cursor-pointer ml-4">RESEND CODE</p>
+        </div>
+                  <div className="flex flex-row w-full  mt-6 h-[50%]">
+                  <Input 
+                 type="text"
+                 name="ValidationCode"
+                 placeholder="Phone Validation Code"
+                 className="border-none text-black outline-none bg-blue   shadow-md w-96" inputContainerClassName="mb-6"/>
+                  <Button
+               
+                title="Verify"
+                className=" w-[20%] text-white ml-10 p-2  hover:scale-90 text-sm rounded-xl h-[65%] bg-tertiaryText"
+             
+                 />
+                 </div>
+                 
+                 <ErrorMessage name="ValidationCode" render={renderError}/>
+                 <div className="flex  flex-row w-full h-[5%]  font-bold">
+         Didn't receive an OTP? <p className=" text-blue-600 cursor-pointer ml-4">RESEND CODE</p>
+        </div>
+               
                 </div>
             <div className="w-full flex justify-end">
               <Button
                 type="submit"
                 title="Next"
                 isLoading={isLoading}
-                className="bg-secondaryText text-white p-2 px-7 w-[25%] m-auto mt-6 transform transition-all hover:scale-90"
+                className="bg-secondaryText text-white text-2xl p-2 px-7 w-[30%] m-auto mt-6 transform transition-all hover:scale-90"
               />
             </div>
           </CustomForm>
@@ -166,4 +159,4 @@ const[viewSPassword1,setViewSPassword1]=useState(false);
   );
 };
 
-export default Validation;
+export default EmailVerify;

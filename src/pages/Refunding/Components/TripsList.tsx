@@ -33,12 +33,12 @@ return (
           <div className="mt-4 w-[95%] h-full bg-quaternary rounded-xl">
             <div className="w-full h-[15%] flex justify-center text-white text-5xl font-light items-center"> Trip List</div>
            <div className="w-full h-[10%]  text-white text-xl"><Searchbar placeholder= "Search your Company  Name/Company ID"/> </div>
-            <div className="w-full h-full flex flex-col">
+            <div className="w-full h-[60%] overflow-y-auto  flex flex-col">
             {members?.map((e:any) => (
-                <div className="w-full h-[30%]  flex flex-row">
+                <div className="w-full h-[60%] mb-20 flex flex-row">
                 <div className=" w-full  h-[90%] flex flex-start text-xl font-extralight text-white">
                     <Link to ="/ola-bus-company">
-                <div className='rounded-full ml-14 mt-4 drop-shadow-2xl bg-white justify-center flex items-center w-[130px] h-[130px]'>
+                <div className='rounded-full ml-14 mt-4 drop-shadow-2xl  hover:scale-90 bg-white justify-center flex items-center w-[130px] h-[130px]'>
                       <FaBus className="text-7xl  text-black"/>
                 </div>
                 </Link>

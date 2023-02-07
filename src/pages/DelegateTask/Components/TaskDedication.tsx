@@ -57,7 +57,8 @@ return (
        
     </div>
     <div className="w-full h-[20%] flex justify-center">
-        <button className={`w-[10%] h-[30%] rounded-2xl text-xl bg-white ${color?  "text-white bg-green" : "text-black bg-white" }`}>Save</button>
+        <button  onClick={colorButton}
+        className={`w-[10%] h-[30%] rounded-2xl hover:scale-90 text-xl ${color? "bg-green text-white" : "bg-white text-black"}`}>Save</button>
 
 </div>
           </div>

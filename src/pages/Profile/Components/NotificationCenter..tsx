@@ -44,7 +44,7 @@ return (
            <div className="flex justify-start  flex-col w-[60%] h-full">
                {
                 Center.map((c)=>(
-                 <p className="p-4 mt-6 ml-4 text-white underline underline-offset-8 decoration-1 font-bold text-2xl">
+                 <p className="p-4 mt-6 ml-4 text-white  underline underline-offset-8 decoration-1 font-bold text-2xl">
                   <Link to={c.link}>
                   {c.name}
                   </Link>

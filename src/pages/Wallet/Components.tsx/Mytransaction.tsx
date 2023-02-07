@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
-import Notifcation from "../../../components/Notification";
 import BackButton from "../../../components/BackButton";
 import {FaDownload} from "react-icons/fa"
 import {FaCircle} from "react-icons/fa"
@@ -135,19 +134,19 @@ export const Mytransaction = () => {
                   console.log(data.name,"mytransaction")
                   setState(data.name)
                 }}
-                className={`w-[13%] h-[70%] ml-2 flex justify-center items-center rounded-full text-2xl border-2 border-white
+                className={`w-[13%] h-[70%] ml-2 flex justify-center hover:scale-90 items-center rounded-full text-2xl border-2 border-white
                 ${data.name ===state? "bg-green text-white" : "bg-white text-black"}`}>{data.name}</button>
               ))
               } 
                 
             </div> 
-            <div className="flex flex-row items-center text-white w-full h-[60%]">
-            <div className="h-full w-[75%]">
+            <div className="flex flex-row justify-center text-white w-full h-[60%]">
+            <div className="h-[90%] w-[75%] overflow-y-auto ">
             {Members.map((data) => (
-            <div className="w-full h-[20%]  mt-6 flex flex-row">
+            <div className="w-full h-[25%]  mt-6 flex flex-row">
            
             <div className=" w-[50%] h-full flex   flex-start text-xl font-bold text-white"onClick={ handleShowOptions}>
-              <img src ={data.img} alt="" className="w-[70px] cursor-pointer h-[70px] rounded-full ml-4" 
+              <img src ={data.img} alt="" className="w-[70px] hover:scale-90 cursor-pointer h-[70px] rounded-full ml-4" 
                onClick={ ()=>{
                 console.log(data.name,"members")
                 setName(data.name)

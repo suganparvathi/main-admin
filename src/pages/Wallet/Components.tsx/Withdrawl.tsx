@@ -6,12 +6,9 @@ import Entervalue from "../../../components/Entervalue";
 import Overlay from "../../../components/Overlay";
 
 
-
-
 export const Withdrawl = () => {
   const [showMoreOptions, setShowMoreOptions] = useState(false);
   
-
   const handleShowOptions = () => {
     setShowMoreOptions(!showMoreOptions);
     
@@ -22,9 +19,6 @@ export const Withdrawl = () => {
 
   return (
     
-    
-
-
     <div className="relative">
       {showMoreOptions && (
         <>
@@ -83,7 +77,7 @@ export const Withdrawl = () => {
              </div>
            </div>
            <div className="w-full h-[10%]  flex justify-center">
-            <button className="w-[20%] h-[80%] rounded-full bg-white text-black font-bold text-2xl" onClick={ handleShowOptions}>Payment Method</button>
+            <button className="w-[20%] h-[80%] rounded-full bg-white hover:scale-90 text-black font-bold text-2xl" onClick={ handleShowOptions}>Payment Method</button>
            </div>
            <div className="w-full h-[13%] items-center flex flex-row justify-center">
            <div className="flex  justify-center border-2 ml-[90px] w-[11%] text-black border-white h-[50px]  rounded-full ">
@@ -99,10 +93,9 @@ export const Withdrawl = () => {
                <div className="w-full h-[20%] flex justify-center">
                 <button 
                 onClick={colorButton}
-                className={`w-[10%] h-[40%] border-2 border-white text-xl rounded-full 
+                className={`w-[10%] h-[40%] border-2 hover:scale-90 border-white text-xl rounded-full 
                 ${  color? "bg-green text-white" : "bg-white text-black"}`}>Withdraw</button>
                </div>
-        
           </div>
         </div>
       </div>

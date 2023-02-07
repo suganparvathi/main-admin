@@ -87,7 +87,7 @@ return (
             </div>
             </div>
             <div className="flex justify-center w-full h-[14%]">
-                <button className="w-[12%] h-[75%] rounded-lg text-white text-3xl drop-shadow-2xl font-bold flex justify-center items-center bg-green">Save</button>
+                <button className="w-[12%] h-[75%] rounded-lg  hover:scale-90 text-white text-3xl drop-shadow-2xl font-bold flex justify-center items-center bg-green">Save</button>
             </div>
            <div className="w-full flex justify-center h-[30%] mt-6">
             <div className="w-[10%] h-[70%] rounded-xl bg-white drop-shadow-2xl flex justify-center items-center"><FaPlus className="text-quaternary text-7xl"/></div>

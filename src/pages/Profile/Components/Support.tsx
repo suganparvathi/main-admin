@@ -50,7 +50,7 @@ return (
                    console.log(data.name, "verify")
                    setState(data.name)
                    }}
-                   className={`w-[10%] h-[50%] ml-2 flex justify-center  items-center rounded-3xl
+                   className={`w-[10%] h-[50%] ml-2 flex  hover:scale-90 justify-center  items-center rounded-3xl
                   ${data.name === state ? "bg-green text-white" : "bg-white"}`}>{data.name}
                   </button>
                   
@@ -59,15 +59,16 @@ return (
                 </div> 
                   <div className="flex flex-end w-[15%] h-[50%] ml-2 flex justify-center text-2xl items-center text-black rounded-3xl bg-white mr-2 ">Sort By<TiArrowUnsorted/></div>
             </div>
-            <div className="w-full h-full flex  flex-col ">
+            <div className="w-full h-[50%] overflow-y-auto  flex flex-col ">
              {members.map((a) => (
-            <div className="w-full h-[17%] flex flex-row">
+            <div className="w-full h-[50%] mb-8 flex flex-row overscroll-y-auto">
                   <div className=" w-full h-full flex flex-start text-xl font-bold text-white">
                      <div className="w-[70px] ml-4"> <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[70px] h-[70px]"/></div>
                      <div className="ml-8">
                         <p>{a.name}</p>
                         <p>{a.date}</p>
                         <p>{a.time}</p>
+                        
                      </div>
                   </div>
                      <div className="flex flex-end w-[18%] items-center h-full text-white">

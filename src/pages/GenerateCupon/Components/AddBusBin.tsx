@@ -114,7 +114,7 @@ return (
                     setState(a.name)
 
                   }}
-                  className={`w-[17%] h-[70%] ml-2 flex justify-center  border-white border-2 drop-shadow-2xl font-extralight items-center rounded-3xl
+                  className={`w-[17%] h-[70%] ml-2 flex justify-center  hover:scale-90 border-white border-2 drop-shadow-2xl font-extralight items-center rounded-3xl
                   ${a.name===state? "bg-green text-white" : "bg-white text-black"}`}>{a.name}</button>
                 ))}
                   </div> 
@@ -157,9 +157,9 @@ return (
                 </div>
                 <div className="flex flex-end w-[15%] items-center h-full text-white">
             <div className=" flex flex-row font-bold  text-3xl">
-              <p className="ml-4"> <FaEye onClick={ handleShowOptions}/></p>
-              <p className="ml-4"><TbArrowsRandom/></p>
-              <p className="ml-4"> < MdDeleteForever onClick={ handleShowOptions2}/> </p>
+              <p className="ml-4  hover:scale-90"> <FaEye onClick={ handleShowOptions}/></p>
+              <p className="ml-4  hover:scale-90"><TbArrowsRandom/></p>
+              <p className="ml-4  hover:scale-90"> < MdDeleteForever onClick={ handleShowOptions2}/> </p>
             </div>
          </div>
           </div>

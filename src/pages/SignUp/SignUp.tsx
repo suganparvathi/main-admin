@@ -71,9 +71,9 @@ const initialState: SignUpProps = ({
   phoneNumber: "",
 });
 
-const password = ({
+const initialPassword = ({
   otp: "",
-  passwrod: "",
+  password: "",
   confirmPassword: "",
 })
 
@@ -96,6 +96,7 @@ const SignUp = () => {
 
   const handleSubmit = async (values: SignUpProps) => {
       setIsLoading(true);
+      setLogin(true);
       try{
         const respose = await axios.post(constants.auth.register, values)
         .then( resp => {
@@ -104,7 +105,6 @@ const SignUp = () => {
             console.log(error, "not worked")
           }
           else {
-            setLogin(true);
             setUserId(resp); 
             setError("error");
             console.log("worked");    
@@ -117,9 +117,9 @@ const SignUp = () => {
     }
   };
 
- const handleRegister = async() => {
-  const response = await axios.post(constants.auth.registerCred)
-  console.log(response);
+ const handleRegister = async(values:any) => {
+  // const response = await axios.post(constants.auth.registerCred)
+  console.log(values, 'khuhhvg');
   
   }
 
@@ -182,7 +182,7 @@ const SignupData = [
           :
           <div className="flex justify-center items-center w-[980px] h-full bg-quaternary px-4 py-10 rounded-3xl shadow-md">
             <CustomForm
-            initialValues={password}
+            initialValues={initialPassword}
             validationSchema={passwordValidate}
             onSubmit={handleRegister}
             >

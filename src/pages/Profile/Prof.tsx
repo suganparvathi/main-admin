@@ -32,9 +32,9 @@ return (
     <div className="w-full h-[40%] flex flex-row"><div className="  w-[60%] h-full"/>
       <div className="w-[40%] flex justify-center items-center h-full">
         <div className="w-[30%] h-[50%] z-20 drop-shadow-2xl flex flex-col justify-center items-center rounded-2xl bg-white">
-        <Link to="/view-member" className="mt-2  hover:scale-90">View Member List</Link>
-          <Link to="/create-member" className="mt-2  hover:scale-90">create Member</Link>
-          <Link to="/recycle-bin" className="mt-2  hover:scale-90"> Recycle Bin</Link>
+        <Link to="/view-member" className="mt-2">View Member List</Link>
+          <Link to="/create-member" className="mt-2">create Member</Link>
+          <Link to="/recycle-bin" className="mt-2"> Recycle Bin</Link>
         </div>
       </div>
     </div></div>
@@ -64,14 +64,14 @@ return (
               </div>
               <div className="flex items-center h-full text-xl w-[10%] flex-col">
                 <Link to="/notification-center">
-                <button className="rounded-full h-[50px] w-[50px] bg-white text-quaternary flex  hover:scale-90 justify-center drop-shadow-2xl items-center mt-6"><BsFillBellFill/></button>
+                <button className="rounded-full h-[50px] w-[50px] bg-white text-quaternary flex justify-center drop-shadow-2xl items-center mt-6"><BsFillBellFill/></button>
                 </Link>
                 <Link to="/profile-setting">
-                <button className="rounded-full h-[50px] w-[50px] bg-white text-quaternary flex  hover:scale-90 justify-center drop-shadow-2xl items-center mt-6 "><AiOutlineSetting/></button>
+                <button className="rounded-full h-[50px] w-[50px] bg-white text-quaternary flex justify-center drop-shadow-2xl items-center mt-6 "><AiOutlineSetting/></button>
                 </Link>
                 <button
                 onClick={ handleShowOptions}
-                className="rounded-full h-[50px] w-[50px] bg-white text-quaternary flex justify-center  hover:scale-90 drop-shadow-2xl items-center mt-6"><AiOutlineBars/></button>
+                className="rounded-full h-[50px] w-[50px] bg-white text-quaternary flex justify-center drop-shadow-2xl items-center mt-6"><AiOutlineBars/></button>
               </div>
             </div>
             </div>  

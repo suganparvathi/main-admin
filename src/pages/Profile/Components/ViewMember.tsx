@@ -99,7 +99,7 @@ return (
                    console.log(data.name, "verify")
                    setState(data.name)
                    }}
-                   className={`w-[14%] h-[50%] ml-2  hover:scale-90 flex justify-center  items-center rounded-3xl
+                   className={`w-[14%] h-[50%] ml-2 flex justify-center  items-center rounded-3xl
                   ${data.name === state ? "bg-green text-white" : "bg-white"}`}>{data.name}
                   </button>
                   
@@ -108,17 +108,17 @@ return (
                 </div> 
                   
             </div>
-            <div className="w-full h-[50%] overflow-y-auto flex  flex-col ">
+            <div className="w-full h-full flex  flex-col ">
              {members.map((a) => (
-            <div className="w-full h-[50%] mb-6 flex flex-row">
+            <div className="w-full h-[17%] flex flex-row">
                   <div className=" w-full h-full flex flex-start text-xl font-bold text-white">
                      <div className="w-[70px] ml-4 mt-6"> <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[70px] h-[70px]"/></div>
                      <div className="ml-4 text-2xl mt-8">
                         <p>{a.name}</p>
                      <div className=" flex flex-row mt-4 text-2xl font-bold">
-                        <p className="ml-2 cursor-pointer  hover:scale-90"onClick={ handleShowOptions}> <FaEye /> </p>      
-                        <p className="ml-4 cursor-pointer  hover:scale-90"> < MdDeleteForever /> </p>
-                        <p className="ml-4 cursor-pointer  hover:scale-90"><Link to="/edit-member"><MdModeEdit/></Link></p>
+                        <p className="ml-2 cursor-pointer"onClick={ handleShowOptions}> <FaEye /> </p>      
+                        <p className="ml-4 cursor-pointer"> < MdDeleteForever /> </p>
+                        <p className="ml-4 cursor-pointer"><Link to="/edit-member"><MdModeEdit/></Link></p>
                      </div>
                     </div>
                   </div>

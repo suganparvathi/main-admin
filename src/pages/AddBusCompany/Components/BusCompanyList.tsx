@@ -94,13 +94,8 @@ return (
       </div>
       <div className="w-full flex flex-row justify-evenly items-center text-4xl font-bold text-white h-[20%]">
         
-<<<<<<< HEAD
         <p className="" onClick={handleDelete}>Yes</p>
         <p className="">No</p>
-=======
-        <p className=" hover:scale-90"><Link to="/deleted-successfully">Yes</Link></p>
-        <p className=" hover:scale-90">No</p>
->>>>>>> b730254ca741a0e986ea8b09e24f3a2f3d29537b
 
       </div></div></div>
      </>
@@ -136,31 +131,18 @@ return (
                     onClick={() =>{
                     console.log(data.name,"appuser")
                     setState(data.name)
-<<<<<<< HEAD
                   }}
                     className={`w-[13%] h-[75%] ml-2 flex justify-center drop-shadow-2xl font-extralight items-center rounded-3xl bg-white
                     ${data.name ===state? "bg-green text-white" : "bg-white text-black"} `}>{data.name}</button>
-=======
-                }}
-                  className={`w-[13%] h-[75%] ml-2 flex  hover:scale-90 justify-center drop-shadow-2xl font-extralight items-center rounded-3xl bg-white
-                  ${data.name ===state? "bg-green text-white" : "bg-white text-black"} `}>{data.name}</button>
->>>>>>> b730254ca741a0e986ea8b09e24f3a2f3d29537b
                     )) 
                   }
                 </div> 
                   
             </div>
-<<<<<<< HEAD
             <div className="w-full h-[55%] flex flex-col overflow-y-auto overflow-x-hidden">
             {company?.map((data:any) => (
                 <div className="w-full h-[20%] mb-4 flex flex-row">
                 <div className="w-full mt-6 h-full flex flex-start text-xl font-bold text-white">
-=======
-            <div className="w-full h-[50%] overflow-y-auto flex flex-col">
-            {members.map(({name}) => (
-                <div className="w-full h-[50%] mb-10  flex flex-row">
-                <div className=" w-full mt-6 h-full flex flex-start text-xl font-bold text-white">
->>>>>>> b730254ca741a0e986ea8b09e24f3a2f3d29537b
                 <div className='rounded-full ml-14 drop-shadow-xl bg-white justify-center flex items-center w-[70px] h-[70px]'>
                       <FaBus className="text-2xl text-quaternary"/>
                       </div>
@@ -170,7 +152,6 @@ return (
                 </div>
                 <div className="flex flex-end w-[10%] items-center h-full text-white">
             <div className=" flex flex-row font-bold  text-3xl">
-<<<<<<< HEAD
               <p className="ml-2"> < MdDeleteForever onClick={() => {
                 handleShowOptions();
                 setDeleteCompany(data?.companyName)
@@ -179,11 +160,6 @@ return (
                 console.log(data?.jojoId, "dajsyfdj");
               }}/> </p>
               <p className="ml-2">
-=======
-              <p className="ml-2  hover:scale-90"> < MdDeleteForever onClick={ handleShowOptions}/> </p>
-              <p className="ml-2  hover:scale-90"> <FaEye onClick={ handleShowOptions1}/> </p>
-              <p className="ml-2  hover:scale-90">
->>>>>>> b730254ca741a0e986ea8b09e24f3a2f3d29537b
               <Link to="/edit-bus-company">
                 <MdModeEdit/>
                 </Link>

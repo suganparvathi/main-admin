@@ -10,7 +10,6 @@ import { BlockingReport } from "../pages/BlockingReport.tsx/BlockingReport";
 import { UserBlockingReport } from "../pages/BlockingReport.tsx/UserBlockingReport";
 import { BusCompanyWallet } from "../pages/Chat/BusCompanyWallet";
 import { ChatHelp } from "../pages/Chat/ChatHelp";
-import EmailVerify from "../pages/Chat/Components/EmailVerify";
 import { DirectSupport } from "../pages/Chat/DirectSupport";
 import { DirectSupportChat } from "../pages/Chat/DirectSupportChat";
 import { PioltsAndCopiolts } from "../pages/Chat/PioltsAndCopiolts";
@@ -177,7 +176,6 @@ const routes: { path: string; Element: () => JSX.Element }[] = [
   {path:"/edit-member", Element: EditMember},
   {path:"/forgot-password", Element: ForgotPassword},
   {path:"/validation-password", Element: Validation},
-  {path:"/email-verify", Element: EmailVerify},
   
   
  

@@ -17,7 +17,7 @@ import {RiChat3Line} from "react-icons/ri";
 import { Link } from 'react-router-dom';
 import tw from 'tailwind-styled-components';
 import styled from 'styled-components';
-
+// import tw from 'tailwind.macro'
 
 export const Sidebar = () => {
 
@@ -58,7 +58,7 @@ export const Sidebar = () => {
           <div className='flex flex-row font-thin p-3'><MdOutlineRule className=' text-2xl'/><Link to="/delegate-task"><p className='ml-2'>Delegate Task</p></Link></div>
           <div className='flex flex-row font-thin p-3'
           // onClick={ handleShowOptions}
-          ><RiChat3Line className=' text-2xl'/><Link to="/email-verify"><p className='ml-2' >Chat</p></Link></div>
+          ><RiChat3Line className=' text-2xl'/><Link to="/token"><p className='ml-2' >Chat</p></Link></div>
           <div className='flex flex-row font-thin p-3'><ImUsers className=' text-2xl'/><Link to="/customer-support"><p className='ml-2'>Customer Services</p></Link></div>
           <div className='flex flex-row font-thin p-3'><FaExclamationTriangle className=' text-2xl'/><Link to="/blocking-report"><p className='ml-2'>Blocking Reports</p></Link></div>
           <div className='flex flex-row font-thin p-3'><FaBusAlt className=' text-2xl'/><Link to="/add-bus-company"><p className='ml-2'>Add Bus Company</p></Link></div>

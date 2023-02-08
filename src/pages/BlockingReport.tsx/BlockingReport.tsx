@@ -50,7 +50,7 @@ export const BlockingReport = () => {
                          <div className='w-full py-4 px-2 h-full  flex flex-row '>
                          <div className='flex flex-col w-[10%]'>
                          <Link to="/user-blocking-report">
-                             <img src={data.img} className='rounded-full  hover:scale-90 w-[70px] h-[70px]'/>
+                             <img src={data.img} className='rounded-full w-[70px] h-[70px]'/>
                         </Link>
                         </div>
                          <div className='flex text-lg w-full pl-2 py-6'>

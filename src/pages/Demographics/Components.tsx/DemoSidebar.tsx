@@ -14,7 +14,7 @@ export const DemoSidebar = () => {
          
         
           <div className='flex flex-row p-3 '><IoMdWallet className=' text-2xl mb-6'/><p className='ml-2 mb-6 font-bold'>Wallet</p></div>
-          <div className='flex flex-row p-3 '><ImClock className=' text-2xl'/><Link to="/demo-user-history"><p className='ml-2 '>User History</p></Link></div>
+          <div className='flex flex-row p-3'><ImClock className=' text-2xl'/><Link to="/demo-user-history"><p className='ml-2'>User History</p></Link></div>
           <div className='flex flex-row p-3'><MdIncompleteCircle className=' text-2xl'/><Link to="/jopay-growth"><p className='ml-2'>Charts</p></Link></div>
           <div className='flex flex-row p-3'><MdVerifiedUser className=' text-2xl'/><Link to="/kyc-verification"><p className='ml-2'>KYC Verification</p></Link></div>
 

@@ -84,7 +84,7 @@ export const UserBlockingReport = () => {
             <div className='w-full h-[15%] flex items-center flex-col'>
                 <div className='-mt-10'>
                 <img src="https://sp-images.summitpost.org/947006.jpg?auto=format&fit=max&h=800&ixlib=php-2.1.1&q=35&s=876696700800816d01e0d1eb31ce7ab0" 
-                className="rounded-full w-[70px]  h-[70px]"/></div>
+                className="rounded-full w-[70px] h-[70px]"/></div>
                 <p className='text-5xl py-2 font-bold text-white'>Martha BlockList</p>
             </div>
             <div className="w-full h-[10%]  text-white text-xl"><Searchbar placeholder= "Search By Customer Name/Customer ID"/> </div>
@@ -96,7 +96,7 @@ export const UserBlockingReport = () => {
                          <div className='w-full py-4 px-2 h-full  flex flex-row '>
                          <div className='flex flex-col w-[15%]'>
                        
-                             <img src={data.img} onClick={ handleShowOptions} className="rounded-full  hover:scale-90 w-[70px] h-[70px]"/>
+                             <img src={data.img} onClick={ handleShowOptions} className="rounded-full w-[70px] h-[70px]"/>
                     
                         </div>
                          <div className='flex text-lg w-full pl-2 py-6'>

@@ -196,7 +196,7 @@ dispatch( UPDATE_ADDCUPON(values));
             <div className="w-full  h-[20%] flex justify-center">
                 <div 
                 onClick={colorButton}
-                className={`w-[20%] text-3xl drop-shadow-2xl  hover:scale-90 font-bold rounded-2xl justify-center h-[60%] flex  items-center  
+                className={`w-[20%] text-3xl drop-shadow-2xl font-bold rounded-2xl justify-center h-[60%] flex  items-center  
                 ${color? "bg-green text-white" : "bg-white text-black"}`}>
                     <button>Generate Cupon</button></div>
 

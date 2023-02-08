@@ -76,8 +76,8 @@ const handleOptions1 = () => {
            
            <div className='h-[30%]'>Are You Sure Want To Delete. If You give Yeu You Can't Restore? </div>
            <div className='flex font-bold flex-row'>
-            <p className='-ml-20 hover:scale-90'>Yes</p>
-            <p className='ml-20 hover:scale-90'>No</p>
+            <p className='-ml-20'>Yes</p>
+            <p className='ml-20'>No</p>
             </div>   
         </div>
         </>)}
@@ -89,14 +89,14 @@ const handleOptions1 = () => {
                 
           <div className='ml-8 font-light justify-start items-center mt-4  w-[80%] h-full'>{item.name}</div> 
           <div className='flex justify-end items-center w-[10%]'>
-            <FaAngleDoubleDown onClick={() => {handleOpen(index);}} className="cursor-pointer hover:scale-90"/> </div>
+            <FaAngleDoubleDown onClick={() => {handleOpen(index);}} className="cursor-pointer"/> </div>
          </div>
        
         {openEdit.activeLink === index &&
             <div className=' flex justify-start items-center w-full text-2xl h-16 text-white bg-opacity-20 bg-fuchsia-300'>
-                 <div className='ml-10 hover:scale-90'onClick={ handleShowOptions}><FaEye/></div> 
-                <div className='ml-10 hover:scale-90'onClick={ handleOptions1}><MdDeleteForever className='scale-125' /></div>
-                <div className='ml-10 hover:scale-90'><Link to="/edit-ad"><FaPen /></Link></div> 
+                 <div className='ml-10'onClick={ handleShowOptions}><FaEye/></div> 
+                <div className='ml-10'onClick={ handleOptions1}><MdDeleteForever className='scale-125' /></div>
+                <div className='ml-10'><Link to="/edit-ad"><FaPen /></Link></div> 
                
             </div>
         }

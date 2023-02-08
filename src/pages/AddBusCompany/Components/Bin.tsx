@@ -69,8 +69,8 @@ return (
       </div>
       <div className="w-full flex flex-row justify-evenly items-center text-4xl font-bold text-white h-[20%]">
         
-        <p className=" hover:scale-90"><Link to="/deleted-successfully">Yes</Link></p>
-        <p className=" hover:scale-90">No</p>
+        <p className=""><Link to="/deleted-successfully">Yes</Link></p>
+        <p className="">No</p>
 
       </div></div></div>
      </>
@@ -103,8 +103,8 @@ return (
       </div>
       <div className="w-full flex flex-row justify-evenly items-center text-4xl font-bold text-white h-[20%]">
         
-        <p className=" hover:scale-90"><Link to="/deleted-successfully">Yes</Link></p>
-        <p className=" hover:scale-90">No</p>
+        <p className=""><Link to="/deleted-successfully">Yes</Link></p>
+        <p className="">No</p>
 
       </div></div></div>
      </>
@@ -134,14 +134,14 @@ return (
                     console.log(data.name,"appuser")
                     setState(data.name)
                 }}
-                  className={`w-[13%] h-[60%] ml-2 flex justify-center  hover:scale-90 drop-shadow-2xl font-extralight items-center rounded-3xl bg-white  ${data.name ===state? "bg-green text-white" : "bg-white text-black"} `}>{data.name}</button>
+                  className={`w-[13%] h-[60%] ml-2 flex justify-center drop-shadow-2xl font-extralight items-center rounded-3xl bg-white  ${data.name ===state? "bg-green text-white" : "bg-white text-black"} `}>{data.name}</button>
                   )) 
                 }
                   </div> 
             </div>
-            <div className="w-full h-[50%] overflow-y-auto flex flex-col">
+            <div className="w-full h-full flex flex-col">
             {members.map(({name}) => (
-                <div className="w-full h-[50%] mb-10  flex flex-row">
+                <div className="w-full h-[20%]  flex flex-row">
                 <div className=" w-full mt-6 h-full flex flex-start text-xl font-bold text-white">
                 <div className='rounded-full ml-14 drop-shadow-xl bg-white justify-center flex items-center w-[70px] h-[70px]'>
                       <FaBus className="text-2xl text-quaternary"/>
@@ -152,9 +152,9 @@ return (
                 </div>
                 <div className="flex flex-end w-[10%] items-center h-full text-white">
             <div className=" flex flex-row font-bold  text-3xl">
-              <p className="mr-2  hover:scale-90"><TbArrowsRandom onClick={ handleShowOptions1}/></p>
-              <p className="mr-2  hover:scale-90"> < MdDeleteForever onClick={ handleShowOptions} /> </p>
-              <p className="mr-2  hover:scale-90"> <FaEye onClick={ handleShowOptions2} /> </p>
+              <p className="mr-2"><TbArrowsRandom onClick={ handleShowOptions1}/></p>
+              <p className="mr-2"> < MdDeleteForever onClick={ handleShowOptions} /> </p>
+              <p className="mr-2"> <FaEye onClick={ handleShowOptions2} /> </p>
              </div>
          </div>
           </div>

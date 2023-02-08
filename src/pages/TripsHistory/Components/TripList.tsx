@@ -9,6 +9,7 @@ const members = [
   { name : "Uber Bus", data : "Number Of Transaction From OLA Bus 30"},
   { name : "Red Bus", data : "Number Of Transaction From OLA Bus 50"},
  
+ 
 ]  
 
 
@@ -110,9 +111,9 @@ return (
                     />{" "}
                      <BsSearch className="text-[25px]  text-black"/>
                 </div>
-          <div className="w-full h-[60%] flex flex-col overflow-y-auto ">
+          <div className="w-full h-full flex flex-col">
             {members?.map((e:any) => (
-                <div className="w-full h-[60%] mb-14 flex flex-row">
+                <div className="w-full h-[22%]  flex flex-row">
                 <div className=" w-full  h-[50%]  flex flex-start text-xl font-extralight text-black">
                   
                 <div 
@@ -121,7 +122,7 @@ return (
                   console.log(e.name,"currenttrips")
                 setState(e.name)
                 }}
-                className='rounded-full ml-14 cursor-pointer hover:scale-90 drop-shadow-2xl bg-quaternary justify-center flex items-center w-[70px] h-[70px]'>
+                className='rounded-full ml-14 cursor-pointer drop-shadow-2xl bg-quaternary justify-center flex items-center w-[70px] h-[70px]'>
                       <FaBus className="text-2xl   text-white"
                         onClick={ handleShowOptions}
                       />

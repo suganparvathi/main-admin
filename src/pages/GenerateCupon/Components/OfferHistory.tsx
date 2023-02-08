@@ -85,7 +85,11 @@ return (
           <div className="w-full h-[5%] justify-center flex  text-3xl  font-bold">
            <p className=""> Offer History</p>
           </div>
-           
+      
+          
+         
+         
+       
                          {/* center div */}
         <div className="w-full h-full flex justify-center ">
           <div className="mt-4 w-[90%] h-full bg-quaternary rounded-xl">
@@ -101,15 +105,15 @@ return (
                     setState(a.name)
 
                   }}
-                  className={`w-[17%] h-[70%] ml-2 flex justify-center  hover:scale-90 border-white border-2 drop-shadow-2xl font-extralight items-center rounded-3xl
+                  className={`w-[17%] h-[70%] ml-2 flex justify-center  border-white border-2 drop-shadow-2xl font-extralight items-center rounded-3xl
                   ${a.name===state? "bg-green text-white":"bg-white text-black"}`}>{a.name}</button>
                   ))}
                   </div> 
                   
             </div>
-            <div className="w-full h-[45%] overflow-y-auto flex flex-col">
+            <div className="w-full h-full flex flex-col">
             {members?.map((m:any) => (
-                <div className="w-full h-[50%] mb-10 flex flex-row">
+                <div className="w-full h-[22%]  flex flex-row">
                 <div className=" w-full  h-[90%] flex flex-start text-xl font-extralight text-white">
                 <div className='rounded-full ml-14 mt-4 drop-shadow-xl bg-white justify-center flex items-center w-[70px] h-[70px]'>
                     <p className="bg-auto bg-logo bg-no-repeat bg-center bg-cover rounded-lg w-12 h-10"onClick={handleShowOptions}></p>
@@ -131,11 +135,10 @@ return (
          </div>
           </div>
           ))}
-            </div>
              <div className="w-[97%] h-[20%] flex justify-end items-center">
              <div className='rounded-full drop-shadow-2xl bg-white justify-center flex items-center w-[80px] h-[80px]'><FaDownload className="text-2xl text-quaternary"/></div>
              </div>
-          
+            </div>
           </div>
         </div>
       </div>

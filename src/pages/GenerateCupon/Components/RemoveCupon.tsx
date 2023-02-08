@@ -79,8 +79,8 @@ return (
     <div className="w-[55%] rounded-3xl text-white flex flex-col justify-center items-center text-2xl items-start z-20  h-[55%] bg-black">
       <p className="flex font-light flex-row p-4 ml-4 ">Do You Want To Delete OLA Bus Offer ?</p>
       <div className="flex font-bold text-2xl flex-col p-4 ml-4">
-        <p className="mt-4  hover:scale-90">Yes</p>
-        <p className="mt-8  hover:scale-90">No</p></div>
+        <p className="mt-4">Yes</p>
+        <p className="mt-8">No</p></div>
      
     </div>
   </div>
@@ -116,7 +116,7 @@ return (
                     setState(a.name)
                   }
                   }
-                  className={`w-[50%] h-[70%] ml-2 flex justify-center  hover:scale-90 border-white border-2 drop-shadow-2xl font-extralight items-center rounded-3xl
+                  className={`w-[50%] h-[70%] ml-2 flex justify-center  border-white border-2 drop-shadow-2xl font-extralight items-center rounded-3xl
                   ${a.name ===state? "bg-green text-white" : "bg-white text-black"}`}>{a.name}</button>
                     ))
                   }
@@ -124,9 +124,9 @@ return (
                 </div> 
                   
             </div>
-            <div className="w-full h-[60%] overflow-y-auto  flex flex-col">
+            <div className="w-full h-full flex flex-col">
             {members.map(({name}) => (
-                <div className="w-full h-[60%] mb-10 flex flex-row">
+                <div className="w-full h-[20%]  flex flex-row">
                 <div className=" w-full  h-[90%] flex flex-start text-xl font-extralight text-white">
                 <div className='rounded-full ml-14 mt-4 drop-shadow-xl bg-white justify-center flex items-center w-[70px] h-[70px]'>
                       <FaBus className="text-4xl  text-quaternary"/>
@@ -140,13 +140,13 @@ return (
                 </div>
                 <div className="flex flex-end w-[15%] items-center h-full text-white">
             <div className=" flex flex-row font-bold  text-3xl">
-              <p className="ml-4  hover:scale-90"> <FaEye onClick={ handleShowOptions}/></p>
-              <p className="ml-4  hover:scale-90">
+              <p className="ml-4"> <FaEye onClick={ handleShowOptions}/></p>
+              <p className="ml-4">
                 <Link to="/add-cupon">
                 <MdModeEdit/>
                 </Link>
                 </p>
-              <p className=" hover:scale-90"> < MdDeleteForever onClick={ handleShowOptions1}/> </p>
+              <p className=""> < MdDeleteForever onClick={ handleShowOptions1}/> </p>
             </div>
          </div>
           </div>

@@ -53,7 +53,7 @@ export const CustomerSupport = () => {
                     <SearchLogin placeholder='Search By Name/Ticket Id'/>
                     </div>
                 <div className='w-full flex flex-row h-[15%] '>
-                    <div className='w-[20%] h-full flex  justify-end items-center flex-row'>
+                    <div className='w-[20%] h-full flex justify-end items-center flex-row'>
                         <p className='font-semibold text-quaternary text-lg'>Filter By</p><FiFilter className="ml-2 text-quaternary text-2xl"/>
                     </div>
                     <div className=' w-[75%] h-full grid grid-cols-4  flex flex-col justify-start'>
@@ -65,7 +65,7 @@ export const CustomerSupport = () => {
                         setState(a.name)
                     }
                     }
-                    className={`w-[90%] h-[80%] border-green font-semibold  hover:scale-90  m-2 flex items-center justify-center rounded-full border
+                    className={`w-[90%] h-[80%] border-green font-semibold  m-2 flex items-center justify-center rounded-full border
                         ${a.name===state? "bg-green text-black" : "bg-white text-green"}`}><p>{a.name}</p></button>
                             ))
                         }                 
@@ -81,7 +81,7 @@ export const CustomerSupport = () => {
                             
                              <div className='rounded-full drop-shadow-xl bg-white justify-center flex items-center w-[70px] h-[70px]'>
                              <Link to="/piolts-and-co-piolts">
-                             <ImUsers className="text-2xl  hover:scale-90 text-quaternary"/>
+                             <ImUsers className="text-2xl text-quaternary"/>
                              </Link>
                              </div>
                          </div>
@@ -115,7 +115,7 @@ export const CustomerSupport = () => {
                                 
                             <div className='rounded-full drop-shadow-xl bg-white  flex flex-col items-center w-[70px] h-[70px]'>
                                 <MdCircle className='text-green ml-10 text-3xl'/>
-                                <ImUsers className="text-2xl  text-quaternary"/>
+                                <ImUsers className="text-2xl text-quaternary"/>
                                
 
                                 </div>

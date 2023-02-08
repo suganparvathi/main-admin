@@ -86,8 +86,8 @@ return (
       <p className="text-2xl font-light mt-10"> If You Select Yes You Can't Able to Restore the Data cl</p>
       </div>
       <div className="w-full flex flex-row justify-evenly items-center text-4xl font-bold mt-20 text-white h-[20%]">
-        <p className=" hover:scale-90"><Link to="/deleted-successfully">Yes</Link></p>
-        <p className=" hover:scale-90">No</p>
+        <p className=""><Link to="/deleted-successfully">Yes</Link></p>
+        <p className="">No</p>
       </div></div></div>
      </>)}
 
@@ -105,9 +105,9 @@ return (
 
           <div className="w-full h-[20%] flex justify-center font-light text-7xl text-white mt-8">View Time Schedule</div>
            
-            <div className="w-full h-[60%] overflow-y-auto  flex flex-col">
+            <div className="w-full h-full flex flex-col">
             {members?.map((m:any) => (
-                <div className="w-full h-[60%] mb-20  flex flex-row">
+                <div className="w-full h-[27%]  flex flex-row">
                 <div className=" w-full  h-full flex flex-start text-xl font-extralight text-white">
                 <div className='rounded-full ml-14 mt-4 drop-shadow-xl bg-white justify-center flex items-center w-[110px] h-[110px]'>
                     <p className="bg-auto bg-los bg-no-repeat bg-center bg-cover rounded-lg w-12 h-10"></p>
@@ -122,9 +122,9 @@ return (
                 </div>
                 <div className="flex flex-end w-[15%] items-center h-full text-white">
             <div className=" flex flex-row font-bold  text-3xl">
-              <p className="ml-4  hover:scale-90"> <FaEye onClick={ handleShowOptions}/></p>
+              <p className="ml-4"> <FaEye onClick={ handleShowOptions}/></p>
              
-              <p className="ml-16  hover:scale-90"> < MdDeleteForever onClick={ handleShowOptions1}/> </p>
+              <p className="ml-16"> < MdDeleteForever onClick={ handleShowOptions1}/> </p>
             </div>
          </div>
           </div>

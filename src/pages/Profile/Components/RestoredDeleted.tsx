@@ -18,7 +18,7 @@ return (
         <div className="w-full h-full flex justify-center ">
         <div className="mt-4 w-[90%] h-full flex justify-center items-center bg-quaternary rounded-xl">
       
-            <Link to="/empty-bin" className="w-[60%] h-[60%] bg-white  hover:scale-90 text-[40px] font-light flex flex-col justify-center items-center rounded-2xl">
+            <Link to="/empty-bin" className="w-[60%] h-[60%] bg-white text-[40px] font-light flex flex-col justify-center items-center rounded-2xl">
                 <p className="font-bold">Restored Successfully </p>
               
 

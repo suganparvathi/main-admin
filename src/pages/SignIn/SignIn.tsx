@@ -45,6 +45,7 @@ const SignIn = () => {
   const handleSubmit = async (values: SignInProps) => {
     setIsLoading(true);
     console.log(values);
+    dispatch(LOGIN_SUCCESS(values));
     try {
       const Response = await axios.post(constants.auth.login, values)
       .then( resp => {
@@ -52,7 +53,6 @@ const SignIn = () => {
         localStorage.setItem("token",token);
         console.log(token, "TOKENNNN");
         if(token){
-          dispatch(LOGIN_SUCCESS(values));
         }
       })
       setIsLoading(false)
@@ -65,7 +65,7 @@ const SignIn = () => {
   };
   const[viewCPassword,setViewCPassword]=useState(false);
   return (
-    <div className="bg-white w-screen h-screen bg-white flex items-center justify-center">
+    <div className="bg-white w-screen h-screen flex items-center justify-center">
       <div className="w-[55%] h-[420px] shadow rounded-xl  overflow-hidden">
        
         <div className="w-full h-full flex items-center justify-center flex-col p-5 bg-quaternary bg-opacity-60">

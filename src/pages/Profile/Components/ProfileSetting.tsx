@@ -130,7 +130,7 @@ return (
             <button
             onClick={colorButton}
             
-            className={` w-[25%] h-[40%] drop-shadow-2xl font-bold flex justify-center text-bold text-xl 
+            className={` w-[25%] h-[40%] drop-shadow-2xl  hover:scale-90 font-bold flex justify-center text-bold text-xl 
              border-2 border-white items-center rounded-full ${color? "bg-green text-white" : "bg-white text-black"}  `}>
               <p onClick={ handleShowOptions}>Save</p></button>
             </div>

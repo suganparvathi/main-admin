@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 
 
+<<<<<<< HEAD
 export const KycRequest = () => {
 
 
@@ -60,6 +61,21 @@ return (
                      <div className="w-[70px] ml-4"> 
                      <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[70px] h-[60px]"/>
                      </div>
+=======
+const members = [
+    { name : "Harsha"},
+    { name : "Muthu"},
+    
+    
+   ]  
+export const KycRequest = () => {
+   return ( 
+   <div className="w-full h-[95%] flex  flex-col overflow-y-auto ">
+             {members.map(({name}) => (
+            <div className="w-full h-[95%] mb-8 flex flex-row">
+                  <div className=" w-full h-full flex flex-start text-xl font-bold text-white">
+                     <div className="w-[70px] ml-4"> <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[70px] h-[70px]"/></div>
+>>>>>>> b730254ca741a0e986ea8b09e24f3a2f3d29537b
                      <div className="ml-8">
                         <p>{data?.companyName}</p>
                         <p>KYC Applied Date: {data?.createdAr}</p>
@@ -68,10 +84,28 @@ return (
                   </div>
                   {data?.Verified === "no" ? 
                      <div className="flex flex-end w-[18%] items-center h-full text-white">
+<<<<<<< HEAD
                         <p className="border-b-2 border-white font-bold text-xl cursor-pointer" key={data?.jojoId} onClick={() => storeData(data)}>Request Pending</p>
                      </div>
                :
             <div className="flex flex-end w-[10%] items-center h-full text-white">
+=======
+                        <Link to="/pending-request">
+                        <p className="border-b-2 border-white  hover:scale-90 font-bold text-xl">Request Pending</p>
+                        </Link>
+                     </div>
+            </div>
+            ))}
+      <div className="w-full h-[20%] mb-8 flex flex-row">
+         <div className=" w-full h-full flex flex-start text-xl font-bold text-white">
+              <div className="w-[70px] ml-4"> <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[70px] h-[70px]"/></div>
+              <div className="ml-8">
+                   <p>knjnj</p>
+                   <p>KYC Applied Date : 05:08:2021</p>
+               </div>
+         </div>
+         <div className="flex flex-end w-[10%] items-center h-full text-white">
+>>>>>>> b730254ca741a0e986ea8b09e24f3a2f3d29537b
               <div className=" flex flex-row font-bold  text-2xl">
                 <p className="ml-2"> <FaEye/> </p>
                 <p className="ml-2" onClick={() => deleteData(data)}><MdDeleteForever /> </p>
@@ -79,9 +113,13 @@ return (
            </div>
             }
       </div>
+<<<<<<< HEAD
       </>
             ))}
 
    </div>
+=======
+      </div>
+>>>>>>> b730254ca741a0e986ea8b09e24f3a2f3d29537b
         )
       }  

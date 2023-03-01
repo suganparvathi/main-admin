@@ -110,10 +110,10 @@ return (
      <div className="flex flex-row  h-[10%]">
         <p className="text-2xl mt-20 font-bold">
         <Link to="/restored-success">
-            <button>Yes</button>
+            <button className=" hover:scale-90">Yes</button>
             </Link>
             </p>
-        <p className="text-2xl ml-20 mt-20 font-bold"><button>No</button></p>
+        <p className="text-2xl ml-20 mt-20  hover:scale-90 font-bold"><button>No</button></p>
 
      </div>
     </div>
@@ -143,10 +143,10 @@ return (
      <div className="flex flex-row  h-[10%]">
         <p className="text-2xl mt-10 font-bold">
         <Link to="/restored-deleted">
-            <button>Yes</button>
+            <button className=" hover:scale-90">Yes</button>
             </Link>
             </p>
-        <p className="text-2xl ml-20 mt-10 font-bold"><button>No</button></p>
+        <p className="text-2xl  hover:scale-90 ml-20 mt-10 font-bold"><button>No</button></p>
 
      </div>
     </div>
@@ -184,7 +184,7 @@ return (
                    console.log(data.name, "verify")
                    setState(data.name)
                    }}
-                   className={`w-[14%] h-[50%] ml-2 flex justify-center  items-center rounded-3xl
+                   className={`w-[14%] h-[50%] ml-2 flex justify-center hover:scale-90 items-center rounded-3xl
                   ${data.name === state ? "bg-green text-white" : "bg-white"}`}>{data.name}
                   </button>
                   
@@ -193,9 +193,9 @@ return (
                 </div> 
                   
             </div>
-            <div className="w-full h-full flex  flex-col ">
+            <div className="w-full h-[50%] flex overflow-y-auto flex-col ">
              {members.map((a) => (
-            <div className="w-full h-[17%] flex flex-row">
+            <div className="w-full h-[50%] mb-8 flex flex-row">
                   <div className=" w-full h-full flex flex-start text-xl font-bold text-white">
                      <div className="w-[70px] ml-4 mt-4"> <img src="https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg" className="rounded-full w-[70px] h-[70px]"/></div>
                      <div className="ml-4 text-2xl mt-8">
@@ -205,9 +205,9 @@ return (
                   </div>
                      <div className="flex flex-end w-[18%] items-center h-full text-white">
                      <div className=" flex flex-row mt-4 text-2xl font-bold">
-                     <p className="ml-2"onClick={ handleShowOptions1}><TbArrowsRandom/></p>
-                        <p className="ml-4"onClick={ handleShowOptions}> <FaEye /> </p>      
-                        <p className="ml-4"onClick={ handleShowOptions2}> < MdDeleteForever /> </p>
+                     <p className="ml-2 hover:scale-90"onClick={ handleShowOptions1}><TbArrowsRandom/></p>
+                        <p className="ml-4 hover:scale-90"onClick={ handleShowOptions}> <FaEye /> </p>      
+                        <p className="ml-4 hover:scale-90"onClick={ handleShowOptions2}> < MdDeleteForever /> </p>
                        
                      </div>
                     </div>

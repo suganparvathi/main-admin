@@ -101,7 +101,7 @@ return (
                 placeholder='Enter Ad Display Time' 
                 className="ml-3 w-[100%] rounded-sm  p-[7px] text-2xl leading-tight  bg-transparent  focus:outline-none text-black border-none" /> {" "}
               </div>
-              <button className="w-[27%] mt-12 drop-shadow-2xl rounded-3xl h-[15%] font-bold text-3xl bg-green text-white">Create Ad</button>
+              <button className="w-[27%] mt-12 drop-shadow-2xl rounded-3xl hover:scale-90 h-[15%] font-bold text-3xl bg-green text-white">Create Ad</button>
 
               </div>
             </div>

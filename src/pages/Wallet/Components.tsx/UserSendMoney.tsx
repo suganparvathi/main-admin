@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
-
 import BackButton from "../../../components/BackButton";
 import Searchbar from "../../../components/Searchbar";
 import Entervalue from "../../../components/Entervalue";
@@ -81,7 +80,7 @@ const[color, setcolor] =useState(false);
              </div>
            </div>
            <div className="w-full h-[10%]  flex justify-center">
-            <button className="w-[20%] h-[80%] rounded-full bg-white text-black font-bold text-2xl"onClick={ handleShowOptions}>Payment Method</button>
+            <button className="w-[20%] h-[80%] rounded-full hover:scale-90 bg-white text-black font-bold text-2xl"onClick={ handleShowOptions}>Payment Method</button>
            </div>
            <div className="w-full h-[13%] items-center flex flex-row justify-center">
            <div className="flex  justify-center border-2 ml-[90px] w-[11%] text-black border-white h-[50px]  rounded-full ">
@@ -97,7 +96,7 @@ const[color, setcolor] =useState(false);
                <div className="w-full h-[20%] flex justify-center">
                 <button 
                 onClick={colorButton}
-                className={`w-[8%] h-[40%] border-2 text-black border-white text-xl rounded-full
+                className={`w-[8%] h-[40%] border-2 text-black hover:scale-90 border-white text-xl rounded-full
                 ${ color? "bg-green" : "bg-white"}`}>Send</button>
                </div>
         

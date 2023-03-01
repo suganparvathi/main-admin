@@ -118,9 +118,9 @@ return (
             <div className="w-full h-[25%] mt-2 flex  justify-center text-white text-3xl font-bold items-center">OLA Bus Company</div>
             </div>
           <div className="w-full h-[10%]  text-white text-xl"><Searchbar placeholder= "Search By Bus Company  Name/Bus ID"/> </div>
-          <div className="w-full h-[85%] flex flex-col">
+          <div className="w-full h-[55%]  overflow-y-auto  flex flex-col">
             {members?.map((e:any) => (
-                <div className="w-full h-[20%]  flex flex-row">
+                <div className="w-full h-[60%] mb-8  flex flex-row">
                 <div className=" w-full  h-[40%]  flex flex-start text-xl font-extralight text-white">
                   
                 <div 
@@ -129,7 +129,7 @@ return (
                   console.log(e.name,"currenttrips")
                 setState(e.name)
                 }}
-                className='rounded-full ml-14 cursor-pointer drop-shadow-2xl bg-white justify-center flex items-center w-[70px] h-[70px]'>
+                className='rounded-full ml-14 cursor-pointer hover:scale-90 drop-shadow-2xl bg-white justify-center flex items-center w-[70px] h-[70px]'>
                       <FaBus className="text-2xl   text-quaternary"
                        onClick={ handleShowOptions}
                       />
